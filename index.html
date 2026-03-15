@@ -679,9 +679,70 @@ footer.madre-footer{
   .holzen-products,.arte-grid{grid-template-columns:1fr;}
   .universo-grid{grid-template-columns:1fr;}
 }
+
+/* ═══ ACCESS GATE ═══ */
+#access-gate{
+  position:fixed;inset:0;z-index:99999;
+  background:var(--wine-deep,#4A1825);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lato',sans-serif;
+}
+#access-gate::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.04;pointer-events:none;
+}
+.gate-box{
+  background:rgba(10,9,6,0.6);border:1px solid rgba(201,168,76,0.25);
+  padding:48px 40px;width:380px;max-width:92vw;text-align:center;
+  position:relative;backdrop-filter:blur(8px);
+}
+.gate-logo{
+  font-family:'Playfair Display',Georgia,serif;font-size:28px;
+  color:#F5EDE4;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;
+}
+.gate-logo em{font-style:italic;color:#C4828E;}
+.gate-tagline{font-size:11px;color:rgba(245,237,228,0.45);letter-spacing:0.2em;margin-bottom:36px;}
+.gate-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;display:block;text-align:left;}
+.gate-input{
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.25);
+  color:#F5EDE4;padding:13px 16px;font-family:'Lato',sans-serif;font-size:14px;
+  letter-spacing:0.1em;outline:none;transition:border-color 0.3s;text-align:center;
+}
+.gate-input:focus{border-color:rgba(201,168,76,0.6);}
+.gate-btn{
+  width:100%;margin-top:16px;background:#C9A84C;color:#0A0906;border:none;
+  padding:14px;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;
+  cursor:pointer;font-family:'Lato',sans-serif;font-weight:700;transition:all 0.3s;
+}
+.gate-btn:hover{background:#E8C96A;}
+.gate-error{
+  margin-top:14px;font-size:11px;color:#E05252;letter-spacing:0.1em;
+  opacity:0;transition:opacity 0.3s;min-height:18px;
+}
+.gate-error.show{opacity:1;}
+.gate-divider{width:40px;height:1px;background:rgba(201,168,76,0.2);margin:28px auto;}
+.gate-hint{font-size:10px;color:rgba(245,237,228,0.25);letter-spacing:0.1em;}
 </style>
 </head>
 <body>
+
+<!-- ═══ ACCESS GATE ═══ -->
+<div id="access-gate">
+  <div class="gate-box">
+    <div class="gate-logo">Aurum <em>Origins</em></div>
+    <div class="gate-tagline">Plataforma privada · Acceso restringido</div>
+    <div class="gate-divider"></div>
+    <label class="gate-label">Contraseña de acceso</label>
+    <input class="gate-input" type="password" id="gate-input"
+      placeholder="••••••••••"
+      onkeydown="if(event.key==='Enter')checkGate()">
+    <button class="gate-btn" onclick="checkGate()">Entrar →</button>
+    <div class="gate-error" id="gate-error">Contraseña incorrecta. Intenta de nuevo.</div>
+    <div class="gate-divider"></div>
+    <div class="gate-hint">© Aurum Origins · Uso interno</div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════
      LOGIN MODAL (compartido)
@@ -2680,6 +2741,41 @@ if(isIOS && !isStandalone){
     }
   }, 3000);
 }
+</script>
+
+<script>
+// ═══ ACCESS GATE ═══
+// 🔑 CAMBIA ESTA CONTRASEÑA POR LA QUE QUIERAS:
+var GATE_PASSWORD = 'aurum2025';
+
+function checkGate(){
+  var input = document.getElementById('gate-input').value;
+  var error = document.getElementById('gate-error');
+  if(input === GATE_PASSWORD){
+    var gate = document.getElementById('access-gate');
+    gate.style.opacity = '0';
+    gate.style.transition = 'opacity 0.6s ease';
+    setTimeout(function(){ gate.style.display = 'none'; }, 600);
+    sessionStorage.setItem('aurum-access','1');
+  } else {
+    error.classList.add('show');
+    document.getElementById('gate-input').value = '';
+    document.getElementById('gate-input').focus();
+    setTimeout(function(){ error.classList.remove('show'); }, 3000);
+  }
+}
+
+// Si ya ingresó en esta sesión, no mostrar el gate
+if(sessionStorage.getItem('aurum-access') === '1'){
+  var g = document.getElementById('access-gate');
+  if(g) g.style.display = 'none';
+}
+
+// Focus automático en el input
+window.addEventListener('load', function(){
+  var gi = document.getElementById('gate-input');
+  if(gi && document.getElementById('access-gate').style.display !== 'none') gi.focus();
+});
 </script>
 
 </body>
