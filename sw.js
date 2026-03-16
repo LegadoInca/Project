@@ -3,8 +3,8 @@
 
 const CACHE_NAME = 'aurum-origins-v1';
 const URLS_TO_CACHE = [
-  '/aurum-origins/',
-  '/aurum-origins/index.html'
+  '/',
+  '/index.html'
 ];
 
 // Instalar SW y cachear recursos base
@@ -56,7 +56,7 @@ self.addEventListener('fetch', function(event) {
         return caches.match(event.request).then(function(cached) {
           if(cached) return cached;
           // Fallback para navegación offline
-          return caches.match('/aurum-origins/index.html');
+          return caches.match('/index.html');
         });
       })
   );
