@@ -666,18 +666,51 @@ footer.madre-footer{
   .universo-grid{grid-template-columns:1fr;}
   .holzen-sec,.arte-sec{padding:60px 24px;}
   .holzen-products,.arte-grid{grid-template-columns:1fr 1fr;}
-  .portal-layout{grid-template-columns:1fr;}
-  .portal-sidebar{height:auto;position:relative;}
-  .portal-main{padding:20px;}
   .kpi-row{grid-template-columns:1fr 1fr;}
   .f-grid-2,.f-grid-3{grid-template-columns:1fr;}
+
+  /* ── MOBILE SIDEBAR ── */
+  .portal-layout{grid-template-columns:1fr;position:relative;}
+  .portal-sidebar{
+    position:fixed;top:0;left:-260px;width:260px;height:100vh;
+    z-index:800;transition:left 0.3s ease;box-shadow:4px 0 24px rgba(0,0,0,0.5);
+    overflow-y:auto;
+  }
+  .portal-sidebar.open{left:0;}
+  .portal-main{padding:16px;padding-top:64px;}
+
+  /* Hamburger button */
+  .mob-menu-btn{
+    display:flex;position:fixed;top:12px;left:12px;z-index:900;
+    width:42px;height:42px;background:var(--dark);border:1px solid var(--border-d);
+    align-items:center;justify-content:center;cursor:pointer;
+    font-size:18px;color:var(--gold);transition:all 0.3s;
+  }
+  .mob-menu-btn:hover{background:var(--mid-dark);}
+
+  /* Overlay behind sidebar */
+  .sidebar-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);
+    z-index:700;backdrop-filter:blur(2px);
+  }
+  .sidebar-overlay.show{display:block;}
+
+  /* Portal header adjust */
+  .portal-header{padding-top:8px;}
 }
+
 @media(max-width:640px){
   .hero-title{font-size:48px;}
   .holzen-title{font-size:60px;}
   .kpi-row{grid-template-columns:1fr;}
   .holzen-products,.arte-grid{grid-template-columns:1fr;}
   .universo-grid{grid-template-columns:1fr;}
+}
+
+/* Hide hamburger on desktop */
+@media(min-width:1025px){
+  .mob-menu-btn{display:none;}
+  .sidebar-overlay{display:none!important;}
 }
 
 /* ═══ ACCESS GATE ═══ */
@@ -1122,8 +1155,13 @@ footer.madre-footer{
      ADMIN PORTAL
 ══════════════════════════════════════════════ -->
 <div id="view-admin" class="page-view">
+  <!-- Mobile sidebar overlay -->
+  <div class="sidebar-overlay" id="overlay-admin" onclick="closeSidebar('admin')"></div>
+  <!-- Hamburger button -->
+  <button class="mob-menu-btn" id="hamburguer-admin" onclick="toggleSidebar('admin')" aria-label="Menú">☰</button>
+
   <div class="portal-layout">
-    <aside class="portal-sidebar">
+    <aside class="portal-sidebar" id="sidebar-admin">
       <div class="portal-logo-wrap">
         <div class="portal-logo">Aurum <em>Origins</em></div>
         <div class="portal-role role-admin">🛡 Administrador</div>
@@ -1535,8 +1573,11 @@ footer.madre-footer{
      PROVEEDOR PORTAL
 ══════════════════════════════════════════════ -->
 <div id="view-supplier" class="page-view">
+  <div class="sidebar-overlay" id="overlay-supplier" onclick="closeSidebar('supplier')"></div>
+  <button class="mob-menu-btn" id="hamburguer-supplier" onclick="toggleSidebar('supplier')" aria-label="Menú">☰</button>
+
   <div class="portal-layout">
-    <aside class="portal-sidebar">
+    <aside class="portal-sidebar" id="sidebar-supplier">
       <div class="portal-logo-wrap">
         <div class="portal-logo">Aurum <em>Origins</em></div>
         <div class="portal-role role-prov">🌿 Proveedor</div>
@@ -1730,8 +1771,10 @@ footer.madre-footer{
      REPÚBLICA CHECA PORTAL
 ══════════════════════════════════════════════ -->
 <div id="view-czech" class="page-view">
+  <div class="sidebar-overlay" id="overlay-czech" onclick="closeSidebar('czech')"></div>
+  <button class="mob-menu-btn" id="hamburguer-czech" onclick="toggleSidebar('czech')" aria-label="Menu">&#9776;</button>
   <div class="portal-layout">
-    <aside class="portal-sidebar">
+    <aside class="portal-sidebar" id="sidebar-czech">
       <div class="portal-logo-wrap">
         <div class="portal-logo">Aurum <em>Origins</em></div>
         <div class="portal-role role-cz">🇨🇿 Praga</div>
@@ -2210,6 +2253,39 @@ const PROVEEDORES = {
     pagos:[{lote:'#UC-2025-01',tipo:'100%',monto:'S/2,000',banco:'BBVA',estado:'Pagado',fecha:'05 Jun 2025',voucher:'✅'}]
   }
 };
+// ════════════════════════════════════════
+//  MOBILE SIDEBAR TOGGLE
+// ════════════════════════════════════════
+function toggleSidebar(portal){
+  var sid=document.getElementById('sidebar-'+portal);
+  var ov=document.getElementById('overlay-'+portal);
+  var btn=document.getElementById('hamburguer-'+portal);
+  if(!sid)return;
+  var open=sid.classList.contains('open');
+  if(open){
+    sid.classList.remove('open');
+    if(ov)ov.classList.remove('show');
+    if(btn)btn.innerHTML='&#9776;';
+  }else{
+    sid.classList.add('open');
+    if(ov)ov.classList.add('show');
+    if(btn)btn.innerHTML='&#10005;';
+  }
+}
+function closeSidebar(portal){
+  var sid=document.getElementById('sidebar-'+portal);
+  var ov=document.getElementById('overlay-'+portal);
+  var btn=document.getElementById('hamburguer-'+portal);
+  if(sid)sid.classList.remove('open');
+  if(ov)ov.classList.remove('show');
+  if(btn)btn.innerHTML='&#9776;';
+}
+document.addEventListener('click',function(e){
+  if(e.target.closest('.sidebar-nav a')&&window.innerWidth<=1024){
+    ['admin','supplier','czech'].forEach(function(p){closeSidebar(p);});
+  }
+});
+
 const CREDENTIALS = {
   'admin':   { pass:'admin123',  view:'admin'    },
   'czech':   { pass:'czech123',  view:'czech'    },
@@ -2746,7 +2822,7 @@ if(isIOS && !isStandalone){
 <script>
 // ═══ ACCESS GATE ═══
 // 🔑 CAMBIA ESTA CONTRASEÑA POR LA QUE QUIERAS:
-var GATE_PASSWORD = 'aurum#2@2K';
+var GATE_PASSWORD = 'aurum2025';
 
 function checkGate(){
   var input = document.getElementById('gate-input').value;
