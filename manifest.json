@@ -1,44 +1,24 @@
 {
-  "name": "Aurum Origins",
-  "short_name": "Aurum",
-  "description": "Café de especialidad, cacao premium y artesanías andinas del Perú.",
+  "name": "Legado Inca",
+  "short_name": "Legado Inca",
+  "description": "Café, cacao y artesanías del Perú con historia",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
+  "background_color": "#1A0A00",
+  "theme_color": "#1A0A00",
   "orientation": "portrait-primary",
-  "background_color": "#4A1825",
-  "theme_color": "#4A1825",
-  "lang": "es",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%234A1825'/%3E%3Ctext x='96' y='130' font-size='100' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif'%3EA%3C/text%3E%3C/svg%3E",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzFBMEEwMCIvPgogIDx0ZXh0IHg9IjI4IiB5PSIxNjgiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjE2MCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjQzlBODRDIj5MPC90ZXh0PgogIDxsaW5lIHgxPSIxNCIgeTE9IjE4MCIgeDI9IjE3OCIgeTI9IjE4MCIgc3Ryb2tlPSIjQzlBODRDIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='60' fill='%234A1825'/%3E%3Ctext x='256' y='340' font-size='260' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif'%3EA%3C/text%3E%3C/svg%3E",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzFBMEEwMCIvPgogIDx0ZXh0IHg9IjgwIiB5PSI0NDAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjQyMCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjQzlBODRDIiBvcGFjaXR5PSIwLjk1Ij5MPC90ZXh0PgogIDxsaW5lIHgxPSI0MCIgeTE9IjQ3OCIgeDI9IjQ3MiIgeTI9IjQ3OCIgc3Ryb2tlPSIjQzlBODRDIiBzdHJva2Utd2lkdGg9IjYiIG9wYWNpdHk9IjAuNSIvPgogIDx0ZXh0IHg9IjI1NiIgeT0iNTA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzOCIgbGV0dGVyLXNwYWNpbmc9IjEyIiBmaWxsPSIjQzlBODRDIiBvcGFjaXR5PSIwLjgiPkxFR0FETzwvdGV4dD4KPC9zdmc+",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
-    }
-  ],
-  "categories": [
-    "business",
-    "productivity"
-  ],
-  "shortcuts": [
-    {
-      "name": "Panel Admin",
-      "short_name": "Admin",
-      "description": "Acceder al panel de administrador",
-      "url": "/"
-    },
-    {
-      "name": "Portal Proveedor",
-      "short_name": "Proveedor",
-      "description": "Acceder al portal de proveedores",
-      "url": "/"
     }
   ]
 }
