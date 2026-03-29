@@ -1,6 +1,10 @@
-// Legado Inca Service Worker v2
-var CACHE = "legado-inca-v2";
-var FILES = ["/", "/index.html", "/manifest.json"];
+// Legado Inca Service Worker v3 — GitHub Pages
+var CACHE = "legado-inca-v3";
+var FILES = [
+  "/aurum-origins/",
+  "/aurum-origins/index.html",
+  "/aurum-origins/manifest.json"
+];
 
 self.addEventListener("install", function(e) {
   e.waitUntil(
@@ -24,7 +28,9 @@ self.addEventListener("activate", function(e) {
 self.addEventListener("fetch", function(e) {
   e.respondWith(
     caches.match(e.request).then(function(cached) {
-      return cached || fetch(e.request).catch(function() { return caches.match("/"); });
+      return cached || fetch(e.request).catch(function() {
+        return caches.match("/aurum-origins/");
+      });
     })
   );
 });
