@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#1A0A00">
 <meta name="description" content="Café, cacao y artesanías del Perú con historia. El 10% de cada venta apoya la ONG Semilla Nueva.">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%231A0A00'/%3E%3Ctext x='256' y='340' font-size='260' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzFBMEEwMCIvPgogIDx0ZXh0IHg9IjgwIiB5PSI0NDAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjQyMCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjQzlBODRDIiBvcGFjaXR5PSIwLjk1Ij5MPC90ZXh0PgogIDxsaW5lIHgxPSI0MCIgeTE9IjQ3OCIgeDI9IjQ3MiIgeTI9IjQ3OCIgc3Ryb2tlPSIjQzlBODRDIiBzdHJva2Utd2lkdGg9IjYiIG9wYWNpdHk9IjAuNSIvPgogIDx0ZXh0IHg9IjI1NiIgeT0iNTA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzOCIgbGV0dGVyLXNwYWNpbmc9IjEyIiBmaWxsPSIjQzlBODRDIiBvcGFjaXR5PSIwLjgiPkxFR0FETzwvdGV4dD4KPC9zdmc+">
 
 <style>
 /* ═══════════════════════════════════════
@@ -676,7 +676,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
     <div class="universo-grid">
 
       <!-- HOLZEN — CAFÉ ☕ -->
-      <div class="marca-card" onclick="window.open('https://holzencacao.netlify.app','_blank')">
+      <div class="marca-card" onclick="window.open('https://holzen.netlify.app','_blank')">
         <img class="marca-img" src="https://res.cloudinary.com/djfmngyl0/image/upload/v1773435261/e45b66891fa2f4f8ce8526485a6c3da9_llpiux.jpg" alt="HOLZEN Café">
         <div class="marca-overlay">
           <div class="marca-eyebrow" data-key="marca1_eye">Café de Especialidad</div>
@@ -755,7 +755,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
       <div class="footer-col">
         <h5>Nuestras Marcas</h5>
         <ul>
-          <li><a onclick="window.open('https://holzencacao.netlify.app','_blank')">HOLZEN — Café</a></li>
+          <li><a onclick="window.open('https://holzen.netlify.app','_blank')">HOLZEN — Café</a></li>
           <li><a onclick="alert('Próximamente')">COYA — Cacao</a></li>
           <li><a onclick="alert('Próximamente')">Artesanías Andinas</a></li>
         </ul>
@@ -1951,6 +1951,97 @@ if(isIOS&&!window.navigator.standalone){
 // Cookie banner
 if(!localStorage.getItem('cookies')){setTimeout(()=>{document.getElementById('cookie-bar').style.display='flex';},2500);}
 </script>
+
+<!-- iOS ICON UPDATE BANNER -->
+<div id="ios-update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1A0A00;border-top:1px solid rgba(201,168,76,0.4);padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap;backdrop-filter:blur(8px);">
+  <div style="font-size:22px;flex-shrink:0;">📱</div>
+  <div style="flex:1;min-width:180px;">
+    <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:#F5EDD8;margin-bottom:3px;">Nuevo ícono disponible</div>
+    <div style="font-size:11px;color:rgba(245,237,216,0.55);line-height:1.5;">Para ver la <strong style="color:#C9A84C;">L dorada</strong> en tu pantalla de inicio: elimina la app y vuelve a instalarla desde Safari.</div>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button onclick="showIOSSteps()" style="background:#C9A84C;color:#1A0A00;border:none;padding:9px 16px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;white-space:nowrap;">Ver pasos</button>
+    <button onclick="dismissIOSBanner()" style="background:transparent;color:rgba(245,237,216,0.4);border:1px solid rgba(245,237,216,0.15);padding:9px 12px;font-size:12px;cursor:pointer;">✕</button>
+  </div>
+</div>
+
+<!-- iOS STEPS MODAL -->
+<div id="ios-steps-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,8,0,0.92);align-items:flex-end;justify-content:center;backdrop-filter:blur(6px);">
+  <div style="background:#1A0A00;border:1px solid rgba(201,168,76,0.3);border-radius:16px 16px 0 0;padding:32px 28px 40px;width:100%;max-width:480px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#F5EDD8;margin-bottom:6px;">Actualiza el ícono</div>
+      <div style="font-size:12px;color:rgba(245,237,216,0.45);letter-spacing:0.1em;">Solo toma 30 segundos</div>
+    </div>
+    <div style="display:grid;gap:14px;margin-bottom:28px;">
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">1</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Mantén presionado el ícono</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">En tu pantalla de inicio, mantén presionado el ícono de Legado Inca hasta que aparezca el menú.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">2</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Toca "Eliminar marcador"</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Selecciona eliminar del inicio (no borra nada, solo el acceso directo).</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">3</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Abre Safari y vuelve a instalar</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Ve a proyectaurumsorigins.netlify.app → toca ⬆ Compartir → "Agregar a pantalla de inicio".</div>
+        </div>
+      </div>
+    </div>
+    <button onclick="closeIOSSteps()" style="width:100%;background:#C9A84C;color:#1A0A00;border:none;padding:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-weight:700;">Entendido ✓</button>
+  </div>
+</div>
+
+<script>
+// iOS icon update banner — shows only on iPhone/iPad in standalone mode with old icon version
+(function() {
+  var ICON_VERSION = 'v2-L-gold';
+  var STORED = localStorage.getItem('legado-icon-version');
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isStandalone = window.navigator.standalone;
+  var dismissed = sessionStorage.getItem('ios-banner-dismissed');
+
+  // Show banner if: iOS + installed as app + icon version is old + not dismissed
+  if (isIOS && isStandalone && STORED !== ICON_VERSION && !dismissed) {
+    setTimeout(function() {
+      var b = document.getElementById('ios-update-banner');
+      if (b) b.style.display = 'flex';
+    }, 3000);
+  }
+
+  // If NOT standalone iOS (first visit), just save the version
+  if (isIOS && !isStandalone) {
+    localStorage.setItem('legado-icon-version', ICON_VERSION);
+  }
+})();
+
+function dismissIOSBanner() {
+  var b = document.getElementById('ios-update-banner');
+  if (b) b.style.display = 'none';
+  sessionStorage.setItem('ios-banner-dismissed', '1');
+}
+
+function showIOSSteps() {
+  var b = document.getElementById('ios-update-banner');
+  var m = document.getElementById('ios-steps-modal');
+  if (b) b.style.display = 'none';
+  if (m) m.style.display = 'flex';
+}
+
+function closeIOSSteps() {
+  var m = document.getElementById('ios-steps-modal');
+  if (m) m.style.display = 'none';
+  // Mark as updated so banner won't show again
+  localStorage.setItem('legado-icon-version', 'v2-L-gold');
+}
+</script>
 </body>
 </html><script>
 /* =============================================
@@ -2613,6 +2704,97 @@ if (!localStorage.getItem('cookies')) {
     var cb = document.getElementById('cookie-bar');
     if (cb) cb.style.display = 'flex';
   }, 2500);
+}
+</script>
+
+<!-- iOS ICON UPDATE BANNER -->
+<div id="ios-update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1A0A00;border-top:1px solid rgba(201,168,76,0.4);padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap;backdrop-filter:blur(8px);">
+  <div style="font-size:22px;flex-shrink:0;">📱</div>
+  <div style="flex:1;min-width:180px;">
+    <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:#F5EDD8;margin-bottom:3px;">Nuevo ícono disponible</div>
+    <div style="font-size:11px;color:rgba(245,237,216,0.55);line-height:1.5;">Para ver la <strong style="color:#C9A84C;">L dorada</strong> en tu pantalla de inicio: elimina la app y vuelve a instalarla desde Safari.</div>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button onclick="showIOSSteps()" style="background:#C9A84C;color:#1A0A00;border:none;padding:9px 16px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;white-space:nowrap;">Ver pasos</button>
+    <button onclick="dismissIOSBanner()" style="background:transparent;color:rgba(245,237,216,0.4);border:1px solid rgba(245,237,216,0.15);padding:9px 12px;font-size:12px;cursor:pointer;">✕</button>
+  </div>
+</div>
+
+<!-- iOS STEPS MODAL -->
+<div id="ios-steps-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,8,0,0.92);align-items:flex-end;justify-content:center;backdrop-filter:blur(6px);">
+  <div style="background:#1A0A00;border:1px solid rgba(201,168,76,0.3);border-radius:16px 16px 0 0;padding:32px 28px 40px;width:100%;max-width:480px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#F5EDD8;margin-bottom:6px;">Actualiza el ícono</div>
+      <div style="font-size:12px;color:rgba(245,237,216,0.45);letter-spacing:0.1em;">Solo toma 30 segundos</div>
+    </div>
+    <div style="display:grid;gap:14px;margin-bottom:28px;">
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">1</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Mantén presionado el ícono</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">En tu pantalla de inicio, mantén presionado el ícono de Legado Inca hasta que aparezca el menú.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">2</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Toca "Eliminar marcador"</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Selecciona eliminar del inicio (no borra nada, solo el acceso directo).</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
+        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">3</div>
+        <div>
+          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Abre Safari y vuelve a instalar</div>
+          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Ve a proyectaurumsorigins.netlify.app → toca ⬆ Compartir → "Agregar a pantalla de inicio".</div>
+        </div>
+      </div>
+    </div>
+    <button onclick="closeIOSSteps()" style="width:100%;background:#C9A84C;color:#1A0A00;border:none;padding:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-weight:700;">Entendido ✓</button>
+  </div>
+</div>
+
+<script>
+// iOS icon update banner — shows only on iPhone/iPad in standalone mode with old icon version
+(function() {
+  var ICON_VERSION = 'v2-L-gold';
+  var STORED = localStorage.getItem('legado-icon-version');
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isStandalone = window.navigator.standalone;
+  var dismissed = sessionStorage.getItem('ios-banner-dismissed');
+
+  // Show banner if: iOS + installed as app + icon version is old + not dismissed
+  if (isIOS && isStandalone && STORED !== ICON_VERSION && !dismissed) {
+    setTimeout(function() {
+      var b = document.getElementById('ios-update-banner');
+      if (b) b.style.display = 'flex';
+    }, 3000);
+  }
+
+  // If NOT standalone iOS (first visit), just save the version
+  if (isIOS && !isStandalone) {
+    localStorage.setItem('legado-icon-version', ICON_VERSION);
+  }
+})();
+
+function dismissIOSBanner() {
+  var b = document.getElementById('ios-update-banner');
+  if (b) b.style.display = 'none';
+  sessionStorage.setItem('ios-banner-dismissed', '1');
+}
+
+function showIOSSteps() {
+  var b = document.getElementById('ios-update-banner');
+  var m = document.getElementById('ios-steps-modal');
+  if (b) b.style.display = 'none';
+  if (m) m.style.display = 'flex';
+}
+
+function closeIOSSteps() {
+  var m = document.getElementById('ios-steps-modal');
+  if (m) m.style.display = 'none';
+  // Mark as updated so banner won't show again
+  localStorage.setItem('legado-icon-version', 'v2-L-gold');
 }
 </script>
 </body>
