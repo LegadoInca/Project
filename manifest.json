@@ -1,6 +1,6 @@
 {
-  "name": "Legado Inca",
-  "short_name": "Legado Inca",
+  "name": "legadoinca",
+  "short_name": "legadoinca",
   "description": "Café, cacao y artesanías del Perú con historia",
   "start_url": "/legadoinca/",
   "scope": "/legadoinca/",
