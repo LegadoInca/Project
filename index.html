@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#1A0A00">
 <meta name="description" content="Café, cacao y artesanías del Perú con historia. El 10% de cada venta apoya la ONG Semilla Nueva.">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzFBMEEwMCIvPgogIDx0ZXh0IHg9IjI1NiIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzODAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI0M5QTg0QyI+TDwvdGV4dD4KICA8bGluZSB4MT0iNjAiIHkxPSI0NzAiIHgyPSI0NTIiIHkyPSI0NzAiIHN0cm9rZT0iI0M5QTg0QyIgc3Ryb2tlLXdpZHRoPSI1IiBvcGFjaXR5PSIwLjQ1Ii8+Cjwvc3ZnPg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%231A0A00'/%3E%3Ctext x='256' y='340' font-size='260' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif'%3EL%3C/text%3E%3C/svg%3E">
 
 <style>
 /* ═══════════════════════════════════════
@@ -90,7 +90,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .hero-wrap{height:100vh;position:relative;overflow:hidden;}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;}
 .hero-slide.active{opacity:1;}
-.hero-slide img,.hero-slide video{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.38) saturate(1.1);}
+.hero-slide img,.hero-slide video{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.65) saturate(1.1);}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,8,0,1) 0%,rgba(13,8,0,0.1) 60%,transparent 100%);}
 .hero-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--oro);margin-bottom:24px;opacity:0;animation:fadeUp 1s 0.3s forwards;}
@@ -120,18 +120,18 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .btn-exit:hover{background:rgba(224,82,82,0.08);}
 
 /* ═══ MARQUEE ═══ */
-.marquee-wrap{background:var(--oro);overflow:hidden;padding:10px 0;white-space:nowrap;}
+.marquee-wrap{background:rgba(201,168,76,0.10);border-top:1px solid rgba(201,168,76,0.2);border-bottom:1px solid rgba(201,168,76,0.2);overflow:hidden;padding:10px 0;white-space:nowrap;}
 .marquee-track{display:inline-flex;animation:marquee 32s linear infinite;}
-.marquee-item{font-family:'Space Mono',monospace;font-size:11px;color:var(--negro);letter-spacing:0.1em;padding:0 24px;font-weight:700;}
-.marquee-dot{color:var(--negro);opacity:0.4;padding:0 4px;}
+.marquee-item{font-family:'Space Mono',monospace;font-size:11px;color:var(--oro);letter-spacing:0.1em;padding:0 24px;font-weight:700;}
+.marquee-dot{color:var(--oro);opacity:0.4;padding:0 4px;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ═══ PERSONAS CAROUSEL (arriba) ═══ */
 .personas-hero{position:relative;height:80vh;overflow:hidden;background:var(--tierra);}
-.persona-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;display:grid;grid-template-columns:55% 45%;}
+.persona-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;display:grid;grid-template-columns:1fr 1fr;}
 .persona-slide.active{opacity:1;}
-.persona-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:brightness(0.68) saturate(1.1);}
-.persona-story-side{display:flex;flex-direction:column;justify-content:center;padding:60px 50px 60px 48px;background:#160800;position:relative;}
+.persona-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:brightness(0.75) saturate(1.1);}
+.persona-story-side{display:flex;flex-direction:column;justify-content:center;padding:60px 60px 60px 50px;background:linear-gradient(135deg,var(--tierra) 0%,var(--cafe) 100%);}
 .persona-num{font-family:'Playfair Display',serif;font-size:96px;color:rgba(201,168,76,0.1);font-weight:900;line-height:1;margin-bottom:-10px;}
 .persona-tag-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;padding:5px 14px;margin-bottom:16px;}
 .tag-fundadoras{background:#8B1A1A;color:#FFB5B5;}
@@ -139,7 +139,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .tag-guardianes{background:#3A3A0A;color:#FFFFB5;}
 .persona-name-big{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);color:var(--crema);font-weight:700;line-height:1.1;}
 .persona-product{font-family:'Space Mono',monospace;font-size:10px;color:var(--oro);letter-spacing:0.2em;text-transform:uppercase;margin-top:8px;margin-bottom:20px;}
-.persona-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.8vw,20px);color:rgba(245,237,216,0.92);line-height:1.8;font-style:italic;border-left:3px solid var(--oro);padding-left:20px;}
+.persona-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.8vw,20px);color:rgba(245,237,216,0.75);line-height:1.8;font-style:italic;border-left:3px solid var(--oro-dk);padding-left:20px;}
 .personas-nav{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:10px;align-items:center;}
 .persona-dot{width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,0.3);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
 .persona-dot.active{background:var(--oro);width:18px;border-radius:3px;}
@@ -220,7 +220,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .badge-pronto{background:var(--oro);color:var(--negro);}
 
 /* ═══ IMPACTO ONG ═══ */
-.impacto{padding:100px 60px;background:linear-gradient(135deg,#1E3A0A,#0A2004);}
+.impacto{padding:0;position:relative;overflow:hidden;background:var(--negro);}
+.impacto-video-bg{position:absolute;inset:0;z-index:0;}
+.impacto-video-bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.55) saturate(1.1);}
+.impacto-video-bg::after{content:'';position:absolute;inset:0;background:rgba(13,8,0,0.35);}
+.impacto-inner{position:relative;z-index:2;padding:100px 60px;}
 .impacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
 .impact-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .impact-stat{border:1px solid rgba(107,255,107,0.2);padding:24px;background:rgba(0,0,0,0.2);}
@@ -379,7 +383,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
   .universo-grid{grid-template-columns:1fr;}
   .proceso-content{padding:60px 24px;}
   .proceso-grid{grid-template-columns:1fr 1fr;}
-  .impacto{padding:60px 24px;}
+  .impacto-inner{padding:60px 24px;}
   .impacto-grid{grid-template-columns:1fr;gap:40px;}
   footer.madre-footer{padding:60px 24px 32px;}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
@@ -443,7 +447,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
       </div>
       <div class="f-group">
         <label class="f-label">Contraseña</label>
-        <input class="login-input" type="password" id="login-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+        <input class="login-input" type="password" id="login-pass" placeholder="••••••••">
       </div>
       <button class="btn-gold" style="width:100%;padding:14px" onclick="doLogin()">Ingresar →</button>
       <p class="login-hint">Demo: <strong>admin/admin123 · PROV-001/prov001 · czech/czech123</strong></p>
@@ -676,7 +680,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
     <div class="universo-grid">
 
       <!-- HOLZEN — CAFÉ ☕ -->
-      <div class="marca-card" onclick="window.open('https://originsco.github.io/holzen/','_blank')">
+      <div class="marca-card" onclick="window.open('https://holzencacao.netlify.app','_blank')">
         <img class="marca-img" src="https://res.cloudinary.com/djfmngyl0/image/upload/v1773435261/e45b66891fa2f4f8ce8526485a6c3da9_llpiux.jpg" alt="HOLZEN Café">
         <div class="marca-overlay">
           <div class="marca-eyebrow" data-key="marca1_eye">Café de Especialidad</div>
@@ -716,21 +720,33 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
 
   <!-- IMPACTO ONG -->
   <section class="impacto" id="impacto">
-    <span class="section-eyebrow" style="color:#6BFF6B;" data-key="impact_eyebrow">ONG Semilla Nueva · 10% de cada venta</span>
-    <h2 class="section-title" data-key="impact_title">Tu compra<br><em>cambia vidas</em></h2>
-    <div class="impacto-grid">
-      <div class="impact-stats">
-        <div class="impact-stat"><span class="impact-big counter" data-target="142">0</span><span class="impact-label" data-key="imp1">Familias apoyadas</span></div>
-        <div class="impact-stat"><span class="impact-big counter" data-target="340">0</span><span class="impact-label" data-key="imp2">Niños en educación</span></div>
-        <div class="impact-stat"><span class="impact-big" style="font-size:32px;">€48K</span><span class="impact-label" data-key="imp3">Donados en 2024</span></div>
-        <div class="impact-stat"><span class="impact-big counter" data-target="38">0</span><span class="impact-label" data-key="imp4">Mujeres en prog. vivienda</span></div>
-      </div>
-      <div>
-        <blockquote class="impact-quote" data-key="impact_quote">"No vendemos café. Exportamos dignidad."</blockquote>
-        <p class="impact-text" data-key="impact_p1">La ONG Semilla Nueva trabaja directamente con las tres comunidades. Con cada venta, el 10% va a programas de vivienda para mujeres, educación para los hijos de los Guardianes, y apoyo psicológico para familias que vivieron el conflicto armado.</p>
-        <button class="btn-primary" onclick="scrollTo_('#universo')" data-key="impact_btn">Compra y genera impacto</button>
+
+    <!-- VIDEO DE FONDO -->
+    <div class="impacto-video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/djfmngyl0/video/upload/v1774742813/3365440-uhd_3840_2160_30fps_mvpetn.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- CONTENIDO (igual que antes, solo envuelto en .impacto-inner) -->
+    <div class="impacto-inner">
+      <span class="section-eyebrow" style="color:#6BFF6B;" data-key="impact_eyebrow">ONG Semilla Nueva · 10% de cada venta</span>
+      <h2 class="section-title" data-key="impact_title">Tu compra<br><em>cambia vidas</em></h2>
+      <div class="impacto-grid">
+        <div class="impact-stats">
+          <div class="impact-stat"><span class="impact-big counter" data-target="142">0</span><span class="impact-label" data-key="imp1">Familias apoyadas</span></div>
+          <div class="impact-stat"><span class="impact-big counter" data-target="340">0</span><span class="impact-label" data-key="imp2">Niños en educación</span></div>
+          <div class="impact-stat"><span class="impact-big" style="font-size:32px;">€48K</span><span class="impact-label" data-key="imp3">Donados en 2024</span></div>
+          <div class="impact-stat"><span class="impact-big counter" data-target="38">0</span><span class="impact-label" data-key="imp4">Mujeres en prog. vivienda</span></div>
+        </div>
+        <div>
+          <blockquote class="impact-quote" data-key="impact_quote">"No vendemos café. Exportamos dignidad."</blockquote>
+          <p class="impact-text" data-key="impact_p1">La ONG Semilla Nueva trabaja directamente con las tres comunidades. Con cada venta, el 10% va a programas de vivienda para mujeres, educación para los hijos de los Guardianes, y apoyo psicológico para familias que vivieron el conflicto armado.</p>
+          <button class="btn-primary" onclick="scrollTo_('#universo')" data-key="impact_btn">Compra y genera impacto</button>
+        </div>
       </div>
     </div>
+
   </section>
 
   <!-- CONTACTO -->
@@ -740,7 +756,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
     <p class="section-body" style="margin:16px auto 36px;text-align:center;" data-key="contact_body">Trabajamos con importadores, tostadoras, hoteles y cafeterías en Europa. Respuesta en menos de 24 horas.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a class="btn-primary" href="https://wa.me/51XXXXXXXXX?text=Hola,%20me%20interesa%20Legado%20Inca" target="_blank">📱 WhatsApp</a>
-      <a class="btn-outline" href="/cdn-cgi/l/email-protection#177f787b76577b72707673787e7974763974787a">✉️ Email</a>
+      <a class="btn-outline" href="/cdn-cgi/l/email-protection#c9a1a6a5a889a5acaea8ada6a0a7aaa8e7aaa6a4">✉️ Email</a>
     </div>
   </section>
 
@@ -755,7 +771,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
       <div class="footer-col">
         <h5>Nuestras Marcas</h5>
         <ul>
-          <li><a onclick="window.open('https://originsco.github.io/holzen/','_blank')">HOLZEN — Café</a></li>
+          <li><a onclick="window.open('https://holzencacao.netlify.app','_blank')">HOLZEN — Café</a></li>
           <li><a onclick="alert('Próximamente')">COYA — Cacao</a></li>
           <li><a onclick="alert('Próximamente')">Artesanías Andinas</a></li>
         </ul>
@@ -775,7 +791,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
           <li><a onclick="openLogin()">🛡 Administrador</a></li>
           <li><a onclick="openLogin()">🌿 Portal Proveedor</a></li>
           <li><a onclick="openLogin()">🇨🇿 Portal Praga</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#c4acaba8a584a8a1a3a5a0abadaaa7a5eaa7aba9">✉️ Contacto</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#d3bbbcbfb293bfb6b4b2b7bcbabdb0b2fdb0bcbe">✉️ Contacto</a></li>
         </ul>
       </div>
     </div>
@@ -1359,7 +1375,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
           <div class="panel"><div class="panel-hdr"><span class="panel-title">Contactos Lima</span></div>
             <div style="display:grid;gap:14px;">
               <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">👩‍💼</span><div><div style="font-size:12px;color:var(--text-p)">CEO — Lima</div><div style="font-size:11px;color:var(--muted-p)">📱 +51 9XX XXX XXX</div></div></div>
-              <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">📦</span><div><div style="font-size:12px;color:var(--text-p)">Logística</div><div style="font-size:11px;color:var(--muted-p)">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa96959d93898e93999bba969f9d9b9e959394999bd4999597">[email&#160;protected]</a></div></div></div>
+              <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">📦</span><div><div style="font-size:12px;color:var(--text-p)">Logística</div><div style="font-size:11px;color:var(--muted-p)">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c10131b150f08151f1d3c10191b1d181315121f1d521f1311">[email&#160;protected]</a></div></div></div>
               <div style="background:var(--mid-dark);padding:14px;"><div style="font-size:9px;color:var(--gold);margin-bottom:8px;">HORARIO LIMA</div><div style="font-size:12px;color:var(--text-p)">Lima (PET): UTC-5 · Praga (CEST): UTC+2</div><div style="font-size:11px;color:var(--muted-p);margin-top:4px;">Diferencia: 7 horas · Laboral Lima: 9am–6pm</div></div>
             </div>
           </div>
@@ -1454,7 +1470,7 @@ const translations = {
     jorge_story:'"I grew coca for 15 years. There was no other way. When I switched to coffee, I was threatened. But I kept going."',
     rosa_story:'"Sendero Luminoso burned our community. I returned 10 years later to weave where there was once ash."',
     grupos_eyebrow:'The three families',grupos_title:'Three stories.<br>One <em>land.</em>',
-    grupos_body:'They are not just farmers. They are survivors. Each carries a story that must not be forgotten.',
+    grupos_body:"They're not just farmers. They're survivors. Each carries a story that must not be forgotten.",
     shirt_f:'👕 The Founders',shirt_s:'👕 New Seed',shirt_g:'👕 The Guardians',
     grupo1_name:'The Founders',grupo1_role:'Women who rebuilt their lives',grupo1_desc:'They survived domestic violence. Some lost everything. But they found their healing in Peruvian soil.',
     grupo2_name:'New Seed',grupo2_role:'From coca leaves to golden beans',grupo2_desc:'They grew coca because it was the only option. Today they chose coffee. Now their farms are an example for the region.',
@@ -1567,14 +1583,12 @@ const translations = {
 };
 
 function setLang(lang){
-  document.querySelectorAll('.lang-btn').forEach(function(b){
-    b.classList.remove('active');
-    if(b.textContent===lang.toUpperCase()||(lang==='cs'&&b.textContent==='CZ')) b.classList.add('active');
-  });
-  var t=translations[lang];
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  const t=translations[lang];
   if(!t) return;
-  document.querySelectorAll('[data-key]').forEach(function(el){
-    var k=el.getAttribute('data-key');
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const k=el.getAttribute('data-key');
     if(t[k]!==undefined) el.innerHTML=t[k];
   });
 }
@@ -1625,7 +1639,7 @@ function doLogin(){
     document.getElementById('login-pass').value='';
   }
 }
-// login-pass keydown handled inline in HTML
+document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
 function loadProvider(code){
   currentProv=PROVEEDORES[code];
@@ -1703,7 +1717,7 @@ document.addEventListener('click',function(e){
 //  HERO SLIDER (fotos + videos)
 // ════════════════════════════════════════
 let heroIdx=0;
-const heroSlides=document.querySelectorAll('#view-madre .hero-slide');
+const heroSlides=document.querySelectorAll('.hero-slide');
 const heroDotsWrap=document.getElementById('hero-dots');
 heroSlides.forEach((_,i)=>{
   const d=document.createElement('button');
@@ -1943,859 +1957,4 @@ if(isIOS&&!window.navigator.standalone){
     if(tip&&sessionStorage.getItem('pwa-dismissed')!=='1'){
       tip.style.display='flex';
       tip.querySelector('button:first-of-type').textContent='Ver instrucciones';
-      tip.querySelector('button:first-of-type').onclick=function(){alert('En iPhone/iPad:\n\n1. Toca el ícono compartir ⬆ (abajo en Safari)\n2. Selecciona "Agregar a pantalla de inicio"\n3. Toca "Agregar"');};
-    }
-  },3000);
-}
-
-// Cookie banner
-if(!localStorage.getItem('cookies')){setTimeout(()=>{document.getElementById('cookie-bar').style.display='flex';},2500);}
-</script>
-
-<!-- iOS ICON UPDATE BANNER -->
-<div id="ios-update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1A0A00;border-top:1px solid rgba(201,168,76,0.4);padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap;backdrop-filter:blur(8px);">
-  <div style="font-size:22px;flex-shrink:0;">📱</div>
-  <div style="flex:1;min-width:180px;">
-    <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:#F5EDD8;margin-bottom:3px;">Nuevo ícono disponible</div>
-    <div style="font-size:11px;color:rgba(245,237,216,0.55);line-height:1.5;">Para ver la <strong style="color:#C9A84C;">L dorada</strong> en tu pantalla de inicio: elimina la app y vuelve a instalarla desde Safari.</div>
-  </div>
-  <div style="display:flex;gap:8px;flex-shrink:0;">
-    <button onclick="showIOSSteps()" style="background:#C9A84C;color:#1A0A00;border:none;padding:9px 16px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;white-space:nowrap;">Ver pasos</button>
-    <button onclick="dismissIOSBanner()" style="background:transparent;color:rgba(245,237,216,0.4);border:1px solid rgba(245,237,216,0.15);padding:9px 12px;font-size:12px;cursor:pointer;">✕</button>
-  </div>
-</div>
-
-<!-- iOS STEPS MODAL -->
-<div id="ios-steps-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,8,0,0.92);align-items:flex-end;justify-content:center;backdrop-filter:blur(6px);">
-  <div style="background:#1A0A00;border:1px solid rgba(201,168,76,0.3);border-radius:16px 16px 0 0;padding:32px 28px 40px;width:100%;max-width:480px;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#F5EDD8;margin-bottom:6px;">Actualiza el ícono</div>
-      <div style="font-size:12px;color:rgba(245,237,216,0.45);letter-spacing:0.1em;">Solo toma 30 segundos</div>
-    </div>
-    <div style="display:grid;gap:14px;margin-bottom:28px;">
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">1</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Mantén presionado el ícono</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">En tu pantalla de inicio, mantén presionado el ícono de Legado Inca hasta que aparezca el menú.</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">2</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Toca "Eliminar marcador"</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Selecciona eliminar del inicio (no borra nada, solo el acceso directo).</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">3</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Abre Safari y vuelve a instalar</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Ve a proyectaurumsorigins.netlify.app → toca ⬆ Compartir → "Agregar a pantalla de inicio".</div>
-        </div>
-      </div>
-    </div>
-    <button onclick="closeIOSSteps()" style="width:100%;background:#C9A84C;color:#1A0A00;border:none;padding:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-weight:700;">Entendido ✓</button>
-  </div>
-</div>
-
-<script>
-// iOS icon update banner — shows only on iPhone/iPad in standalone mode with old icon version
-(function() {
-  var ICON_VERSION = 'v2-L-gold';
-  var STORED = localStorage.getItem('legado-icon-version');
-  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  var isStandalone = window.navigator.standalone;
-  var dismissed = sessionStorage.getItem('ios-banner-dismissed');
-
-  // Show banner if: iOS + installed as app + icon version is old + not dismissed
-  if (isIOS && isStandalone && STORED !== ICON_VERSION && !dismissed) {
-    setTimeout(function() {
-      var b = document.getElementById('ios-update-banner');
-      if (b) b.style.display = 'flex';
-    }, 3000);
-  }
-
-  // If NOT standalone iOS (first visit), just save the version
-  if (isIOS && !isStandalone) {
-    localStorage.setItem('legado-icon-version', ICON_VERSION);
-  }
-})();
-
-function dismissIOSBanner() {
-  var b = document.getElementById('ios-update-banner');
-  if (b) b.style.display = 'none';
-  sessionStorage.setItem('ios-banner-dismissed', '1');
-}
-
-function showIOSSteps() {
-  var b = document.getElementById('ios-update-banner');
-  var m = document.getElementById('ios-steps-modal');
-  if (b) b.style.display = 'none';
-  if (m) m.style.display = 'flex';
-}
-
-function closeIOSSteps() {
-  var m = document.getElementById('ios-steps-modal');
-  if (m) m.style.display = 'none';
-  // Mark as updated so banner won't show again
-  localStorage.setItem('legado-icon-version', 'v2-L-gold');
-}
-</script>
-</body>
-</html><script>
-/* =============================================
-   LEGADO INCA - MAIN SCRIPT
-   All strings use ASCII-safe representations
-============================================= */
-
-// ── TRANSLATIONS ──────────────────────────
-var T = {
-  es: {
-    hero_eyebrow: 'Caf\u00e9 \u00b7 Cacao \u00b7 Artesan\u00edas \u00b7 Per\u00fa \u00b7 Europa',
-    hero_tagline: 'Detr\u00e1s de cada grano, cada semilla y cada tejido, hay una mujer que reconstruy\u00f3 su vida, un hombre que cambi\u00f3 la coca por esperanza, y un guardi\u00e1n que sobrevivi\u00f3 el terror para darte este legado.',
-    hero_btn1: 'Compra con prop\u00f3sito', hero_btn2: 'Conoce su historia',
-    stat1: 'Familias productoras', stat2: 'Grupos de vida', stat3: 'Altitud promedio', stat4: 'Pa\u00edses destino', stat5: 'De cada venta a la ONG',
-    ong_text: 'De cada compra que realizas, el <strong>10% va directamente a SEMILLA NUEVA</strong>, la ONG que apoya a mujeres v\u00edctimas de violencia, familias que dejaron los cultivos de coca y sobrevivientes del terrorismo en los Andes peruanos.',
-    ong_btn: 'Ver el impacto',
-    personas_eyebrow: 'Estas son las personas detr\u00e1s de cada producto',
-    tag_f: '\ud83d\udc55 Las Fundadoras', tag_s: '\ud83d\udc55 Semilla Nueva', tag_g: '\ud83d\udc55 Los Guardianes',
-    p1_product: 'Caf\u00e9 Geisha \u00b7 Villa Rica, Pasco', p2_product: 'Caf\u00e9 Natural \u00b7 Chanchamayo, Jun\u00edn', p3_product: 'Artesan\u00edas Ken\u00e9 \u00b7 Ucayali',
-    maria_story: '"Me qued\u00e9 sin nada. Solo con mis tres hijos y esta tierra. Aprend\u00ed sola a cultivar el caf\u00e9. Hoy mis granos llegan a Alemania."',
-    jorge_story: '"Cultiv\u00e9 coca 15 a\u00f1os. No hab\u00eda otra salida. Cuando cambi\u00e9 al caf\u00e9, me amenazaron. Pero segu\u00ed. Hoy mi caf\u00e9 es lo mejor que he hecho en mi vida."',
-    rosa_story: '"Sendero Luminoso quem\u00f3 nuestra comunidad. Volv\u00ed 10 a\u00f1os despu\u00e9s a tejer donde antes hab\u00eda ceniza."',
-    grupos_eyebrow: 'Las tres familias',
-    grupos_title: 'Tres historias.<br>Una misma <em>tierra.</em>',
-    grupos_body: 'No son solo agricultores. Son sobrevivientes. Cada uno lleva en sus manos una historia que no deber\u00eda olvidarse.',
-    grupo1_name: 'Las Fundadoras', grupo1_role: 'Mujeres que reconstruyeron su vida',
-    grupo1_desc: 'Sobrevivieron la violencia dom\u00e9stica. Algunas lo perdieron todo. Pero encontraron en la tierra peruana su sanaci\u00f3n.',
-    grupo2_name: 'Semilla Nueva', grupo2_role: 'De la hoja de coca al grano de oro',
-    grupo2_desc: 'Cultivaban coca porque era lo \u00fanico que daba dinero. Hoy eligieron el caf\u00e9. No fue f\u00e1cil. Ahora sus fincas son ejemplo para toda la regi\u00f3n.',
-    grupo3_name: 'Los Guardianes', grupo3_role: 'Sobrevivientes del terrorismo',
-    grupo3_desc: 'Vivieron el horror del terrorismo en sus pueblos. Pero no se fueron \u2014 se quedaron a reconstruir.',
-    grupo_link: 'Conocer sus historias \u2192', grupo_link2: 'Conocer sus historias \u2192', grupo_link3: 'Conocer sus historias \u2192',
-    proceso_eyebrow: 'De la tierra a tu taza',
-    proceso_title: 'Transparencia total<br>en cada <em>paso</em>',
-    step1_t: 'Cultivo artesanal', step1_d: 'Entre 1,400 y 2,100 msnm. Sombra, biodiversidad y manos que conocen cada planta.',
-    step2_t: 'Cosecha selectiva', step2_d: 'Solo cerezas maduras, recogidas a mano. Sin m\u00e1quinas.',
-    step3_t: 'Beneficio y secado', step3_d: 'Fermentaci\u00f3n controlada. Secado bajo el sol andino.',
-    step4_t: 'Cata y certificaci\u00f3n', step4_d: 'Cada lote catado por Q-Graders SCA. Solo 84+ llevan el nombre Legado Inca.',
-    step5_t: 'Exportaci\u00f3n directa', step5_d: 'En sacos GrainPro desde Lima. Trazabilidad completa con c\u00f3digo QR.',
-    step6_t: 'En tu taza', step6_d: '24-72 horas despu\u00e9s del tostado. Fresco. Con nombre. Con historia.',
-    universo_eyebrow: 'Nuestras marcas',
-    universo_title: 'El universo<br><em>Legado Inca</em>',
-    universo_body: 'Tres mundos. Tres marcas. Una misma ra\u00edz peruana.',
-    marca1_eye: 'Caf\u00e9 de Especialidad', marca1_sub: 'Ar\u00e1bica de altura. 86+ SCA. Geisha, Natural, Honey. Directo del productor al tostador europeo.',
-    marca2_eye: 'Cacao Premium', marca2_sub: 'Chuncho del Cusco. CCN-51. Monz\u00f3n Heritage. Fermentaci\u00f3n artesanal.',
-    marca3_eye: 'Artesan\u00edas Andinas', marca3_name: 'Pr\u00f3ximamente', marca3_sub: 'Textiles Shipibo. Cer\u00e1mica Quechua. Orfebre\u00eda Aymara.',
-    marca_arrow1: 'Explorar HOLZEN \u2192', marca_arrow2: 'Explorar COYA \u2192', marca_arrow3: 'Explorar colecci\u00f3n \u2192',
-    marca1_badge: 'Disponible', marca2_badge: 'Pr\u00f3ximamente', marca3_badge: 'En desarrollo',
-    impact_eyebrow: 'ONG Semilla Nueva \u00b7 10% de cada venta',
-    impact_title: 'Tu compra<br><em>cambia vidas</em>',
-    imp1: 'Familias apoyadas', imp2: 'Ni\u00f1os en educaci\u00f3n', imp3: 'Donados en 2024', imp4: 'Mujeres en vivienda',
-    impact_quote: '"No vendemos caf\u00e9. Exportamos dignidad."',
-    impact_p1: 'La ONG Semilla Nueva trabaja directamente con las tres comunidades. Con cada venta, el 10% va a programas de vivienda, educaci\u00f3n y apoyo psicol\u00f3gico.',
-    impact_btn: 'Compra y genera impacto',
-    contact_eyebrow: '\u00bfListo para empezar?',
-    contact_title: 'Hablemos de<br><em>prop\u00f3sito</em>',
-    contact_body: 'Trabajamos con importadores, tostadoras, hoteles y cafeter\u00edas en Europa. Respuesta en menos de 24 horas.',
-    footer_about: 'Tres productos. Tres comunidades de supervivientes. Una ONG. Una compra que cambia el mundo.',
-    f_copy: '(c) 2025 Legado Inca \u00b7 Lima, Per\u00fa \u00b7 Todos los derechos reservados',
-    f_vat: 'IVA incluido \u00b7 Env\u00edos a toda Europa \u00b7 GDPR compliant'
-  },
-  en: {
-    hero_eyebrow: 'Coffee \u00b7 Cacao \u00b7 Crafts \u00b7 Peru \u00b7 Europe',
-    hero_tagline: 'Behind every bean, every cacao seed and every weave, there is a woman who rebuilt her life, a man who traded coca for hope, and a guardian who survived terror to give you this legacy.',
-    hero_btn1: 'Buy with purpose', hero_btn2: 'Discover their story',
-    stat1: 'Producer families', stat2: 'Life groups', stat3: 'Average altitude', stat4: 'Destination countries', stat5: 'Of every sale to NGO',
-    ong_text: 'With every purchase, <strong>10% goes directly to SEMILLA NUEVA</strong>, the NGO supporting women survivors of violence, former coca farmers, and terrorism survivors in the Peruvian Andes.',
-    ong_btn: 'See the impact',
-    personas_eyebrow: 'These are the people behind every product',
-    tag_f: '\ud83d\udc55 The Founders', tag_s: '\ud83d\udc55 New Seed', tag_g: '\ud83d\udc55 The Guardians',
-    p1_product: 'Geisha Coffee \u00b7 Villa Rica, Pasco', p2_product: 'Natural Coffee \u00b7 Chanchamayo, Jun\u00edn', p3_product: 'Kene Crafts \u00b7 Ucayali',
-    maria_story: '"I was left with nothing. Only my three children and this land. I taught myself to grow coffee. Today my beans reach Germany."',
-    jorge_story: '"I grew coca for 15 years. There was no other way. When I switched to coffee, I was threatened. But I kept going."',
-    rosa_story: '"Sendero Luminoso burned our community. I returned 10 years later to weave where there was once ash."',
-    grupos_eyebrow: 'The three families',
-    grupos_title: 'Three stories.<br>One <em>land.</em>',
-    grupos_body: 'They are not just farmers. They are survivors. Each carries a story that must not be forgotten.',
-    grupo1_name: 'The Founders', grupo1_role: 'Women who rebuilt their lives',
-    grupo1_desc: 'They survived domestic violence. Some lost everything. But they found their healing in Peruvian soil.',
-    grupo2_name: 'New Seed', grupo2_role: 'From coca leaves to golden beans',
-    grupo2_desc: 'They grew coca because it was the only option. Today they chose coffee. Now their farms are an example for the region.',
-    grupo3_name: 'The Guardians', grupo3_role: 'Terrorism survivors',
-    grupo3_desc: 'They lived the horror of terrorism in their villages. But they stayed to rebuild.',
-    grupo_link: 'Read their stories \u2192', grupo_link2: 'Read their stories \u2192', grupo_link3: 'Read their stories \u2192',
-    proceso_eyebrow: 'From the land to your cup',
-    proceso_title: 'Full transparency<br>at every <em>step</em>',
-    step1_t: 'Artisan farming', step1_d: 'Between 1,400 and 2,100 masl. Shade, biodiversity and careful hands.',
-    step2_t: 'Selective harvest', step2_d: 'Only ripe cherries, hand-picked. No machines.',
-    step3_t: 'Processing and drying', step3_d: 'Controlled fermentation. African bed drying under Andean sun.',
-    step4_t: 'Cupping and certification', step4_d: 'Each batch cupped by SCA Q-Graders. Only 84+ carry the name.',
-    step5_t: 'Direct export', step5_d: 'In GrainPro sacks from Lima. Full QR traceability.',
-    step6_t: 'In your cup', step6_d: '24-72 hours after roasting. Fresh. With a name. With a story.',
-    universo_eyebrow: 'Our brands',
-    universo_title: 'The universe<br><em>Legado Inca</em>',
-    universo_body: 'Three worlds. Three brands. One Peruvian root.',
-    marca1_eye: 'Specialty Coffee', marca1_sub: 'Highland Arabica. 86+ SCA. Direct from producer to European roaster.',
-    marca2_eye: 'Premium Cacao', marca2_sub: 'Chuncho from Cusco. CCN-51. Monzon Heritage. Artisan fermentation.',
-    marca3_eye: 'Andean Crafts', marca3_name: 'Coming soon', marca3_sub: 'Shipibo textiles. Quechua ceramics. Aymara goldsmith work.',
-    marca_arrow1: 'Explore HOLZEN \u2192', marca_arrow2: 'Explore COYA \u2192', marca_arrow3: 'Explore collection \u2192',
-    marca1_badge: 'Available', marca2_badge: 'Coming soon', marca3_badge: 'In development',
-    impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% of every sale',
-    impact_title: 'Your purchase<br><em>changes lives</em>',
-    imp1: 'Families supported', imp2: 'Children in education', imp3: 'Donated in 2024', imp4: 'Women in housing',
-    impact_quote: '"We do not sell coffee. We export dignity."',
-    impact_p1: 'NGO Semilla Nueva works directly with the three communities. With each sale, 10% goes to housing, education and psychological support programs.',
-    impact_btn: 'Buy and create impact',
-    contact_eyebrow: 'Ready to start?',
-    contact_title: 'Let us talk<br><em>purpose</em>',
-    contact_body: 'We work with importers, roasters, hotels and cafes across Europe.',
-    footer_about: 'Three products. Three survivor communities. One NGO. One purchase that changes the world.',
-    f_copy: '(c) 2025 Legado Inca \u00b7 Lima, Peru \u00b7 All rights reserved',
-    f_vat: 'VAT included \u00b7 Shipping across Europe \u00b7 GDPR compliant'
-  },
-  de: {
-    hero_eyebrow: 'Kaffee \u00b7 Kakao \u00b7 Kunsthandwerk \u00b7 Peru \u00b7 Europa',
-    hero_tagline: 'Hinter jeder Bohne, jedem Kakaosamen und jedem Gewebe steckt eine Frau, die ihr Leben neu aufgebaut hat, ein Mann, der Koka gegen Hoffnung tauschte, und ein Huter, der den Terror uberlebt hat.',
-    hero_btn1: 'Mit Zweck kaufen', hero_btn2: 'Geschichten entdecken',
-    stat1: 'Produzentenfamilien', stat2: 'Lebensgruppen', stat3: 'Durchschnittliche Hohe', stat4: 'Zielländer', stat5: 'Jedes Verkaufs fur die NGO',
-    ong_text: 'Bei jedem Kauf gehen <strong>10% direkt an SEMILLA NUEVA</strong>, die NGO fur Frauen, Ex-Kokabauern und Terrorismusuberlebende in den peruanischen Anden.',
-    ong_btn: 'Die Wirkung sehen',
-    personas_eyebrow: 'Das sind die Menschen hinter jedem Produkt',
-    tag_f: '\ud83d\udc55 Die Grunderinnen', tag_s: '\ud83d\udc55 Neues Saatgut', tag_g: '\ud83d\udc55 Die Huter',
-    p1_product: 'Geisha Kaffee \u00b7 Villa Rica, Pasco', p2_product: 'Natural Kaffee \u00b7 Chanchamayo', p3_product: 'Kene Kunsthandwerk \u00b7 Ucayali',
-    maria_story: '"Ich hatte nichts mehr. Nur meine drei Kinder und dieses Land. Ich lernte allein Kaffee anzubauen. Heute kommen meine Bohnen nach Deutschland."',
-    jorge_story: '"Ich habe 15 Jahre Koka angebaut. Als ich wechselte, wurde ich bedroht. Aber ich machte weiter."',
-    rosa_story: '"Sendero Luminoso brannte unsere Gemeinschaft nieder. Ich kehrte 10 Jahre spater zuruck."',
-    grupos_eyebrow: 'Die drei Familien',
-    grupos_title: 'Drei Geschichten.<br>Ein <em>Land.</em>',
-    grupos_body: 'Sie sind nicht nur Bauern. Sie sind Uberlebende. Jeder tragt eine Geschichte, die nicht vergessen werden sollte.',
-    grupo1_name: 'Die Grunderinnen', grupo1_role: 'Frauen, die ihr Leben neu aufgebaut haben',
-    grupo1_desc: 'Sie uberlebten hausliche Gewalt. Manche verloren alles. Aber sie fanden in der peruanischen Erde ihre Heilung.',
-    grupo2_name: 'Neues Saatgut', grupo2_role: 'Von Kokablattern zur goldenen Bohne',
-    grupo2_desc: 'Sie bauten Koka an, weil es die einzige Option war. Heute wahlten sie Kaffee.',
-    grupo3_name: 'Die Huter', grupo3_role: 'Uberlebende des Terrorismus',
-    grupo3_desc: 'Sie erlebten den Schrecken des Terrorismus. Aber sie blieben, um wieder aufzubauen.',
-    grupo_link: 'Ihre Geschichten lesen \u2192', grupo_link2: 'Ihre Geschichten lesen \u2192', grupo_link3: 'Ihre Geschichten lesen \u2192',
-    proceso_eyebrow: 'Von der Erde in Ihre Tasse',
-    proceso_title: 'Volle Transparenz<br>bei jedem <em>Schritt</em>',
-    step1_t: 'Handwerklicher Anbau', step1_d: 'Zwischen 1.400 und 2.100 m. Schatten und sorgfaltige Hande.',
-    step2_t: 'Selektive Ernte', step2_d: 'Nur reife Kirschen, von Hand gepfluckt.',
-    step3_t: 'Aufbereitung', step3_d: 'Kontrollierte Fermentation. Trocknung auf afrikanischen Betten.',
-    step4_t: 'Verkostung', step4_d: 'Nur uber 84 SCA-Punkte tragen den Namen.',
-    step5_t: 'Direktexport', step5_d: 'In GrainPro-Sacken aus Lima. Vollstandige QR-Ruckverfolgbarkeit.',
-    step6_t: 'In Ihrer Tasse', step6_d: '24-72 Stunden nach der Rostung. Frisch. Mit Namen. Mit Geschichte.',
-    universo_eyebrow: 'Unsere Marken',
-    universo_title: 'Das Universum<br><em>Legado Inca</em>',
-    universo_body: 'Drei Welten. Drei Marken. Eine peruanische Wurzel.',
-    marca1_eye: 'Spezialitätenkaffee', marca1_sub: 'Hochland-Arabica. 86+ SCA. Direkt vom Erzeuger zum Roster.',
-    marca2_eye: 'Premium Kakao', marca2_sub: 'Chuncho aus Cusco. CCN-51. Monzon Heritage.',
-    marca3_eye: 'Andines Kunsthandwerk', marca3_name: 'Demnachst', marca3_sub: 'Shipibo-Textilien. Quechua-Keramik. Aymara-Goldschmiedearbeit.',
-    marca_arrow1: 'HOLZEN entdecken \u2192', marca_arrow2: 'COYA entdecken \u2192', marca_arrow3: 'Kollektion entdecken \u2192',
-    marca1_badge: 'Verfugbar', marca2_badge: 'Demnachst', marca3_badge: 'In Entwicklung',
-    impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% jedes Verkaufs',
-    impact_title: 'Ihr Kauf<br><em>verandert Leben</em>',
-    imp1: 'Unterstuzte Familien', imp2: 'Kinder in Bildung', imp3: 'Gespendet 2024', imp4: 'Frauen in Wohnprogramm',
-    impact_quote: '"Wir verkaufen keinen Kaffee. Wir exportieren Wurde."',
-    impact_p1: 'NGO Semilla Nueva arbeitet direkt mit den drei Gemeinschaften. 10% gehen an Wohn-, Bildungs- und Unterstutzungsprogramme.',
-    impact_btn: 'Kaufen und Wirkung erzeugen',
-    contact_eyebrow: 'Bereit anzufangen?',
-    contact_title: 'Sprechen wir uber<br><em>Sinn</em>',
-    contact_body: 'Wir arbeiten mit Importeuren, Rostern und Hotels in ganz Europa.',
-    footer_about: 'Drei Produkte. Drei Uberlebenden-Gemeinschaften. Eine NGO. Ein Kauf, der die Welt verandert.',
-    f_copy: '(c) 2025 Legado Inca \u00b7 Lima, Peru \u00b7 Alle Rechte vorbehalten',
-    f_vat: 'MwSt. inkl. \u00b7 Lieferung in ganz Europa \u00b7 DSGVO-konform'
-  },
-  cs: {
-    hero_eyebrow: 'Kava \u00b7 Kakao \u00b7 Remeslne vyrobky \u00b7 Peru \u00b7 Evropa',
-    hero_tagline: 'Za kazdym zrnem, kazdym kakaovym semenem a kazdou tkaninou stoji zena, ktera znovu vybudovala svuj zivot, muz, ktery vymenil koku za nadeji, a strazce, ktery prezil teror.',
-    hero_btn1: 'Kupte s ucelom', hero_btn2: 'Poznejte jejich pribeh',
-    stat1: 'Rodin pestielu', stat2: 'Skupiny zivota', stat3: 'Prumerna nadm. vyska', stat4: 'Cilove zeme', stat5: 'Z kazdeho prodeje pro NGO',
-    ong_text: 'Z kazdeho nakupu jde <strong>10% primo na SEMILLA NUEVA</strong>, NGO podporujici zeny prezivsi nasili, byvalye pestitele koky a prezivsi terorismu v peruanskych Andach.',
-    ong_btn: 'Zobrazit dopad',
-    personas_eyebrow: 'To jsou lide za kazdym produktem',
-    tag_f: '\ud83d\udc55 Zakladatelky', tag_s: '\ud83d\udc55 Nove Semeno', tag_g: '\ud83d\udc55 Strazci',
-    p1_product: 'Geisha kava \u00b7 Villa Rica, Pasco', p2_product: 'Natural kava \u00b7 Chanchamayo', p3_product: 'Kene remeslne vyrobky \u00b7 Ucayali',
-    maria_story: '"Nezustalo mi nic. Jen tri deti a tato zeme. Sama jsem se naucila pestovat kavu. Dnes moje zrna miri do Nemecka."',
-    jorge_story: '"15 let jsem pestoval koku. Nebylo jine vychodisko. Kdyz jsem prestoupil, hrozili mi. Ale pokracoval jsem."',
-    rosa_story: '"Sendero Luminoso spalilo nasi komunitu. Vratil jsem se o 10 let pozdeji tkat tam, kde bylo drive popel."',
-    grupos_eyebrow: 'Tri rodiny',
-    grupos_title: 'Tri pribehy.<br>Jedna <em>zeme.</em>',
-    grupos_body: 'Nejsou to jen zemedelci. Jsou to prezivsi. Kazdy nese pribeh, ktery nesmi byt zapomenut.',
-    grupo1_name: 'Zakladatelky', grupo1_role: 'Zeny, ktere znovu vybudovaly svuj zivot',
-    grupo1_desc: 'Prezily domaci nasili. Nektere prisly o vse. Ale nasly uzdraveni v peruanske pude.',
-    grupo2_name: 'Nove Semeno', grupo2_role: 'Od listu koky ke zlatym zrnum',
-    grupo2_desc: 'Pestovali koku, protoze to byla jedina moznost. Dnes si vybrali kavu.',
-    grupo3_name: 'Strazci', grupo3_role: 'Prezivsi terorismu',
-    grupo3_desc: 'Zazili hruzu terorismu. Ale zustali prebudovat.',
-    grupo_link: 'Cist jejich pribehy \u2192', grupo_link2: 'Cist jejich pribehy \u2192', grupo_link3: 'Cist jejich pribehy \u2192',
-    proceso_eyebrow: 'Ze zeme do vaseho salku',
-    proceso_title: 'Plna transparentnost<br>v kazdem <em>kroku</em>',
-    step1_t: 'Remeslne pestovani', step1_d: 'Mezi 1 400 a 2 100 m n. m. Stin a peclivé ruce.',
-    step2_t: 'Selektivni sklizen', step2_d: 'Pouze zrale tresne, rucne sbírane.',
-    step3_t: 'Zpracovani', step3_d: 'Rizena fermentace. Suseni na africkych luzech.',
-    step4_t: 'Degustace', step4_d: 'Pouze nad 84 bodu SCA nesou nazev.',
-    step5_t: 'Primy export', step5_d: 'V GrainPro vacich z Limy. Plna QR sledovatelnost.',
-    step6_t: 'Ve vasem salku', step6_d: '24-72 hodin po prazeni. Cerstve. Se jmenem. S pribehem.',
-    universo_eyebrow: 'Nase znacky',
-    universo_title: 'Vesmir<br><em>Legado Inca</em>',
-    universo_body: 'Tri svety. Tri znacky. Jeden peruansky koren.',
-    marca1_eye: 'Specialty kava', marca1_sub: 'Arabica z vysociny. 86+ SCA. Primo od pestitele k prazirne.',
-    marca2_eye: 'Premiove kakao', marca2_sub: 'Chuncho z Cusca. CCN-51. Monzon Heritage.',
-    marca3_eye: 'Andske remeslne vyrobky', marca3_name: 'Pripravujeme', marca3_sub: 'Shipibo textil. Quechua keramika. Aymara zlatnictvi.',
-    marca_arrow1: 'Prozkoumat HOLZEN \u2192', marca_arrow2: 'Prozkoumat COYA \u2192', marca_arrow3: 'Prozkoumat kolekci \u2192',
-    marca1_badge: 'Dostupne', marca2_badge: 'Pripravujeme', marca3_badge: 'Ve vyvoji',
-    impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% z kazdeho prodeje',
-    impact_title: 'Vas nakup<br><em>meni zivoty</em>',
-    imp1: 'Podporovanych rodin', imp2: 'Deti ve vzdelavani', imp3: 'Darovano v roce 2024', imp4: 'Zen v bytovem programu',
-    impact_quote: '"Neprodavame kavu. Exportujeme dustojnost."',
-    impact_p1: 'NGO Semilla Nueva pracuje primo se tremi komunitami. 10% jde na bytove, vzdelavaci a podporne programy.',
-    impact_btn: 'Kupte a vytvorte dopad',
-    contact_eyebrow: 'Pripraveni zacit?',
-    contact_title: 'Mluvme o<br><em>ucelu</em>',
-    contact_body: 'Spolupracujeme s dovozci, prazírnami a hotely po cele Evrope.',
-    footer_about: 'Tri produkty. Tri komunity prezivsieh. Jedna NGO. Jeden nakup, ktery meni svet.',
-    f_copy: '(c) 2025 Legado Inca \u00b7 Lima, Peru \u00b7 Vsechna prava vyhrazena',
-    f_vat: 'DPH zahrnuto \u00b7 Doruceni po cele Evrope \u00b7 GDPR compliant'
-  }
-};
-
-function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.classList.remove('active');
-    var code = b.textContent.trim();
-    if (code === lang.toUpperCase() || (lang === 'cs' && code === 'CZ')) {
-      b.classList.add('active');
-    }
-  });
-  var t = T[lang];
-  if (!t) return;
-  document.querySelectorAll('[data-key]').forEach(function(el) {
-    var k = el.getAttribute('data-key');
-    if (t[k] !== undefined) el.innerHTML = t[k];
-  });
-}
-
-// ── CREDENTIALS & LOGIN ───────────────────
-var PROVEEDORES = {
-  'PROV-001': { pass:'prov001', nombre:'Coop. Villa Rica', producto:'Cafe Geisha', banco:'BCP', cuenta:'191-XXXX-XXX', precio:'S/28.00/kg',
-    lotes:[{id:'#VR-2025-04',prod:'Geisha Washed',kg:200,fecha:'10 Jun 2025',calidad:'Aprobado',pago:'Parcial'}],
-    pagos:[{lote:'#VR-2025-04',tipo:'30% Adelanto',monto:'S/1,500',banco:'BCP',estado:'Enviado',fecha:'01 Jun 2025',voucher:'OK'},{lote:'#VR-2025-04',tipo:'70% Saldo',monto:'S/3,500',banco:'BCP',estado:'Pendiente',fecha:'-',voucher:'-'}]
-  },
-  'PROV-002': { pass:'prov002', nombre:'Fam. Quispe Mamani', producto:'Cafe Natural Bourbon', banco:'Interbank', cuenta:'200-XXXX-XXX', precio:'S/22.00/kg',
-    lotes:[{id:'#CH-2025-02',prod:'Natural Bourbon',kg:150,fecha:'02 Jun 2025',calidad:'Obs. menores',pago:'Pendiente'}],
-    pagos:[{lote:'#CH-2025-02',tipo:'30% Adelanto',monto:'S/1,750',banco:'Interbank',estado:'No enviado',fecha:'-',voucher:'-'}]
-  },
-  'PROV-003': { pass:'prov003', nombre:'Agro Monzon SAC', producto:'Cafe Honey', banco:'Scotiabank', cuenta:'312-XXXX-XXX', precio:'S/20.00/kg',
-    lotes:[{id:'#MZ-2025-03',prod:'Honey Amarillo',kg:300,fecha:'20 May 2025',calidad:'Aprobado',pago:'Pagado'}],
-    pagos:[{lote:'#MZ-2025-03',tipo:'100%',monto:'S/4,200',banco:'Scotiabank',estado:'Pagado',fecha:'15 May 2025',voucher:'OK'}]
-  },
-  'PROV-004': { pass:'prov004', nombre:'Com. Shipibo-Konibo', producto:'Artesanias Kene', banco:'BBVA', cuenta:'011-XXXX-XXX', precio:'S/45.00/pieza',
-    lotes:[{id:'#UC-2025-01',prod:'Textiles Kene',kg:45,fecha:'01 Jun 2025',calidad:'Aprobado',pago:'Pagado'}],
-    pagos:[{lote:'#UC-2025-01',tipo:'100%',monto:'S/2,000',banco:'BBVA',estado:'Pagado',fecha:'05 Jun 2025',voucher:'OK'}]
-  }
-};
-
-var CREDENTIALS = {
-  'admin':    { pass:'admin123', view:'admin'    },
-  'czech':    { pass:'czech123', view:'czech'    },
-  'PROV-001': { pass:'prov001',  view:'supplier' },
-  'PROV-002': { pass:'prov002',  view:'supplier' },
-  'PROV-003': { pass:'prov003',  view:'supplier' },
-  'PROV-004': { pass:'prov004',  view:'supplier' }
-};
-var currentProv = null;
-
-function openLogin()  { document.getElementById('modal-login').classList.add('open'); }
-function closeLogin() { document.getElementById('modal-login').classList.remove('open'); }
-
-function doLogin() {
-  var u = document.getElementById('login-user').value.trim();
-  var p = document.getElementById('login-pass').value.trim();
-  var cred = CREDENTIALS[u];
-  if (cred && p === cred.pass) {
-    closeLogin();
-    if (cred.view === 'supplier') loadProvider(u);
-    showView(cred.view);
-  } else {
-    document.getElementById('login-err').classList.add('show');
-    document.getElementById('login-pass').value = '';
-  }
-}
-
-function loadProvider(code) {
-  currentProv = PROVEEDORES[code];
-  if (!currentProv) return;
-  document.getElementById('prov-id-display').textContent = code;
-  document.getElementById('prov-name-display').textContent = currentProv.nombre;
-  document.getElementById('ct-nombre').textContent   = currentProv.nombre;
-  document.getElementById('ct-producto').textContent = currentProv.producto;
-  document.getElementById('ct-precio').textContent   = currentProv.precio;
-  document.getElementById('ct-banco').textContent    = currentProv.banco;
-  document.getElementById('ct-cuenta').textContent   = currentProv.cuenta;
-  var lb = document.getElementById('prov-lotes-body');
-  lb.innerHTML = currentProv.lotes.map(function(l) {
-    return '<tr><td style="color:var(--gold)">' + l.id + '</td><td>' + l.prod + '</td><td>' + l.kg + ' kg</td><td>' + l.fecha + '</td>' +
-      '<td><span class="badge ' + (l.calidad==='Aprobado'?'ok':'warn') + '"><span class="badge-dot"></span>' + l.calidad + '</span></td>' +
-      '<td><span class="badge ' + (l.pago==='Pagado'?'ok':l.pago==='Parcial'?'warn':'pend') + '"><span class="badge-dot"></span>' + l.pago + '</span></td></tr>';
-  }).join('');
-  var pb = document.getElementById('prov-pagos-body');
-  pb.innerHTML = currentProv.pagos.map(function(p) {
-    var color = (p.estado==='Pagado'||p.estado==='Enviado') ? 'var(--green)' : (p.estado==='No enviado' ? 'var(--red)' : 'var(--amber)');
-    var badge  = (p.estado==='Pagado'||p.estado==='Enviado') ? 'ok' : (p.estado==='No enviado' ? 'err' : 'warn');
-    return '<tr><td style="color:var(--gold)">' + p.lote + '</td><td>' + p.tipo + '</td><td style="color:' + color + '">' + p.monto + '</td><td>' + p.banco + '</td>' +
-      '<td><span class="badge ' + badge + '"><span class="badge-dot"></span>' + p.estado + '</span></td><td>' + p.fecha + '</td><td>' + p.voucher + '</td></tr>';
-  }).join('');
-  var fl = document.getElementById('foto-lote');
-  fl.innerHTML = currentProv.lotes.map(function(l) {
-    return '<option>' + l.id + ' - ' + l.prod + '</option>';
-  }).join('');
-}
-
-// ── VIEW & TAB SYSTEM ─────────────────────
-function showView(name) {
-  document.querySelectorAll('.page-view').forEach(function(v) { v.classList.remove('active'); });
-  document.getElementById('view-' + name).classList.add('active');
-  window.scrollTo(0, 0);
-  if (name === 'admin') setTimeout(function() { buildAdminChart(); }, 150);
-}
-
-function setTab(portal, tabId) {
-  var main = portal === 'admin'    ? document.getElementById('admin-main') :
-             portal === 'supplier' ? document.querySelector('#view-supplier .portal-main') :
-                                     document.querySelector('#view-czech .portal-main');
-  main.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
-  var el = document.getElementById(tabId);
-  if (el) el.classList.add('active');
-  var sidebar = portal === 'admin'    ? document.querySelector('#view-admin .sidebar-nav') :
-                portal === 'supplier' ? document.querySelector('#view-supplier .sidebar-nav') :
-                                        document.querySelector('#view-czech .sidebar-nav');
-  sidebar.querySelectorAll('a').forEach(function(a) { a.classList.remove('active'); });
-  event.currentTarget.classList.add('active');
-}
-
-function setSubTab(btn, tabId, groupId) {
-  document.getElementById(groupId).querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
-  document.getElementById(tabId).classList.add('active');
-  btn.parentElement.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-}
-
-// ── MOBILE SIDEBAR ────────────────────────
-function toggleSidebar(portal) {
-  var sid = document.getElementById('sidebar-' + portal);
-  var ov  = document.getElementById('overlay-' + portal);
-  var btn = document.getElementById('hamburguer-' + portal);
-  if (!sid) return;
-  var open = sid.classList.contains('open');
-  if (open) {
-    sid.classList.remove('open'); if(ov) ov.classList.remove('show'); if(btn) btn.innerHTML = '&#9776;';
-  } else {
-    sid.classList.add('open');    if(ov) ov.classList.add('show');    if(btn) btn.innerHTML = '&#10005;';
-  }
-}
-function closeSidebar(portal) {
-  var sid = document.getElementById('sidebar-' + portal);
-  var ov  = document.getElementById('overlay-' + portal);
-  var btn = document.getElementById('hamburguer-' + portal);
-  if(sid) sid.classList.remove('open');
-  if(ov)  ov.classList.remove('show');
-  if(btn) btn.innerHTML = '&#9776;';
-}
-document.addEventListener('click', function(e) {
-  if (e.target.closest && e.target.closest('.sidebar-nav a') && window.innerWidth <= 1024) {
-    ['admin','supplier','czech'].forEach(function(p) { closeSidebar(p); });
-  }
-});
-
-// ── HERO SLIDER ───────────────────────────
-var heroIdx = 0;
-var heroSlides = document.querySelectorAll('#view-madre .hero-slide');
-var heroDotsWrap = document.getElementById('hero-dots');
-
-heroSlides.forEach(function(_, i) {
-  var d = document.createElement('button');
-  d.className = 'hero-dot' + (i === 0 ? ' active' : '');
-  d.onclick = function() { goHero(i); };
-  heroDotsWrap.appendChild(d);
-});
-
-function goHero(n) {
-  heroSlides[heroIdx].classList.remove('active');
-  heroDotsWrap.children[heroIdx].classList.remove('active');
-  var oldVid = heroSlides[heroIdx].querySelector('video');
-  if (oldVid) { oldVid.pause(); }
-  heroIdx = (n + heroSlides.length) % heroSlides.length;
-  heroSlides[heroIdx].classList.add('active');
-  heroDotsWrap.children[heroIdx].classList.add('active');
-  var newVid = heroSlides[heroIdx].querySelector('video');
-  if (newVid) { newVid.currentTime = 0; newVid.play().catch(function(){}); }
-}
-setInterval(function() { goHero(heroIdx + 1); }, 5500);
-
-// ── PERSONAS CAROUSEL ─────────────────────
-var personaIdx = 0;
-var personaSlides   = document.querySelectorAll('.persona-slide');
-var personaDots     = document.getElementById('personas-dots');
-
-personaSlides.forEach(function(_, i) {
-  var d = document.createElement('button');
-  d.className = 'persona-dot' + (i === 0 ? ' active' : '');
-  d.onclick = function() { goPersona(i); };
-  personaDots.appendChild(d);
-});
-
-function goPersona(n) {
-  personaSlides[personaIdx].classList.remove('active');
-  personaDots.children[personaIdx].classList.remove('active');
-  personaIdx = (n + personaSlides.length) % personaSlides.length;
-  personaSlides[personaIdx].classList.add('active');
-  personaDots.children[personaIdx].classList.add('active');
-}
-setInterval(function() { goPersona(personaIdx + 1); }, 7000);
-
-// ── NAV + SCROLL ──────────────────────────
-window.addEventListener('scroll', function() {
-  document.getElementById('nav-madre').classList.toggle('scrolled', window.scrollY > 60);
-});
-function scrollTo_(sel) {
-  var el = document.querySelector(sel);
-  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
-}
-function toggleMob() {
-  var mn = document.getElementById('mob-nav');
-  mn.style.display = (mn.style.display === 'flex') ? 'none' : 'flex';
-}
-
-// ── COUNTERS ──────────────────────────────
-function animateCounter(el) {
-  var target = +el.dataset.target;
-  var current = 0;
-  var step = target / 60;
-  var timer = setInterval(function() {
-    current = Math.min(current + step, target);
-    el.textContent = Math.floor(current);
-    if (current >= target) clearInterval(timer);
-  }, 20);
-}
-var cObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.counter').forEach(animateCounter);
-      cObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.stats-bar,.impacto').forEach(function(s) { cObs.observe(s); });
-
-// ── SCROLL ANIMATIONS ─────────────────────
-var animObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.paso,.impact-stat,.grupo-card,.marca-card').forEach(function(el, i) {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity 0.6s ' + (i * 0.08) + 's ease, transform 0.6s ' + (i * 0.08) + 's ease';
-  animObs.observe(el);
-});
-
-// ── ADMIN CHARTS ──────────────────────────
-function buildAdminChart() {
-  var ctx = document.getElementById('admin-chart');
-  if (!ctx || ctx._built) return;
-  ctx._built = true;
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['S1','S2','S3','S4','S5','S6','S7','S8'],
-      datasets: [
-        { label: 'Cafe',        data: [40,55,70,50,80,65,90,75], backgroundColor: 'rgba(201,168,76,0.7)',  borderRadius: 2 },
-        { label: 'Cacao',       data: [20,25,30,35,30,40,35,45], backgroundColor: 'rgba(107,58,26,0.7)',  borderRadius: 2 },
-        { label: 'Artesanias',  data: [10,15,10,20,15,25,20,18], backgroundColor: 'rgba(107,39,55,0.6)',  borderRadius: 2 }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend:  { labels: { color: 'rgba(232,224,204,0.6)', font: { size: 10 } } },
-        tooltip: { backgroundColor: '#1a1810', titleColor: '#C9A84C', bodyColor: '#e8e0cc' }
-      },
-      scales: {
-        x: { ticks: { color: 'rgba(232,224,204,0.4)', font: { size: 9 } }, grid: { color: 'rgba(201,168,76,0.05)' } },
-        y: { ticks: { color: 'rgba(232,224,204,0.4)', font: { size: 9 } }, grid: { color: 'rgba(201,168,76,0.05)' } }
-      }
-    }
-  });
-}
-
-function buildFinCharts() {
-  var i = document.getElementById('ingresos-chart');
-  var g = document.getElementById('gastos-chart');
-  if (i && !i._built) {
-    i._built = true;
-    new Chart(i, {
-      type: 'line',
-      data: {
-        labels: ['Ene','Feb','Mar','Abr','May','Jun'],
-        datasets: [
-          { label: 'Cafe EUR',  data: [12000,15000,18000,14000,20000,24380], borderColor: '#C9A84C', backgroundColor: 'rgba(201,168,76,0.1)', tension: 0.4, fill: true },
-          { label: 'Cacao EUR', data: [3000,4000,5500,4800,6000,7180],       borderColor: '#8a5030', backgroundColor: 'rgba(138,80,48,0.1)',   tension: 0.4, fill: true }
-        ]
-      },
-      options: { responsive: true, plugins: { legend: { labels: { color: 'rgba(232,224,204,0.6)', font: { size: 10 } } } }, scales: { x: { ticks: { color: 'rgba(232,224,204,0.4)' }, grid: { color: 'rgba(201,168,76,0.05)' } }, y: { ticks: { color: 'rgba(232,224,204,0.4)' }, grid: { color: 'rgba(201,168,76,0.05)' } } } }
-    });
-  }
-  if (g && !g._built) {
-    g._built = true;
-    new Chart(g, {
-      type: 'bar',
-      data: {
-        labels: ['Ene','Feb','Mar','Abr','May','Jun'],
-        datasets: [
-          { label: 'Compras S/', data: [20000,22000,28000,25000,27000,28400], backgroundColor: 'rgba(224,82,82,0.6)',  borderRadius: 2 },
-          { label: 'Logistica $',data: [2000,2200,2800,2400,2600,2930],       backgroundColor: 'rgba(91,141,239,0.6)', borderRadius: 2 }
-        ]
-      },
-      options: { responsive: true, plugins: { legend: { labels: { color: 'rgba(232,224,204,0.6)', font: { size: 10 } } } }, scales: { x: { ticks: { color: 'rgba(232,224,204,0.4)' }, grid: { color: 'rgba(201,168,76,0.05)' } }, y: { ticks: { color: 'rgba(232,224,204,0.4)' }, grid: { color: 'rgba(201,168,76,0.05)' } } } }
-    });
-  }
-}
-document.addEventListener('click', function(e) {
-  if (e.target.classList && e.target.classList.contains('tab-btn') && e.target.textContent.includes('Ingresos')) setTimeout(buildFinCharts, 100);
-  if (e.target.textContent && e.target.textContent.includes('Finanzas')) setTimeout(buildFinCharts, 200);
-});
-
-// ── SATELLITE MAPS ────────────────────────
-var satMap = null, satMarker = null;
-function loadSatellite(lat, lng, name) {
-  var nameEl = document.getElementById('sat-name');
-  var linkEl = document.getElementById('sat-gmaps-link');
-  var mapDiv = document.getElementById('sat-map');
-  if (nameEl) nameEl.textContent = name;
-  if (linkEl) { linkEl.href = 'https://www.google.com/maps/@' + lat + ',' + lng + ',500m/data=!3m1!1e3'; linkEl.style.display = 'inline-block'; }
-  if (!satMap) {
-    mapDiv.innerHTML = ''; mapDiv.style.background = '';
-    satMap = L.map('sat-map', { center:[lat,lng], zoom:15, scrollWheelZoom:true, zoomControl:true, maxZoom:21 });
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { attribution:'Google Maps', subdomains:['0','1','2','3'], maxZoom:21, maxNativeZoom:21, tileSize:256 }).addTo(satMap);
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', { subdomains:['0','1','2','3'], maxZoom:21, opacity:0.8, tileSize:256 }).addTo(satMap);
-  } else { satMap.setView([lat,lng], 15); }
-  if (satMarker) satMap.removeLayer(satMarker);
-  satMarker = L.circleMarker([lat,lng], { radius:10, color:'#C9A84C', fillColor:'#C9A84C', fillOpacity:0.5, weight:2 }).addTo(satMap);
-  satMarker.bindPopup('<div style="font-family:sans-serif;padding:4px"><strong style="color:#C9A84C">' + name + '</strong></div>', { offset:[0,-5] }).openPopup();
-  satMap.invalidateSize();
-}
-
-var czSatMap = null, czSatMarker = null;
-function loadSatelliteCZ(lat, lng, name) {
-  var nameEl = document.getElementById('cz-sat-name');
-  var linkEl = document.getElementById('cz-gmaps-link');
-  var mapDiv = document.getElementById('cz-sat-map');
-  if (nameEl) nameEl.textContent = name;
-  if (linkEl) { linkEl.href = 'https://www.google.com/maps/@' + lat + ',' + lng + ',500m/data=!3m1!1e3'; linkEl.style.display = 'block'; }
-  if (!czSatMap) {
-    mapDiv.innerHTML = ''; mapDiv.style.background = '';
-    czSatMap = L.map('cz-sat-map', { center:[lat,lng], zoom:15, scrollWheelZoom:true, zoomControl:true, maxZoom:21 });
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { attribution:'Google Maps', subdomains:['0','1','2','3'], maxZoom:21, maxNativeZoom:21, tileSize:256 }).addTo(czSatMap);
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', { subdomains:['0','1','2','3'], maxZoom:21, opacity:0.8, tileSize:256 }).addTo(czSatMap);
-  } else { czSatMap.setView([lat,lng], 15); }
-  if (czSatMarker) czSatMap.removeLayer(czSatMarker);
-  czSatMarker = L.circleMarker([lat,lng], { radius:10, color:'#C9A84C', fillColor:'#C9A84C', fillOpacity:0.5, weight:2 }).addTo(czSatMap);
-  czSatMarker.bindPopup('<strong style="color:#C9A84C">' + name + '</strong>', { offset:[0,-5] }).openPopup();
-  czSatMap.invalidateSize();
-}
-
-// ── ADMIN UTILS ───────────────────────────
-var adEl = document.getElementById('admin-date');
-if (adEl) adEl.textContent = new Date().toLocaleDateString('es-PE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-
-function checkAdminQuality() {
-  var h  = parseFloat(document.getElementById('adm-humedad').value) || 0;
-  var d  = (document.getElementById('adm-defectos').value || '').toLowerCase();
-  var critical = d.includes('negro') || d.includes('moho') || d.includes('hongo');
-  var fail = document.getElementById('adm-quality-fail');
-  var ok   = document.getElementById('adm-quality-ok');
-  var res  = document.getElementById('adm-resultado');
-  if (h > 13 || critical) { fail.style.display='block'; ok.style.display='none'; res.value='NO COMPRAR'; }
-  else if (h > 0)          { fail.style.display='none'; ok.style.display='block'; res.value='Aprobado'; }
-  else                     { fail.style.display='none'; ok.style.display='none';  res.value=''; }
-}
-
-var PROV_BANKS = {
-  'PROV-001': 'Banco: BCP - Cta: 191-XXXX-XXX - CCI: 00219100XXXXXXXXXX',
-  'PROV-002': 'Banco: Interbank - Cta: 200-XXXX-XXX - CCI: 00320000XXXXXXXXXX',
-  'PROV-003': 'Banco: Scotiabank - Cta: 312-XXXX-XXX - CCI: 00931200XXXXXXXXXX',
-  'PROV-004': 'Banco: BBVA - Cta: 011-XXXX-XXX - CCI: 01101100XXXXXXXXXX'
-};
-function loadProvBank() {
-  var sel  = document.getElementById('pay-prov').value;
-  var info = document.getElementById('prov-bank-info');
-  var det  = document.getElementById('prov-bank-detail');
-  if (sel && PROV_BANKS[sel]) { info.style.display='block'; det.textContent = PROV_BANKS[sel]; }
-  else info.style.display = 'none';
-}
-function calcPago() {
-  var total = parseFloat(document.getElementById('pay-total').value) || 0;
-  var pct   = parseInt(document.getElementById('pay-type').value) || 0;
-  var monto = document.getElementById('pay-monto');
-  if (total && pct) monto.value = 'S/ ' + (total * pct / 100).toFixed(2);
-  else monto.value = '';
-}
-function uploadVoucher(e) {
-  var f = e.target.files[0]; if (!f) return;
-  document.getElementById('voucher-preview').style.display = 'block';
-  document.getElementById('voucher-name').textContent = f.name;
-}
-function confirmarPago() {
-  var prov  = document.getElementById('pay-prov').value;
-  var monto = document.getElementById('pay-monto').value;
-  if (!prov || !monto) { alert('Por favor selecciona proveedor y monto.'); return; }
-  alert('Transferencia confirmada: ' + monto + ' al ' + prov + '. Notificacion enviada.');
-  if (currentProv && document.getElementById('view-supplier').classList.contains('active')) {
-    document.getElementById('prov-pago-notif').style.display = 'block';
-  }
-}
-function prevFotos(e, containerId) {
-  var c = document.getElementById(containerId); if (!c) return;
-  Array.from(e.target.files).slice(0, 10).forEach(function(f) {
-    var d = document.createElement('div'); d.className = 'photo-thumb';
-    var img = document.createElement('img'); img.src = URL.createObjectURL(f);
-    d.appendChild(img); c.appendChild(d);
-  });
-}
-function submitLot() {
-  var id = '#LOT-' + Math.floor(Math.random() * 9000 + 1000);
-  alert('Lote ' + id + ' registrado. El equipo evaluara la calidad y te notificaran.');
-}
-
-// ── PWA ───────────────────────────────────
-var deferredPrompt = null;
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js').catch(function() {});
-  });
-}
-window.addEventListener('beforeinstallprompt', function(e) {
-  e.preventDefault(); deferredPrompt = e;
-  document.getElementById('pwa-banner').style.display = 'flex';
-});
-function installPWA() {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(function() { deferredPrompt = null; document.getElementById('pwa-banner').style.display = 'none'; });
-  }
-}
-function dismissPWA() {
-  document.getElementById('pwa-banner').style.display = 'none';
-  sessionStorage.setItem('pwa-dismissed', '1');
-}
-if (sessionStorage.getItem('pwa-dismissed')) {
-  var b = document.getElementById('pwa-banner'); if (b) b.style.display = 'none';
-}
-
-// ── COOKIE ────────────────────────────────
-if (!localStorage.getItem('cookies')) {
-  setTimeout(function() {
-    var cb = document.getElementById('cookie-bar');
-    if (cb) cb.style.display = 'flex';
-  }, 2500);
-}
-</script>
-
-<!-- iOS ICON UPDATE BANNER -->
-<div id="ios-update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1A0A00;border-top:1px solid rgba(201,168,76,0.4);padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap;backdrop-filter:blur(8px);">
-  <div style="font-size:22px;flex-shrink:0;">📱</div>
-  <div style="flex:1;min-width:180px;">
-    <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:#F5EDD8;margin-bottom:3px;">Nuevo ícono disponible</div>
-    <div style="font-size:11px;color:rgba(245,237,216,0.55);line-height:1.5;">Para ver la <strong style="color:#C9A84C;">L dorada</strong> en tu pantalla de inicio: elimina la app y vuelve a instalarla desde Safari.</div>
-  </div>
-  <div style="display:flex;gap:8px;flex-shrink:0;">
-    <button onclick="showIOSSteps()" style="background:#C9A84C;color:#1A0A00;border:none;padding:9px 16px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;white-space:nowrap;">Ver pasos</button>
-    <button onclick="dismissIOSBanner()" style="background:transparent;color:rgba(245,237,216,0.4);border:1px solid rgba(245,237,216,0.15);padding:9px 12px;font-size:12px;cursor:pointer;">✕</button>
-  </div>
-</div>
-
-<!-- iOS STEPS MODAL -->
-<div id="ios-steps-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,8,0,0.92);align-items:flex-end;justify-content:center;backdrop-filter:blur(6px);">
-  <div style="background:#1A0A00;border:1px solid rgba(201,168,76,0.3);border-radius:16px 16px 0 0;padding:32px 28px 40px;width:100%;max-width:480px;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#F5EDD8;margin-bottom:6px;">Actualiza el ícono</div>
-      <div style="font-size:12px;color:rgba(245,237,216,0.45);letter-spacing:0.1em;">Solo toma 30 segundos</div>
-    </div>
-    <div style="display:grid;gap:14px;margin-bottom:28px;">
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">1</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Mantén presionado el ícono</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">En tu pantalla de inicio, mantén presionado el ícono de Legado Inca hasta que aparezca el menú.</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">2</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Toca "Eliminar marcador"</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Selecciona eliminar del inicio (no borra nada, solo el acceso directo).</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);">
-        <div style="width:28px;height:28px;background:#C9A84C;color:#1A0A00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:monospace;">3</div>
-        <div>
-          <div style="font-size:13px;color:#F5EDD8;margin-bottom:3px;">Abre Safari y vuelve a instalar</div>
-          <div style="font-size:11px;color:rgba(245,237,216,0.5);">Ve a proyectaurumsorigins.netlify.app → toca ⬆ Compartir → "Agregar a pantalla de inicio".</div>
-        </div>
-      </div>
-    </div>
-    <button onclick="closeIOSSteps()" style="width:100%;background:#C9A84C;color:#1A0A00;border:none;padding:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-weight:700;">Entendido ✓</button>
-  </div>
-</div>
-
-<script>
-// iOS icon update banner — shows only on iPhone/iPad in standalone mode with old icon version
-(function() {
-  var ICON_VERSION = 'v2-L-gold';
-  var STORED = localStorage.getItem('legado-icon-version');
-  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  var isStandalone = window.navigator.standalone;
-  var dismissed = sessionStorage.getItem('ios-banner-dismissed');
-
-  // Show banner if: iOS + installed as app + icon version is old + not dismissed
-  if (isIOS && isStandalone && STORED !== ICON_VERSION && !dismissed) {
-    setTimeout(function() {
-      var b = document.getElementById('ios-update-banner');
-      if (b) b.style.display = 'flex';
-    }, 3000);
-  }
-
-  // If NOT standalone iOS (first visit), just save the version
-  if (isIOS && !isStandalone) {
-    localStorage.setItem('legado-icon-version', ICON_VERSION);
-  }
-})();
-
-function dismissIOSBanner() {
-  var b = document.getElementById('ios-update-banner');
-  if (b) b.style.display = 'none';
-  sessionStorage.setItem('ios-banner-dismissed', '1');
-}
-
-function showIOSSteps() {
-  var b = document.getElementById('ios-update-banner');
-  var m = document.getElementById('ios-steps-modal');
-  if (b) b.style.display = 'none';
-  if (m) m.style.display = 'flex';
-}
-
-function closeIOSSteps() {
-  var m = document.getElementById('ios-steps-modal');
-  if (m) m.style.display = 'none';
-  // Mark as updated so banner won't show again
-  localStorage.setItem('legado-icon-version', 'v2-L-gold');
-}
-</script>
-</body>
-</html>
+      tip.querySelector('button:first-of-type').onclick=function(){alert('En iP
