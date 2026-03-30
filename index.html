@@ -8,18 +8,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-
-<!-- PWA -->
 <meta name="application-name" content="Legado Inca">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Legado Inca">
 <meta name="theme-color" content="#1A0A00">
-<meta name="description" content="Café, cacao y artesanías del Perú con historia. El 10% de cada venta apoya la ONG Semilla Nueva.">
+<meta name="description" content="Café, cacao y artesanías del Perú con historia. Cada compra apoya comunidades que superaron el terror.">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%231A0A00'/%3E%3Ctext x='256' y='340' font-size='260' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif'%3EL%3C/text%3E%3C/svg%3E">
-
 <style>
+
 /* ═══════════════════════════════════════
    LEGADO INCA — DESIGN TOKENS
 ═══════════════════════════════════════ */
@@ -410,6 +407,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
   .mob-menu-btn{display:none;}
   .sidebar-overlay{display:none!important;}
 }
+
 </style>
 </head>
 <body>
@@ -455,9 +453,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     PÁGINA MADRE — LEGADO INCA
-══════════════════════════════════ -->
+<!-- PÁGINA MADRE -->
 <div id="view-madre" class="page-view active">
 
   <!-- NAV -->
@@ -756,11 +752,12 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
     <p class="section-body" style="margin:16px auto 36px;text-align:center;" data-key="contact_body">Trabajamos con importadores, tostadoras, hoteles y cafeterías en Europa. Respuesta en menos de 24 horas.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a class="btn-primary" href="https://wa.me/51XXXXXXXXX?text=Hola,%20me%20interesa%20Legado%20Inca" target="_blank">📱 WhatsApp</a>
-      <a class="btn-outline" href="/cdn-cgi/l/email-protection#c9a1a6a5a889a5acaea8ada6a0a7aaa8e7aaa6a4">✉️ Email</a>
+      <a class="btn-outline" href="mailto:hola@legadoinca.com">✉️ Email</a>
     </div>
   </section>
 
   <!-- FOOTER -->
+
   <footer class="madre-footer" id="footer-madre">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -791,7 +788,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
           <li><a onclick="openLogin()">🛡 Administrador</a></li>
           <li><a onclick="openLogin()">🌿 Portal Proveedor</a></li>
           <li><a onclick="openLogin()">🇨🇿 Portal Praga</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#d3bbbcbfb293bfb6b4b2b7bcbabdb0b2fdb0bcbe">✉️ Contacto</a></li>
+          <li><a href="mailto:hola@legadoinca.com">✉️ Contacto</a></li>
         </ul>
       </div>
     </div>
@@ -1375,7 +1372,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
           <div class="panel"><div class="panel-hdr"><span class="panel-title">Contactos Lima</span></div>
             <div style="display:grid;gap:14px;">
               <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">👩‍💼</span><div><div style="font-size:12px;color:var(--text-p)">CEO — Lima</div><div style="font-size:11px;color:var(--muted-p)">📱 +51 9XX XXX XXX</div></div></div>
-              <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">📦</span><div><div style="font-size:12px;color:var(--text-p)">Logística</div><div style="font-size:11px;color:var(--muted-p)">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c10131b150f08151f1d3c10191b1d181315121f1d521f1311">[email&#160;protected]</a></div></div></div>
+              <div style="display:flex;gap:12px;align-items:center;padding:12px;background:var(--mid-dark);"><span style="font-size:22px">📦</span><div><div style="font-size:12px;color:var(--text-p)">Logística</div><div style="font-size:11px;color:var(--muted-p)">📧 hola@legadoinca.com</div></div></div>
               <div style="background:var(--mid-dark);padding:14px;"><div style="font-size:9px;color:var(--gold);margin-bottom:8px;">HORARIO LIMA</div><div style="font-size:12px;color:var(--text-p)">Lima (PET): UTC-5 · Praga (CEST): UTC+2</div><div style="font-size:11px;color:var(--muted-p);margin-top:4px;">Diferencia: 7 horas · Laboral Lima: 9am–6pm</div></div>
             </div>
           </div>
@@ -1397,17 +1394,14 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
 
 <!-- PWA BANNER -->
 <div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:8000;background:var(--tierra);border-top:1px solid var(--border);padding:16px 20px;align-items:center;gap:16px;flex-wrap:wrap;">
-  <div style="flex:1;min-width:200px;"><div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--crema);">Instalar Legado Inca</div><div style="font-size:11px;color:var(--muted);margin-top:3px;">Agregar a pantalla de inicio como app</div></div>
+  <div style="flex:1;min-width:200px;"><div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--crema);">Instalar Legado Inca</div><div style="font-size:11px;color:var(--muted);margin-top:3px;">Agregar a pantalla de inicio</div></div>
   <div style="display:flex;gap:10px;">
     <button onclick="installPWA()" style="background:var(--oro);color:var(--negro);border:none;padding:10px 22px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;">Instalar</button>
     <button onclick="dismissPWA()" style="background:transparent;color:var(--muted);border:1px solid var(--border);padding:10px 16px;font-size:11px;cursor:pointer;">✕</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ════════════════════════════════════════
 //  TRANSLATIONS
 // ════════════════════════════════════════
@@ -1582,19 +1576,24 @@ const translations = {
   }
 };
 
-function setLang(lang){
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  const t=translations[lang];
-  if(!t) return;
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const k=el.getAttribute('data-key');
-    if(t[k]!==undefined) el.innerHTML=t[k];
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.remove('active');
+    var txt = b.textContent.trim();
+    if (txt === lang.toUpperCase() || (lang === 'cs' && txt === 'CZ')) {
+      b.classList.add('active');
+    }
+  });
+  var t = translations[lang];
+  if (!t) return;
+  document.querySelectorAll('[data-key]').forEach(function(el) {
+    var k = el.getAttribute('data-key');
+    if (t[k] !== undefined) el.innerHTML = t[k];
   });
 }
 
 // ════════════════════════════════════════
-//  CREDENCIALES & LOGIN
+//  PROVEEDORES & CREDENTIALS
 // ════════════════════════════════════════
 const PROVEEDORES = {
   'PROV-001':{ pass:'prov001', nombre:'Coop. Villa Rica', producto:'Café Geisha', banco:'BCP', cuenta:'191-XXXX-XXX', precio:'S/28.00/kg',
@@ -1614,322 +1613,355 @@ const PROVEEDORES = {
     pagos:[{lote:'#UC-2025-01',tipo:'100%',monto:'S/2,000',banco:'BBVA',estado:'Pagado',fecha:'05 Jun 2025',voucher:'✅'}]
   }
 };
-const CREDENTIALS={
-  'admin':{pass:'admin123',view:'admin'},
-  'czech':{pass:'czech123',view:'czech'},
-  'PROV-001':{pass:'prov001',view:'supplier'},
-  'PROV-002':{pass:'prov002',view:'supplier'},
-  'PROV-003':{pass:'prov003',view:'supplier'},
-  'PROV-004':{pass:'prov004',view:'supplier'},
-};
-let currentProv=null;
 
-function openLogin(){document.getElementById('modal-login').classList.add('open');}
-function closeLogin(){document.getElementById('modal-login').classList.remove('open');}
-function doLogin(){
-  const u=document.getElementById('login-user').value.trim();
-  const p=document.getElementById('login-pass').value.trim();
-  const cred=CREDENTIALS[u];
-  if(cred&&p===cred.pass){
+var CREDENTIALS = {
+  'admin':    { pass:'admin123',  view:'admin'    },
+  'czech':    { pass:'czech123',  view:'czech'    },
+  'PROV-001': { pass:'prov001',   view:'supplier' },
+  'PROV-002': { pass:'prov002',   view:'supplier' },
+  'PROV-003': { pass:'prov003',   view:'supplier' },
+  'PROV-004': { pass:'prov004',   view:'supplier' }
+};
+var currentProv = null;
+
+function openLogin()  { document.getElementById('modal-login').classList.add('open'); }
+function closeLogin() { document.getElementById('modal-login').classList.remove('open'); }
+
+function doLogin() {
+  var u = document.getElementById('login-user').value.trim();
+  var p = document.getElementById('login-pass').value.trim();
+  var cred = CREDENTIALS[u];
+  if (cred && p === cred.pass) {
     closeLogin();
-    if(cred.view==='supplier') loadProvider(u);
+    if (cred.view === 'supplier') loadProvider(u);
     showView(cred.view);
   } else {
     document.getElementById('login-err').classList.add('show');
-    document.getElementById('login-pass').value='';
+    document.getElementById('login-pass').value = '';
   }
 }
-document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
-function loadProvider(code){
-  currentProv=PROVEEDORES[code];
-  if(!currentProv)return;
-  document.getElementById('prov-id-display').textContent=code;
-  document.getElementById('prov-name-display').textContent=currentProv.nombre;
-  document.getElementById('ct-nombre').textContent=currentProv.nombre;
-  document.getElementById('ct-producto').textContent=currentProv.producto;
-  document.getElementById('ct-precio').textContent=currentProv.precio;
-  document.getElementById('ct-banco').textContent=currentProv.banco;
-  document.getElementById('ct-cuenta').textContent=currentProv.cuenta;
-  const lb=document.getElementById('prov-lotes-body');
-  lb.innerHTML=currentProv.lotes.map(l=>`<tr><td style="color:var(--gold)">${l.id}</td><td>${l.prod}</td><td>${l.kg} kg</td><td>${l.fecha}</td><td><span class="badge ${l.calidad==='Aprobado'?'ok':'warn'}"><span class="badge-dot"></span>${l.calidad}</span></td><td><span class="badge ${l.pago==='Pagado'?'ok':l.pago==='Parcial'?'warn':'pend'}"><span class="badge-dot"></span>${l.pago}</span></td></tr>`).join('');
-  const pb=document.getElementById('prov-pagos-body');
-  pb.innerHTML=currentProv.pagos.map(p=>`<tr><td style="color:var(--gold)">${p.lote}</td><td>${p.tipo}</td><td style="color:${p.estado==='Pagado'||p.estado==='Enviado'?'var(--green)':p.estado==='No enviado'?'var(--red)':'var(--amber)'}">${p.monto}</td><td>${p.banco}</td><td><span class="badge ${p.estado==='Pagado'||p.estado==='Enviado'?'ok':p.estado==='No enviado'?'err':'warn'}"><span class="badge-dot"></span>${p.estado}</span></td><td>${p.fecha}</td><td>${p.voucher}</td></tr>`).join('');
-  const fl=document.getElementById('foto-lote');
-  fl.innerHTML=currentProv.lotes.map(l=>`<option>${l.id} — ${l.prod}</option>`).join('');
+function loadProvider(code) {
+  currentProv = PROVEEDORES[code];
+  if (!currentProv) return;
+  document.getElementById('prov-id-display').textContent = code;
+  document.getElementById('prov-name-display').textContent = currentProv.nombre;
+  document.getElementById('ct-nombre').textContent   = currentProv.nombre;
+  document.getElementById('ct-producto').textContent = currentProv.producto;
+  document.getElementById('ct-precio').textContent   = currentProv.precio;
+  document.getElementById('ct-banco').textContent    = currentProv.banco;
+  document.getElementById('ct-cuenta').textContent   = currentProv.cuenta;
+  var lb = document.getElementById('prov-lotes-body');
+  lb.innerHTML = currentProv.lotes.map(function(l) {
+    return '<tr><td style="color:var(--gold)">'+l.id+'</td><td>'+l.prod+'</td><td>'+l.kg+' kg</td><td>'+l.fecha+'</td>'+
+      '<td><span class="badge '+(l.calidad==='Aprobado'?'ok':'warn')+'"><span class="badge-dot"></span>'+l.calidad+'</span></td>'+
+      '<td><span class="badge '+(l.pago==='Pagado'?'ok':l.pago==='Parcial'?'warn':'pend')+'"><span class="badge-dot"></span>'+l.pago+'</span></td></tr>';
+  }).join('');
+  var pb = document.getElementById('prov-pagos-body');
+  pb.innerHTML = currentProv.pagos.map(function(p) {
+    var color = (p.estado==='Pagado'||p.estado==='Enviado') ? 'var(--green)' : (p.estado==='No enviado' ? 'var(--red)' : 'var(--amber)');
+    var badge  = (p.estado==='Pagado'||p.estado==='Enviado') ? 'ok' : (p.estado==='No enviado' ? 'err' : 'warn');
+    return '<tr><td style="color:var(--gold)">'+p.lote+'</td><td>'+p.tipo+'</td><td style="color:'+color+'">'+p.monto+'</td><td>'+p.banco+'</td>'+
+      '<td><span class="badge '+badge+'"><span class="badge-dot"></span>'+p.estado+'</span></td><td>'+p.fecha+'</td><td>'+p.voucher+'</td></tr>';
+  }).join('');
+  var fl = document.getElementById('foto-lote');
+  fl.innerHTML = currentProv.lotes.map(function(l) { return '<option>'+l.id+' — '+l.prod+'</option>'; }).join('');
 }
 
 // ════════════════════════════════════════
 //  VIEW & TAB SYSTEM
 // ════════════════════════════════════════
-function showView(name){
-  document.querySelectorAll('.page-view').forEach(v=>v.classList.remove('active'));
-  document.getElementById('view-'+name).classList.add('active');
-  window.scrollTo(0,0);
-  if(name==='admin')setTimeout(()=>{buildAdminChart();},150);
+function showView(name) {
+  document.querySelectorAll('.page-view').forEach(function(v) { v.classList.remove('active'); });
+  var el = document.getElementById('view-' + name);
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+  if (name === 'admin') setTimeout(function() { buildAdminChart(); }, 150);
 }
-function setTab(portal,tabId){
-  const main=portal==='admin'?document.getElementById('admin-main'):
-    portal==='supplier'?document.querySelector('#view-supplier .portal-main'):
-    document.querySelector('#view-czech .portal-main');
-  main.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  const el=document.getElementById(tabId);
-  if(el)el.classList.add('active');
-  const sidebar=portal==='admin'?document.querySelector('#view-admin .sidebar-nav'):
-    portal==='supplier'?document.querySelector('#view-supplier .sidebar-nav'):
-    document.querySelector('#view-czech .sidebar-nav');
-  sidebar.querySelectorAll('a').forEach(a=>a.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+
+function setTab(portal, tabId) {
+  var main = portal === 'admin'    ? document.getElementById('admin-main') :
+             portal === 'supplier' ? document.querySelector('#view-supplier .portal-main') :
+                                     document.querySelector('#view-czech .portal-main');
+  if (!main) return;
+  main.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  var el = document.getElementById(tabId);
+  if (el) el.classList.add('active');
+  var sidebar = portal === 'admin'    ? document.querySelector('#view-admin .sidebar-nav') :
+                portal === 'supplier' ? document.querySelector('#view-supplier .sidebar-nav') :
+                                        document.querySelector('#view-czech .sidebar-nav');
+  if (sidebar) {
+    sidebar.querySelectorAll('a').forEach(function(a) { a.classList.remove('active'); });
+    if (event && event.currentTarget) event.currentTarget.classList.add('active');
+  }
 }
-function setSubTab(btn,tabId,groupId){
-  document.getElementById(groupId).querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-  btn.parentElement.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+
+function setSubTab(btn, tabId, groupId) {
+  var group = document.getElementById(groupId);
+  if (!group) return;
+  group.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  var el = document.getElementById(tabId);
+  if (el) el.classList.add('active');
+  btn.parentElement.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
 }
 
 // ════════════════════════════════════════
-//  MOBILE SIDEBAR
+//  MOBILE SIDEBAR & NAV
 // ════════════════════════════════════════
-function toggleSidebar(portal){
-  const sid=document.getElementById('sidebar-'+portal);
-  const ov=document.getElementById('overlay-'+portal);
-  const btn=document.getElementById('hamburguer-'+portal);
-  if(!sid)return;
-  const open=sid.classList.contains('open');
-  if(open){sid.classList.remove('open');if(ov)ov.classList.remove('show');if(btn)btn.innerHTML='☰';}
-  else{sid.classList.add('open');if(ov)ov.classList.add('show');if(btn)btn.innerHTML='✕';}
+function toggleSidebar(portal) {
+  var sid = document.getElementById('sidebar-' + portal);
+  var ov  = document.getElementById('overlay-' + portal);
+  var btn = document.getElementById('hamburguer-' + portal);
+  if (!sid) return;
+  var open = sid.classList.contains('open');
+  if (open) {
+    sid.classList.remove('open'); if(ov) ov.classList.remove('show'); if(btn) btn.innerHTML='☰';
+  } else {
+    sid.classList.add('open');    if(ov) ov.classList.add('show');    if(btn) btn.innerHTML='✕';
+  }
 }
-function closeSidebar(portal){
-  const sid=document.getElementById('sidebar-'+portal);
-  const ov=document.getElementById('overlay-'+portal);
-  const btn=document.getElementById('hamburguer-'+portal);
-  if(sid)sid.classList.remove('open');
-  if(ov)ov.classList.remove('show');
-  if(btn)btn.innerHTML='☰';
+function closeSidebar(portal) {
+  var sid = document.getElementById('sidebar-' + portal);
+  var ov  = document.getElementById('overlay-' + portal);
+  var btn = document.getElementById('hamburguer-' + portal);
+  if(sid) sid.classList.remove('open');
+  if(ov)  ov.classList.remove('show');
+  if(btn) btn.innerHTML = '☰';
 }
-document.addEventListener('click',function(e){
-  if(e.target.closest('.sidebar-nav a')&&window.innerWidth<=1024)
-    ['admin','supplier','czech'].forEach(p=>closeSidebar(p));
+document.addEventListener('click', function(e) {
+  if (e.target.closest && e.target.closest('.sidebar-nav a') && window.innerWidth <= 1024) {
+    ['admin','supplier','czech'].forEach(function(p) { closeSidebar(p); });
+  }
 });
 
+window.addEventListener('scroll', function() {
+  document.getElementById('nav-madre').classList.toggle('scrolled', window.scrollY > 60);
+});
+function scrollTo_(sel) {
+  var el = document.querySelector(sel);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function toggleMob() {
+  var mn = document.getElementById('mob-nav');
+  mn.style.display = (mn.style.display === 'flex') ? 'none' : 'flex';
+}
+
 // ════════════════════════════════════════
-//  HERO SLIDER (fotos + videos)
+//  HERO SLIDER
 // ════════════════════════════════════════
-let heroIdx=0;
-const heroSlides=document.querySelectorAll('.hero-slide');
-const heroDotsWrap=document.getElementById('hero-dots');
-heroSlides.forEach((_,i)=>{
-  const d=document.createElement('button');
-  d.className='hero-dot'+(i===0?' active':'');
-  d.onclick=()=>goHero(i);
+var heroIdx = 0;
+var heroSlides = document.querySelectorAll('#view-madre .hero-slide');
+var heroDotsWrap = document.getElementById('hero-dots');
+
+heroSlides.forEach(function(slide, i) {
+  var d = document.createElement('button');
+  d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+  d.onclick = (function(n) { return function() { goHero(n); }; })(i);
   heroDotsWrap.appendChild(d);
 });
-function goHero(n){
+
+function goHero(n) {
   heroSlides[heroIdx].classList.remove('active');
   heroDotsWrap.children[heroIdx].classList.remove('active');
-  var oldVid=heroSlides[heroIdx].querySelector('video');
-  if(oldVid){oldVid.pause();}
-  heroIdx=(n+heroSlides.length)%heroSlides.length;
+  var oldVid = heroSlides[heroIdx].querySelector('video');
+  if (oldVid) oldVid.pause();
+  heroIdx = (n + heroSlides.length) % heroSlides.length;
   heroSlides[heroIdx].classList.add('active');
   heroDotsWrap.children[heroIdx].classList.add('active');
-  var newVid=heroSlides[heroIdx].querySelector('video');
-  if(newVid){newVid.currentTime=0;newVid.play().catch(function(){});}
+  var newVid = heroSlides[heroIdx].querySelector('video');
+  if (newVid) { newVid.currentTime = 0; newVid.play().catch(function() {}); }
 }
-setInterval(()=>goHero(heroIdx+1),5500);
+setInterval(function() { goHero(heroIdx + 1); }, 5500);
 
 // ════════════════════════════════════════
 //  PERSONAS CAROUSEL
 // ════════════════════════════════════════
-let personaIdx=0;
-const personaSlides=document.querySelectorAll('.persona-slide');
-const personaDotsWrap=document.getElementById('personas-dots');
-personaSlides.forEach((_,i)=>{
-  const d=document.createElement('button');
-  d.className='persona-dot'+(i===0?' active':'');
-  d.onclick=()=>goPersona(i);
+var personaIdx = 0;
+var personaSlides = document.querySelectorAll('.persona-slide');
+var personaDotsWrap = document.getElementById('personas-dots');
+
+personaSlides.forEach(function(slide, i) {
+  var d = document.createElement('button');
+  d.className = 'persona-dot' + (i === 0 ? ' active' : '');
+  d.onclick = (function(n) { return function() { goPersona(n); }; })(i);
   personaDotsWrap.appendChild(d);
 });
-function goPersona(n){
+
+function goPersona(n) {
   personaSlides[personaIdx].classList.remove('active');
   personaDotsWrap.children[personaIdx].classList.remove('active');
-  personaIdx=(n+personaSlides.length)%personaSlides.length;
+  personaIdx = (n + personaSlides.length) % personaSlides.length;
   personaSlides[personaIdx].classList.add('active');
   personaDotsWrap.children[personaIdx].classList.add('active');
 }
-setInterval(()=>goPersona(personaIdx+1),7000);
-
-// ════════════════════════════════════════
-//  NAV SCROLL
-// ════════════════════════════════════════
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav-madre').classList.toggle('scrolled',window.scrollY>60);
-});
-function scrollTo_(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
-function toggleMob(){
-  const mn=document.getElementById('mob-nav');
-  mn.style.display=mn.style.display==='flex'?'none':'flex';
-}
+setInterval(function() { goPersona(personaIdx + 1); }, 7000);
 
 // ════════════════════════════════════════
 //  COUNTERS
 // ════════════════════════════════════════
-function animateCounter(el){
-  const target=+el.dataset.target;
-  let current=0;
-  const step=target/60;
-  const timer=setInterval(()=>{
-    current=Math.min(current+step,target);
-    el.textContent=Math.floor(current);
-    if(current>=target)clearInterval(timer);
-  },20);
+function animateCounter(el) {
+  var target = +el.dataset.target;
+  var current = 0;
+  var step = target / 60;
+  var timer = setInterval(function() {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current);
+    if (current >= target) clearInterval(timer);
+  }, 20);
 }
-const cObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.querySelectorAll('.counter').forEach(animateCounter);cObs.unobserve(e.target);}
+var cObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.counter').forEach(animateCounter);
+      cObs.unobserve(e.target);
+    }
   });
-},{threshold:0.3});
-document.querySelectorAll('.stats-bar,.impacto').forEach(s=>cObs.observe(s));
+}, { threshold: 0.3 });
+document.querySelectorAll('.stats-bar,.impacto').forEach(function(s) { cObs.observe(s); });
 
 // ════════════════════════════════════════
 //  SCROLL ANIMATIONS
 // ════════════════════════════════════════
-const animObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
-},{threshold:0.08});
-document.querySelectorAll('.paso,.impact-stat,.grupo-card,.marca-card').forEach((el,i)=>{
-  el.style.opacity='0';el.style.transform='translateY(24px)';
-  el.style.transition=`opacity 0.6s ${i*0.08}s ease, transform 0.6s ${i*0.08}s ease`;
+var animObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.paso,.impact-stat,.grupo-card,.marca-card').forEach(function(el, i) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ' + (i * 0.08) + 's ease, transform 0.6s ' + (i * 0.08) + 's ease';
   animObs.observe(el);
 });
 
 // ════════════════════════════════════════
 //  ADMIN CHARTS
 // ════════════════════════════════════════
-function buildAdminChart(){
-  const ctx=document.getElementById('admin-chart');
-  if(!ctx||ctx._built)return;ctx._built=true;
-  new Chart(ctx,{type:'bar',data:{labels:['S1','S2','S3','S4','S5','S6','S7','S8'],datasets:[{label:'Café',data:[40,55,70,50,80,65,90,75],backgroundColor:'rgba(201,168,76,0.7)',borderRadius:2},{label:'Cacao',data:[20,25,30,35,30,40,35,45],backgroundColor:'rgba(107,58,26,0.7)',borderRadius:2},{label:'Artesanías',data:[10,15,10,20,15,25,20,18],backgroundColor:'rgba(107,39,55,0.6)',borderRadius:2}]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}},tooltip:{backgroundColor:'#1a1810',titleColor:'#C9A84C',bodyColor:'#e8e0cc'}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)',font:{size:9}},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)',font:{size:9}},grid:{color:'rgba(201,168,76,0.05)'}}}}}});
+function buildAdminChart() {
+  var ctx = document.getElementById('admin-chart');
+  if (!ctx || ctx._built) return; ctx._built = true;
+  new Chart(ctx, {type:'bar',data:{labels:['S1','S2','S3','S4','S5','S6','S7','S8'],datasets:[
+    {label:'Café',data:[40,55,70,50,80,65,90,75],backgroundColor:'rgba(201,168,76,0.7)',borderRadius:2},
+    {label:'Cacao',data:[20,25,30,35,30,40,35,45],backgroundColor:'rgba(107,58,26,0.7)',borderRadius:2},
+    {label:'Artesanías',data:[10,15,10,20,15,25,20,18],backgroundColor:'rgba(107,39,55,0.6)',borderRadius:2}
+  ]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}},tooltip:{backgroundColor:'#1a1810',titleColor:'#C9A84C',bodyColor:'#e8e0cc'}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)',font:{size:9}},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)',font:{size:9}},grid:{color:'rgba(201,168,76,0.05)'}}}}});
 }
-function buildFinCharts(){
-  const i=document.getElementById('ingresos-chart');
-  const g=document.getElementById('gastos-chart');
-  if(i&&!i._built){i._built=true;new Chart(i,{type:'line',data:{labels:['Ene','Feb','Mar','Abr','May','Jun'],datasets:[{label:'Café €',data:[12000,15000,18000,14000,20000,24380],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.1)',tension:0.4,fill:true},{label:'Cacao €',data:[3000,4000,5500,4800,6000,7180],borderColor:'#8a5030',backgroundColor:'rgba(138,80,48,0.1)',tension:0.4,fill:true}]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}}}}});}
-  if(g&&!g._built){g._built=true;new Chart(g,{type:'bar',data:{labels:['Ene','Feb','Mar','Abr','May','Jun'],datasets:[{label:'Compras S/',data:[20000,22000,28000,25000,27000,28400],backgroundColor:'rgba(224,82,82,0.6)',borderRadius:2},{label:'Logística $',data:[2000,2200,2800,2400,2600,2930],backgroundColor:'rgba(91,141,239,0.6)',borderRadius:2}]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}}}}});}
+function buildFinCharts() {
+  var ic = document.getElementById('ingresos-chart');
+  var gc = document.getElementById('gastos-chart');
+  if (ic && !ic._built) { ic._built=true; new Chart(ic,{type:'line',data:{labels:['Ene','Feb','Mar','Abr','May','Jun'],datasets:[{label:'Café €',data:[12000,15000,18000,14000,20000,24380],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.1)',tension:0.4,fill:true},{label:'Cacao €',data:[3000,4000,5500,4800,6000,7180],borderColor:'#8a5030',backgroundColor:'rgba(138,80,48,0.1)',tension:0.4,fill:true}]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}}}}}); }
+  if (gc && !gc._built) { gc._built=true; new Chart(gc,{type:'bar',data:{labels:['Ene','Feb','Mar','Abr','May','Jun'],datasets:[{label:'Compras S/',data:[20000,22000,28000,25000,27000,28400],backgroundColor:'rgba(224,82,82,0.6)',borderRadius:2},{label:'Logística $',data:[2000,2200,2800,2400,2600,2930],backgroundColor:'rgba(91,141,239,0.6)',borderRadius:2}]},options:{responsive:true,plugins:{legend:{labels:{color:'rgba(232,224,204,0.6)',font:{size:10}}}},scales:{x:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}},y:{ticks:{color:'rgba(232,224,204,0.4)'},grid:{color:'rgba(201,168,76,0.05)'}}}}}}); }
 }
-document.addEventListener('click',function(e){
-  if(e.target.classList.contains('tab-btn')&&e.target.textContent.includes('Ingresos'))setTimeout(buildFinCharts,100);
-  if(e.target.textContent&&e.target.textContent.includes('Finanzas'))setTimeout(buildFinCharts,200);
+document.addEventListener('click', function(e) {
+  if (e.target.classList && e.target.classList.contains('tab-btn') && e.target.textContent.indexOf('Ingresos') >= 0) setTimeout(buildFinCharts, 100);
+  if (e.target.textContent && e.target.textContent.indexOf('Finanzas') >= 0) setTimeout(buildFinCharts, 200);
 });
 
 // ════════════════════════════════════════
 //  SATELLITE MAPS
 // ════════════════════════════════════════
-var satMap=null,satMarker=null;
+var satMap=null, satMarker=null;
 function loadSatellite(lat,lng,name){
   var nameEl=document.getElementById('sat-name');
   var linkEl=document.getElementById('sat-gmaps-link');
   var mapDiv=document.getElementById('sat-map');
-  if(nameEl)nameEl.textContent=name;
+  if(nameEl) nameEl.textContent=name;
   if(linkEl){linkEl.href='https://www.google.com/maps/@'+lat+','+lng+',500m/data=!3m1!1e3';linkEl.style.display='inline-block';}
   if(!satMap){
-    mapDiv.innerHTML='';mapDiv.style.background='';
-    satMap=L.map('sat-map',{center:[lat,lng],zoom:15,scrollWheelZoom:true,zoomControl:true,maxZoom:21});
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{attribution:'&copy; Google Maps',subdomains:['0','1','2','3'],maxZoom:21,maxNativeZoom:21,tileSize:256}).addTo(satMap);
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,maxNativeZoom:21,opacity:0.8,tileSize:256}).addTo(satMap);
-  }else{satMap.setView([lat,lng],15);}
-  if(satMarker)satMap.removeLayer(satMarker);
+    mapDiv.innerHTML=''; mapDiv.style.background='';
+    satMap=L.map('sat-map',{center:[lat,lng],zoom:15,scrollWheelZoom:true,maxZoom:21});
+    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,tileSize:256}).addTo(satMap);
+    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,opacity:0.8,tileSize:256}).addTo(satMap);
+  } else { satMap.setView([lat,lng],15); }
+  if(satMarker) satMap.removeLayer(satMarker);
   satMarker=L.circleMarker([lat,lng],{radius:10,color:'#C9A84C',fillColor:'#C9A84C',fillOpacity:0.5,weight:2}).addTo(satMap);
-  satMarker.bindPopup('<div style="font-family:Jost,sans-serif;padding:6px 4px;"><strong style="color:#C9A84C;font-size:12px;">'+name+'</strong><br><span style="color:rgba(232,224,204,0.5);font-size:10px;">Lat: '+lat.toFixed(4)+' · Lng: '+lng.toFixed(4)+'</span></div>',{offset:[0,-5]}).openPopup();
+  satMarker.bindPopup('<strong style="color:#C9A84C">'+name+'</strong>').openPopup();
   satMap.invalidateSize();
 }
 
-var czSatMap=null,czSatMarker=null;
+var czSatMap=null, czSatMarker=null;
 function loadSatelliteCZ(lat,lng,name){
   var nameEl=document.getElementById('cz-sat-name');
   var linkEl=document.getElementById('cz-gmaps-link');
   var mapDiv=document.getElementById('cz-sat-map');
-  if(nameEl)nameEl.textContent=name;
+  if(nameEl) nameEl.textContent=name;
   if(linkEl){linkEl.href='https://www.google.com/maps/@'+lat+','+lng+',500m/data=!3m1!1e3';linkEl.style.display='block';}
   if(!czSatMap){
-    mapDiv.innerHTML='';mapDiv.style.background='';
-    czSatMap=L.map('cz-sat-map',{center:[lat,lng],zoom:15,scrollWheelZoom:true,zoomControl:true,maxZoom:21});
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{attribution:'&copy; Google Maps',subdomains:['0','1','2','3'],maxZoom:21,maxNativeZoom:21,tileSize:256}).addTo(czSatMap);
-    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,maxNativeZoom:21,opacity:0.8,tileSize:256}).addTo(czSatMap);
-  }else{czSatMap.setView([lat,lng],15);}
-  if(czSatMarker)czSatMap.removeLayer(czSatMarker);
+    mapDiv.innerHTML=''; mapDiv.style.background='';
+    czSatMap=L.map('cz-sat-map',{center:[lat,lng],zoom:15,scrollWheelZoom:true,maxZoom:21});
+    L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,tileSize:256}).addTo(czSatMap);
+    L.tileLayer('https://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}',{subdomains:['0','1','2','3'],maxZoom:21,opacity:0.8,tileSize:256}).addTo(czSatMap);
+  } else { czSatMap.setView([lat,lng],15); }
+  if(czSatMarker) czSatMap.removeLayer(czSatMarker);
   czSatMarker=L.circleMarker([lat,lng],{radius:10,color:'#C9A84C',fillColor:'#C9A84C',fillOpacity:0.5,weight:2}).addTo(czSatMap);
-  czSatMarker.bindPopup('<div style="font-family:Jost,sans-serif;padding:6px 4px;"><strong style="color:#C9A84C;font-size:12px;">'+name+'</strong></div>',{offset:[0,-5]}).openPopup();
+  czSatMarker.bindPopup('<strong style="color:#C9A84C">'+name+'</strong>').openPopup();
   czSatMap.invalidateSize();
 }
 
 // ════════════════════════════════════════
-//  ADMIN DATE
+//  ADMIN UTILS
 // ════════════════════════════════════════
-const ad=document.getElementById('admin-date');
-if(ad)ad.textContent=new Date().toLocaleDateString('es-PE',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+var adEl = document.getElementById('admin-date');
+if (adEl) adEl.textContent = new Date().toLocaleDateString('es-PE',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-// ════════════════════════════════════════
-//  ADMIN QUALITY CHECK
-// ════════════════════════════════════════
 function checkAdminQuality(){
-  const h=parseFloat(document.getElementById('adm-humedad').value)||0;
-  const d=(document.getElementById('adm-defectos').value||'').toLowerCase();
-  const critical=d.includes('negro')||d.includes('moho')||d.includes('hongo');
-  const fail=document.getElementById('adm-quality-fail');
-  const ok=document.getElementById('adm-quality-ok');
-  const res=document.getElementById('adm-resultado');
+  var h=parseFloat(document.getElementById('adm-humedad').value)||0;
+  var d=(document.getElementById('adm-defectos').value||'').toLowerCase();
+  var critical=d.indexOf('negro')>=0||d.indexOf('moho')>=0||d.indexOf('hongo')>=0;
+  var fail=document.getElementById('adm-quality-fail');
+  var ok=document.getElementById('adm-quality-ok');
+  var res=document.getElementById('adm-resultado');
   if(h>13||critical){fail.style.display='block';ok.style.display='none';res.value='❌ NO COMPRAR';}
   else if(h>0){fail.style.display='none';ok.style.display='block';res.value='✅ Aprobado';}
   else{fail.style.display='none';ok.style.display='none';res.value='';}
 }
 
-// ════════════════════════════════════════
-//  PAGOS ADMIN
-// ════════════════════════════════════════
-const PROV_BANKS={'PROV-001':'Banco: BCP · Cta: 191-XXXX-XXX · CCI: 00219100XXXXXXXXXX','PROV-002':'Banco: Interbank · Cta: 200-XXXX-XXX · CCI: 00320000XXXXXXXXXX','PROV-003':'Banco: Scotiabank · Cta: 312-XXXX-XXX · CCI: 00931200XXXXXXXXXX','PROV-004':'Banco: BBVA · Cta: 011-XXXX-XXX · CCI: 01101100XXXXXXXXXX'};
+var PROV_BANKS={
+  'PROV-001':'Banco: BCP · Cta: 191-XXXX-XXX · CCI: 00219100XXXXXXXXXX',
+  'PROV-002':'Banco: Interbank · Cta: 200-XXXX-XXX · CCI: 00320000XXXXXXXXXX',
+  'PROV-003':'Banco: Scotiabank · Cta: 312-XXXX-XXX · CCI: 00931200XXXXXXXXXX',
+  'PROV-004':'Banco: BBVA · Cta: 011-XXXX-XXX · CCI: 01101100XXXXXXXXXX'
+};
 function loadProvBank(){
-  const sel=document.getElementById('pay-prov').value;
-  const info=document.getElementById('prov-bank-info');
-  const det=document.getElementById('prov-bank-detail');
+  var sel=document.getElementById('pay-prov').value;
+  var info=document.getElementById('prov-bank-info');
+  var det=document.getElementById('prov-bank-detail');
   if(sel&&PROV_BANKS[sel]){info.style.display='block';det.textContent=PROV_BANKS[sel];}
   else info.style.display='none';
 }
 function calcPago(){
-  const total=parseFloat(document.getElementById('pay-total').value)||0;
-  const pct=parseInt(document.getElementById('pay-type').value)||0;
-  const monto=document.getElementById('pay-monto');
-  if(total&&pct)monto.value='S/ '+(total*pct/100).toFixed(2);
+  var total=parseFloat(document.getElementById('pay-total').value)||0;
+  var pct=parseInt(document.getElementById('pay-type').value)||0;
+  var monto=document.getElementById('pay-monto');
+  if(total&&pct) monto.value='S/ '+(total*pct/100).toFixed(2);
   else monto.value='';
 }
 function uploadVoucher(e){
-  const f=e.target.files[0];if(!f)return;
+  var f=e.target.files[0]; if(!f) return;
   document.getElementById('voucher-preview').style.display='block';
   document.getElementById('voucher-name').textContent=f.name;
 }
 function confirmarPago(){
-  const prov=document.getElementById('pay-prov').value;
-  const monto=document.getElementById('pay-monto').value;
+  var prov=document.getElementById('pay-prov').value;
+  var monto=document.getElementById('pay-monto').value;
   if(!prov||!monto){alert('Por favor selecciona proveedor y monto.');return;}
-  alert('✅ Transferencia confirmada por '+monto+' al '+prov+'\n\nNotificación enviada automáticamente al proveedor.');
-  if(currentProv&&document.getElementById('view-supplier').classList.contains('active'))
-    document.getElementById('prov-pago-notif').style.display='block';
+  alert('✅ Transferencia confirmada por '+monto+' al '+prov);
 }
-
-// ════════════════════════════════════════
-//  PHOTO PREVIEW & LOT SUBMIT
-// ════════════════════════════════════════
 function prevFotos(e,containerId){
-  const c=document.getElementById(containerId);if(!c)return;
-  Array.from(e.target.files).slice(0,10).forEach(f=>{
-    const d=document.createElement('div');d.className='photo-thumb';
-    const img=document.createElement('img');img.src=URL.createObjectURL(f);
-    d.appendChild(img);c.appendChild(d);
+  var c=document.getElementById(containerId); if(!c) return;
+  Array.from(e.target.files).slice(0,10).forEach(function(f){
+    var d=document.createElement('div'); d.className='photo-thumb';
+    var img=document.createElement('img'); img.src=URL.createObjectURL(f);
+    d.appendChild(img); c.appendChild(d);
   });
 }
 function submitLot(){
-  const id='#LOT-'+Math.floor(Math.random()*9000+1000);
-  alert('✅ Lote '+id+' registrado exitosamente.\nEl equipo evaluará la calidad y te notificaremos.');
+  var id='#LOT-'+Math.floor(Math.random()*9000+1000);
+  alert('✅ Lote '+id+' registrado exitosamente.');
 }
 
 // ════════════════════════════════════════
@@ -1937,24 +1969,37 @@ function submitLot(){
 // ════════════════════════════════════════
 var deferredPrompt=null;
 if('serviceWorker' in navigator){
-  window.addEventListener('load',function(){navigator.serviceWorker.register('/Project/sw.js').catch(()=>{});});
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
 }
 window.addEventListener('beforeinstallprompt',function(e){
-  e.preventDefault();deferredPrompt=e;
+  e.preventDefault(); deferredPrompt=e;
   document.getElementById('pwa-banner').style.display='flex';
 });
 function installPWA(){
-  if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('pwa-banner').style.display='none';});}
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(){deferredPrompt=null;document.getElementById('pwa-banner').style.display='none';});
+  }
 }
-function dismissPWA(){document.getElementById('pwa-banner').style.display='none';sessionStorage.setItem('pwa-dismissed','1');}
-if(sessionStorage.getItem('pwa-dismissed')){const b=document.getElementById('pwa-banner');if(b)b.style.display='none';}
+function dismissPWA(){
+  document.getElementById('pwa-banner').style.display='none';
+  sessionStorage.setItem('pwa-dismissed','1');
+}
+if(sessionStorage.getItem('pwa-dismissed')){
+  var pb=document.getElementById('pwa-banner'); if(pb) pb.style.display='none';
+}
 
-// iOS PWA tip
-var isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-if(isIOS&&!window.navigator.standalone){
+// ════════════════════════════════════════
+//  COOKIE BANNER
+// ════════════════════════════════════════
+if(!localStorage.getItem('cookies')){
   setTimeout(function(){
-    var tip=document.getElementById('pwa-banner');
-    if(tip&&sessionStorage.getItem('pwa-dismissed')!=='1'){
-      tip.style.display='flex';
-      tip.querySelector('button:first-of-type').textContent='Ver instrucciones';
-      tip.querySelector('button:first-of-type').onclick=function(){alert('En iP
+    var cb=document.getElementById('cookie-bar');
+    if(cb) cb.style.display='flex';
+  },2500);
+}
+</script>
+</body>
+</html>
