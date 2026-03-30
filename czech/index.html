@@ -951,7 +951,7 @@ footer.madre-footer{background:var(--tierra);border-top:1px solid var(--border);
 <!-- ══════════════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ════════════════════════════════════════
 //  TRANSLATIONS
 // ════════════════════════════════════════
@@ -1436,8 +1436,7 @@ function confirmarPago(){
   const monto=document.getElementById('pay-monto').value;
   if(!prov||!monto){alert('Por favor selecciona proveedor y monto.');return;}
   alert('✅ Transferencia confirmada por '+monto+' al '+prov+'\n\nNotificación enviada automáticamente al proveedor.');
-  if(currentProv&&document.getElementById('view-supplier').classList.contains('active'))
-    document.getElementById('prov-pago-notif').style.display='block';
+
 }
 
 // ════════════════════════════════════════
@@ -1501,4 +1500,17 @@ function setCzLang(lang){
   // Also update main lang
   setLang(lang);
 }
- 
+
+// ════════════════════════════════════════
+//  COOKIE BANNER
+// ════════════════════════════════════════
+if(!localStorage.getItem('cookies')){
+  setTimeout(function(){
+    var cb=document.getElementById('cookie-bar');
+    if(cb) cb.style.display='flex';
+  },2500);
+}
+
+</script>
+</body>
+</html>
