@@ -67,9 +67,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .page-view.active{display:block;}
 
 /* ═══ LANGUAGE BAR ═══ */
-.lang-bar{position:fixed;top:0;right:0;z-index:600;display:flex;background:rgba(13,8,0,0.96);border-bottom-left-radius:6px;border:1px solid var(--border);border-top:none;border-right:none;}
+.lang-bar{position:fixed;top:0;right:0;z-index:600;display:flex;background:rgba(13,8,0,0.96);border-bottom-left-radius:6px;border:1px solid var(--border);border-top:none;border-right:none;margin-top:env(safe-area-inset-top);}
 .lang-btn{padding:8px 13px;background:none;border:none;color:rgba(245,237,216,0.45);font-family:'Space Mono',monospace;font-size:10px;cursor:pointer;transition:all 0.3s;letter-spacing:1px;}
 .lang-btn:hover,.lang-btn.active{color:var(--oro);background:rgba(201,168,76,0.1);}
+@media(max-width:768px){
+  .lang-btn{padding:6px 9px;font-size:9px;}
+}
 
 /* ═══ NAV MADRE ═══ */
 .nav-madre{position:fixed;top:0;left:0;right:0;z-index:500;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s;}
@@ -573,9 +576,20 @@ button[data-key="hero_btn2"]:hover {
 .nav-readdy {
   position:fixed;top:0;left:0;width:100%;z-index:50;
   transition:all 0.5s;padding:20px 0;
+  padding-top:calc(20px + env(safe-area-inset-top));
+  box-sizing:content-box;
 }
 .nav-readdy.scrolled {
   background:rgba(13,6,0,0.95);backdrop-filter:blur(8px);padding:12px 0;
+  padding-top:calc(12px + env(safe-area-inset-top));
+}
+
+/* Nav desktop links — hide on mobile */
+.nav-desktop-links { display:flex; }
+@media(max-width:768px){
+  .nav-desktop-links { display:none !important; }
+  .nav-readdy { padding:12px 0; padding-top:calc(12px + env(safe-area-inset-top)); }
+  .mob-nav-btn { display:block !important; }
 }
 
 /* Btn rounded (Readdy style) */
@@ -674,6 +688,7 @@ button[data-key="hero_btn2"]:hover {
   <a onclick="scrollTo_('#universo');toggleMob()">Marcas</a>
   <a onclick="scrollTo_('#impacto');toggleMob()">Impacto ONG</a>
   <a onclick="scrollTo_('#footer-madre');toggleMob()">Contacto</a>
+  <a onclick="openLogin();toggleMob()" style="font-size:18px;color:var(--oro);border:1px solid rgba(201,168,76,0.4);padding:10px 28px;border-radius:999px;margin-top:8px;">🔐 Iniciar Sesión</a>
 </div>
 
 <!-- LOGIN MODAL -->
@@ -1030,7 +1045,7 @@ button[data-key="hero_btn2"]:hover {
           <p style="color:rgba(255,255,255,0.7);font-size:13px;line-height:1.6;margin-bottom:16px;" data-key="marca2_sub">Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal. Del árbol al alma.</p>
           <span style="color:#C9A84C;font-size:13px;font-weight:500;" data-key="marca_arrow2">Explorar COYA →</span>
         </div>
-        <div style="position:absolute;top:16px;right:16px;background:rgba(201,168,76,0.2);color:#C9A84C;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;border:1px solid rgba(201,168,76,0.3);" data-key="marca2_badge">Próximamente</div>
+        <div style="position:absolute;top:16px;right:16px;background:#15803d;color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;" data-key="marca2_badge">Disponible</div>
       </div>
 
       <div class="marca-card-readdy fade-up">
@@ -1800,7 +1815,7 @@ const translations = {
     marca2_eye:'Cacao Premium',marca2_sub:'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal.',
     marca3_eye:'Artesanías Andinas',marca3_name:'Próximamente',marca3_sub:'Textiles Shipibo. Cerámica Quechua. Orfebrería Aymara. Cada pieza lleva un nombre.',
     marca_arrow1:'Explorar HOLZEN →',marca_arrow2:'Explorar COYA →',marca_arrow3:'Explorar colección →',
-    marca1_badge:'Disponible',marca2_badge:'Próximamente',marca3_badge:'En desarrollo',
+    marca1_badge:'Disponible',marca2_badge:'Disponible',marca3_badge:'En desarrollo',
     impact_eyebrow:'ONG Semilla Nueva · 10% de cada venta',impact_title:'Tu compra<br><em>cambia vidas</em>',
     imp1:'Familias apoyadas',imp2:'Niños en educación',imp3:'Donados en 2024',imp4:'Mujeres en vivienda',
     impact_quote:'"No vendemos café. Exportamos dignidad."',
@@ -1841,7 +1856,7 @@ const translations = {
     marca2_eye:'Premium Cacao',marca2_sub:'Chuncho from Cusco. CCN-51. Monzón Heritage. Artisan fermentation.',
     marca3_eye:'Andean Crafts',marca3_name:'Coming soon',marca3_sub:'Shipibo textiles. Quechua ceramics. Aymara goldsmith work.',
     marca_arrow1:'Explore HOLZEN →',marca_arrow2:'Explore COYA →',marca_arrow3:'Explore collection →',
-    marca1_badge:'Available',marca2_badge:'Coming soon',marca3_badge:'In development',
+    marca1_badge:'Available',marca2_badge:'Available',marca3_badge:'In development',
     impact_eyebrow:'NGO Semilla Nueva · 10% of every sale',impact_title:'Your purchase<br><em>changes lives</em>',
     imp1:'Families supported',imp2:'Children in education',imp3:'Donated in 2024',imp4:'Women in housing',
     impact_quote:'"We don\'t sell coffee. We export dignity."',
@@ -1882,7 +1897,7 @@ const translations = {
     marca2_eye:'Premium Kakao',marca2_sub:'Chuncho aus Cusco. CCN-51. Monzón Heritage.',
     marca3_eye:'Andines Kunsthandwerk',marca3_name:'Demnächst',marca3_sub:'Shipibo-Textilien. Quechua-Keramik. Aymara-Goldschmiedearbeit.',
     marca_arrow1:'HOLZEN entdecken →',marca_arrow2:'COYA entdecken →',marca_arrow3:'Kollektion entdecken →',
-    marca1_badge:'Verfügbar',marca2_badge:'Demnächst',marca3_badge:'In Entwicklung',
+    marca1_badge:'Verfügbar',marca2_badge:'Verfügbar',marca3_badge:'In Entwicklung',
     impact_eyebrow:'NGO Semilla Nueva · 10% jedes Verkaufs',impact_title:'Ihr Kauf<br><em>verändert Leben</em>',
     imp1:'Unterstützte Familien',imp2:'Kinder in Bildung',imp3:'Gespendet 2024',imp4:'Frauen in Wohnprogramm',
     impact_quote:'"Wir verkaufen keinen Kaffee. Wir exportieren Würde."',
@@ -1923,7 +1938,7 @@ const translations = {
     marca2_eye:'Prémiové kakao',marca2_sub:'Chuncho z Cusca. CCN-51. Monzón Heritage.',
     marca3_eye:'Andské řemeslné výrobky',marca3_name:'Připravujeme',marca3_sub:'Shipibo textil. Quechua keramika. Aymara zlatnictví.',
     marca_arrow1:'Prozkoumat HOLZEN →',marca_arrow2:'Prozkoumat COYA →',marca_arrow3:'Prozkoumat kolekci →',
-    marca1_badge:'Dostupné',marca2_badge:'Připravujeme',marca3_badge:'Ve vývoji',
+    marca1_badge:'Dostupné',marca2_badge:'Dostupné',marca3_badge:'Ve vývoji',
     impact_eyebrow:'NGO Semilla Nueva · 10% z každého prodeje',impact_title:'Váš nákup<br><em>mění životy</em>',
     imp1:'Podporovaných rodin',imp2:'Dětí ve vzdělávání',imp3:'Darováno v roce 2024',imp4:'Žen v bytovém programu',
     impact_quote:'"Neprodáváme kávu. Exportujeme důstojnost."',
@@ -2458,7 +2473,7 @@ var T = {
     marca2_eye: 'Cacao Premium', marca2_sub: 'Chuncho del Cusco. CCN-51. Monz\u00f3n Heritage. Fermentaci\u00f3n artesanal.',
     marca3_eye: 'Artesan\u00edas Andinas', marca3_name: 'Pr\u00f3ximamente', marca3_sub: 'Textiles Shipibo. Cer\u00e1mica Quechua. Orfebre\u00eda Aymara.',
     marca_arrow1: 'Explorar HOLZEN \u2192', marca_arrow2: 'Explorar COYA \u2192', marca_arrow3: 'Explorar colecci\u00f3n \u2192',
-    marca1_badge: 'Disponible', marca2_badge: 'Pr\u00f3ximamente', marca3_badge: 'En desarrollo',
+    marca1_badge: 'Disponible', marca2_badge: 'Disponible', marca3_badge: 'En desarrollo',
     impact_eyebrow: 'ONG Semilla Nueva \u00b7 10% de cada venta',
     impact_title: 'Tu compra<br><em>cambia vidas</em>',
     imp1: 'Familias apoyadas', imp2: 'Ni\u00f1os en educaci\u00f3n', imp3: 'Donados en 2024', imp4: 'Mujeres en vivienda',
@@ -2510,7 +2525,7 @@ var T = {
     marca2_eye: 'Premium Cacao', marca2_sub: 'Chuncho from Cusco. CCN-51. Monzon Heritage. Artisan fermentation.',
     marca3_eye: 'Andean Crafts', marca3_name: 'Coming soon', marca3_sub: 'Shipibo textiles. Quechua ceramics. Aymara goldsmith work.',
     marca_arrow1: 'Explore HOLZEN \u2192', marca_arrow2: 'Explore COYA \u2192', marca_arrow3: 'Explore collection \u2192',
-    marca1_badge: 'Available', marca2_badge: 'Coming soon', marca3_badge: 'In development',
+    marca1_badge: 'Available', marca2_badge: 'Available', marca3_badge: 'In development',
     impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% of every sale',
     impact_title: 'Your purchase<br><em>changes lives</em>',
     imp1: 'Families supported', imp2: 'Children in education', imp3: 'Donated in 2024', imp4: 'Women in housing',
@@ -2562,7 +2577,7 @@ var T = {
     marca2_eye: 'Premium Kakao', marca2_sub: 'Chuncho aus Cusco. CCN-51. Monzon Heritage.',
     marca3_eye: 'Andines Kunsthandwerk', marca3_name: 'Demnachst', marca3_sub: 'Shipibo-Textilien. Quechua-Keramik. Aymara-Goldschmiedearbeit.',
     marca_arrow1: 'HOLZEN entdecken \u2192', marca_arrow2: 'COYA entdecken \u2192', marca_arrow3: 'Kollektion entdecken \u2192',
-    marca1_badge: 'Verfugbar', marca2_badge: 'Demnachst', marca3_badge: 'In Entwicklung',
+    marca1_badge: 'Verfugbar', marca2_badge: 'Verfugbar', marca3_badge: 'In Entwicklung',
     impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% jedes Verkaufs',
     impact_title: 'Ihr Kauf<br><em>verandert Leben</em>',
     imp1: 'Unterstuzte Familien', imp2: 'Kinder in Bildung', imp3: 'Gespendet 2024', imp4: 'Frauen in Wohnprogramm',
@@ -2614,7 +2629,7 @@ var T = {
     marca2_eye: 'Premiove kakao', marca2_sub: 'Chuncho z Cusca. CCN-51. Monzon Heritage.',
     marca3_eye: 'Andske remeslne vyrobky', marca3_name: 'Pripravujeme', marca3_sub: 'Shipibo textil. Quechua keramika. Aymara zlatnictvi.',
     marca_arrow1: 'Prozkoumat HOLZEN \u2192', marca_arrow2: 'Prozkoumat COYA \u2192', marca_arrow3: 'Prozkoumat kolekci \u2192',
-    marca1_badge: 'Dostupne', marca2_badge: 'Pripravujeme', marca3_badge: 'Ve vyvoji',
+    marca1_badge: 'Dostupne', marca2_badge: 'Dostupne', marca3_badge: 'Ve vyvoji',
     impact_eyebrow: 'NGO Semilla Nueva \u00b7 10% z kazdeho prodeje',
     impact_title: 'Vas nakup<br><em>meni zivoty</em>',
     imp1: 'Podporovanych rodin', imp2: 'Deti ve vzdelavani', imp3: 'Darovano v roce 2024', imp4: 'Zen v bytovem programu',
@@ -3269,7 +3284,7 @@ const translations = {
     marca2_eye:'Cacao Premium',marca2_sub:'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal.',
     marca3_eye:'Artesanías Andinas',marca3_name:'Próximamente',marca3_sub:'Textiles Shipibo. Cerámica Quechua. Orfebrería Aymara. Cada pieza lleva un nombre.',
     marca_arrow1:'Explorar HOLZEN →',marca_arrow2:'Explorar COYA →',marca_arrow3:'Explorar colección →',
-    marca1_badge:'Disponible',marca2_badge:'Próximamente',marca3_badge:'En desarrollo',
+    marca1_badge:'Disponible',marca2_badge:'Disponible',marca3_badge:'En desarrollo',
     impact_eyebrow:'ONG Semilla Nueva · 10% de cada venta',impact_title:'Tu compra<br><em>cambia vidas</em>',
     imp1:'Familias apoyadas',imp2:'Niños en educación',imp3:'Donados en 2024',imp4:'Mujeres en vivienda',
     impact_quote:'"No vendemos café. Exportamos dignidad."',
@@ -3310,7 +3325,7 @@ const translations = {
     marca2_eye:'Premium Cacao',marca2_sub:'Chuncho from Cusco. CCN-51. Monzón Heritage. Artisan fermentation.',
     marca3_eye:'Andean Crafts',marca3_name:'Coming soon',marca3_sub:'Shipibo textiles. Quechua ceramics. Aymara goldsmith work.',
     marca_arrow1:'Explore HOLZEN →',marca_arrow2:'Explore COYA →',marca_arrow3:'Explore collection →',
-    marca1_badge:'Available',marca2_badge:'Coming soon',marca3_badge:'In development',
+    marca1_badge:'Available',marca2_badge:'Available',marca3_badge:'In development',
     impact_eyebrow:'NGO Semilla Nueva · 10% of every sale',impact_title:'Your purchase<br><em>changes lives</em>',
     imp1:'Families supported',imp2:'Children in education',imp3:'Donated in 2024',imp4:'Women in housing',
     impact_quote:'"We don\'t sell coffee. We export dignity."',
@@ -3351,7 +3366,7 @@ const translations = {
     marca2_eye:'Premium Kakao',marca2_sub:'Chuncho aus Cusco. CCN-51. Monzón Heritage.',
     marca3_eye:'Andines Kunsthandwerk',marca3_name:'Demnächst',marca3_sub:'Shipibo-Textilien. Quechua-Keramik. Aymara-Goldschmiedearbeit.',
     marca_arrow1:'HOLZEN entdecken →',marca_arrow2:'COYA entdecken →',marca_arrow3:'Kollektion entdecken →',
-    marca1_badge:'Verfügbar',marca2_badge:'Demnächst',marca3_badge:'In Entwicklung',
+    marca1_badge:'Verfügbar',marca2_badge:'Verfügbar',marca3_badge:'In Entwicklung',
     impact_eyebrow:'NGO Semilla Nueva · 10% jedes Verkaufs',impact_title:'Ihr Kauf<br><em>verändert Leben</em>',
     imp1:'Unterstützte Familien',imp2:'Kinder in Bildung',imp3:'Gespendet 2024',imp4:'Frauen in Wohnprogramm',
     impact_quote:'"Wir verkaufen keinen Kaffee. Wir exportieren Würde."',
@@ -3392,7 +3407,7 @@ const translations = {
     marca2_eye:'Prémiové kakao',marca2_sub:'Chuncho z Cusca. CCN-51. Monzón Heritage.',
     marca3_eye:'Andské řemeslné výrobky',marca3_name:'Připravujeme',marca3_sub:'Shipibo textil. Quechua keramika. Aymara zlatnictví.',
     marca_arrow1:'Prozkoumat HOLZEN →',marca_arrow2:'Prozkoumat COYA →',marca_arrow3:'Prozkoumat kolekci →',
-    marca1_badge:'Dostupné',marca2_badge:'Připravujeme',marca3_badge:'Ve vývoji',
+    marca1_badge:'Dostupné',marca2_badge:'Dostupné',marca3_badge:'Ve vývoji',
     impact_eyebrow:'NGO Semilla Nueva · 10% z každého prodeje',impact_title:'Váš nákup<br><em>mění životy</em>',
     imp1:'Podporovaných rodin',imp2:'Dětí ve vzdělávání',imp3:'Darováno v roce 2024',imp4:'Žen v bytovém programu',
     impact_quote:'"Neprodáváme kávu. Exportujeme důstojnost."',
@@ -3829,7 +3844,7 @@ const translations = {
     marca2_eye:'Cacao Premium',marca2_sub:'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal.',
     marca3_eye:'Artesanías Andinas',marca3_name:'Próximamente',marca3_sub:'Textiles Shipibo. Cerámica Quechua. Orfebrería Aymara. Cada pieza lleva un nombre.',
     marca_arrow1:'Explorar HOLZEN →',marca_arrow2:'Explorar COYA →',marca_arrow3:'Explorar colección →',
-    marca1_badge:'Disponible',marca2_badge:'Próximamente',marca3_badge:'En desarrollo',
+    marca1_badge:'Disponible',marca2_badge:'Disponible',marca3_badge:'En desarrollo',
     impact_eyebrow:'ONG Semilla Nueva · 10% de cada venta',impact_title:'Tu compra<br><em>cambia vidas</em>',
     imp1:'Familias apoyadas',imp2:'Niños en educación',imp3:'Donados en 2024',imp4:'Mujeres en vivienda',
     impact_quote:'"No vendemos café. Exportamos dignidad."',
@@ -3870,7 +3885,7 @@ const translations = {
     marca2_eye:'Premium Cacao',marca2_sub:'Chuncho from Cusco. CCN-51. Monzón Heritage. Artisan fermentation.',
     marca3_eye:'Andean Crafts',marca3_name:'Coming soon',marca3_sub:'Shipibo textiles. Quechua ceramics. Aymara goldsmith work.',
     marca_arrow1:'Explore HOLZEN →',marca_arrow2:'Explore COYA →',marca_arrow3:'Explore collection →',
-    marca1_badge:'Available',marca2_badge:'Coming soon',marca3_badge:'In development',
+    marca1_badge:'Available',marca2_badge:'Available',marca3_badge:'In development',
     impact_eyebrow:'NGO Semilla Nueva · 10% of every sale',impact_title:'Your purchase<br><em>changes lives</em>',
     imp1:'Families supported',imp2:'Children in education',imp3:'Donated in 2024',imp4:'Women in housing',
     impact_quote:'"We don\'t sell coffee. We export dignity."',
@@ -3911,7 +3926,7 @@ const translations = {
     marca2_eye:'Premium Kakao',marca2_sub:'Chuncho aus Cusco. CCN-51. Monzón Heritage.',
     marca3_eye:'Andines Kunsthandwerk',marca3_name:'Demnächst',marca3_sub:'Shipibo-Textilien. Quechua-Keramik. Aymara-Goldschmiedearbeit.',
     marca_arrow1:'HOLZEN entdecken →',marca_arrow2:'COYA entdecken →',marca_arrow3:'Kollektion entdecken →',
-    marca1_badge:'Verfügbar',marca2_badge:'Demnächst',marca3_badge:'In Entwicklung',
+    marca1_badge:'Verfügbar',marca2_badge:'Verfügbar',marca3_badge:'In Entwicklung',
     impact_eyebrow:'NGO Semilla Nueva · 10% jedes Verkaufs',impact_title:'Ihr Kauf<br><em>verändert Leben</em>',
     imp1:'Unterstützte Familien',imp2:'Kinder in Bildung',imp3:'Gespendet 2024',imp4:'Frauen in Wohnprogramm',
     impact_quote:'"Wir verkaufen keinen Kaffee. Wir exportieren Würde."',
@@ -3952,7 +3967,7 @@ const translations = {
     marca2_eye:'Prémiové kakao',marca2_sub:'Chuncho z Cusca. CCN-51. Monzón Heritage.',
     marca3_eye:'Andské řemeslné výrobky',marca3_name:'Připravujeme',marca3_sub:'Shipibo textil. Quechua keramika. Aymara zlatnictví.',
     marca_arrow1:'Prozkoumat HOLZEN →',marca_arrow2:'Prozkoumat COYA →',marca_arrow3:'Prozkoumat kolekci →',
-    marca1_badge:'Dostupné',marca2_badge:'Připravujeme',marca3_badge:'Ve vývoji',
+    marca1_badge:'Dostupné',marca2_badge:'Dostupné',marca3_badge:'Ve vývoji',
     impact_eyebrow:'NGO Semilla Nueva · 10% z každého prodeje',impact_title:'Váš nákup<br><em>mění životy</em>',
     imp1:'Podporovaných rodin',imp2:'Dětí ve vzdělávání',imp3:'Darováno v roce 2024',imp4:'Žen v bytovém programu',
     impact_quote:'"Neprodáváme kávu. Exportujeme důstojnost."',
