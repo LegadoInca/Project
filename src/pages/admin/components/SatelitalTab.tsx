@@ -55,7 +55,7 @@ export default function SatelitalTab() {
 
   const isOnline = useOnlineStatus();
   const { position, error: geoError, loading: geoLoading, isTracking, startTracking, stopTracking } = useGeolocation();
-  const { locations, loading: locsLoading, error: locsError, addLocation, removeLocation } = useSupabaseLocations();
+  const { locations, loading: locsLoading, error: locsError, addLocation, removeLocation, refresh } = useSupabaseLocations();
 
   const gpsParcelas: Parcela[] = locations.map((loc: SupabaseLocation) => ({
     id: loc.id,
@@ -112,10 +112,18 @@ export default function SatelitalTab() {
     setSaving(false);
   };
 
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
   const handleDeleteGpsParcela = async (parcela: Parcela) => {
     if (!parcela.dbId) return;
-    await removeLocation(parcela.dbId);
-    if (selected?.id === parcela.id) setSelected(null);
+    setDeletingId(parcela.id);
+    const ok = await removeLocation(parcela.dbId);
+    setDeletingId(null);
+    if (ok && selected?.id === parcela.id) setSelected(null);
+    if (!ok) {
+      setSavedMsg('✗ No se pudo eliminar. Verifica tu conexión.');
+      setTimeout(() => setSavedMsg(''), 4000);
+    }
   };
 
   return (
@@ -129,16 +137,23 @@ export default function SatelitalTab() {
           : 'bg-red-500/15 border border-red-500/30 text-red-400'
       }`}>
         <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-emerald-400 animate-pulse' : 'bg-red-400'}`} />
-        {isOnline
-          ? `Sincronizado con la nube — ${locations.length} ubicaciones GPS disponibles en todos los dispositivos.`
-          : 'Sin conexión a Internet — las ubicaciones se cargarán al reconectarte.'}
+        <span className="flex-1">
+          {isOnline
+            ? `Sincronizado con la nube — ${locations.length} ubicaciones GPS disponibles en todos los dispositivos.`
+            : 'Sin conexión a Internet — las ubicaciones se cargarán al reconectarte.'}
+        </span>
         {locsError && (
-          <span className="ml-auto text-red-400 text-xs">Error: {locsError}</span>
+          <span className="text-red-400 text-xs">Error: {locsError}</span>
         )}
-        {isOnline && !locsError && (
-          <span className="ml-auto text-emerald-400/70 text-xs flex items-center gap-1">
-            <i className="ri-cloud-line" /> Supabase ✓
-          </span>
+        {isOnline && (
+          <button
+            onClick={() => refresh()}
+            className="flex items-center gap-1 text-xs text-emerald-400/70 hover:text-emerald-400 transition-colors cursor-pointer whitespace-nowrap"
+            title="Recargar ubicaciones"
+          >
+            <i className="ri-refresh-line" />
+            {locsLoading ? 'Cargando...' : 'Actualizar'}
+          </button>
         )}
       </div>
 
@@ -214,13 +229,20 @@ export default function SatelitalTab() {
                 <div className="text-white/25 text-xs uppercase tracking-wider px-1 pb-1 pt-3 flex items-center gap-2">
                   <i className="ri-crosshair-2-line" />
                   Registradas por GPS · Nube
+                  <button
+                    onClick={(e) => { e.stopPropagation(); refresh(); }}
+                    className="ml-auto w-5 h-5 flex items-center justify-center rounded hover:bg-white/10 text-white/30 hover:text-white/60 transition-colors cursor-pointer"
+                    title="Recargar desde la nube"
+                  >
+                    <i className="ri-refresh-line text-xs" />
+                  </button>
                 </div>
               )}
               {gpsParcelas.map((p) => (
                 <div
                   key={p.id}
                   onClick={() => setSelected(p)}
-                  className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors group ${
+                  className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
                     selected?.id === p.id ? 'bg-inca-gold/15 border border-inca-gold/30' : 'hover:bg-white/5'
                   }`}
                 >
@@ -242,10 +264,14 @@ export default function SatelitalTab() {
                     </span>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleDeleteGpsParcela(p); }}
-                      className="w-6 h-6 flex items-center justify-center rounded bg-red-500/0 hover:bg-red-500/20 text-red-400/0 group-hover:text-red-400 transition-all cursor-pointer"
+                      disabled={deletingId === p.id}
+                      className="w-7 h-7 flex items-center justify-center rounded bg-red-500/10 hover:bg-red-500/25 text-red-400 transition-all cursor-pointer disabled:opacity-40"
                       title="Eliminar"
                     >
-                      <i className="ri-delete-bin-line text-xs" />
+                      {deletingId === p.id
+                        ? <span className="animate-spin inline-block w-3 h-3 border border-red-400/40 border-t-red-400 rounded-full" />
+                        : <i className="ri-delete-bin-line text-xs" />
+                      }
                     </button>
                   </div>
                 </div>

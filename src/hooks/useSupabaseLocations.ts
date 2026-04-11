@@ -85,8 +85,14 @@ export function useSupabaseLocations() {
 
   const removeLocation = useCallback(async (id: string) => {
     const { error: err } = await supabase.from('gps_locations').delete().eq('id', id);
-    if (err) setError(err.message);
-  }, []);
+    if (err) {
+      setError(err.message);
+      return false;
+    }
+    // Refetch immediately so the list updates right away
+    await fetchLocations();
+    return true;
+  }, [fetchLocations]);
 
   return { locations, loading, error, addLocation, removeLocation, refresh: fetchLocations };
 }
