@@ -89,25 +89,25 @@ export default function SatelitalTab() {
     });
 
     if (result) {
-      setSavedMsg('✓ Ubicación guardada en la nube. Visible en todos los dispositivos.');
+      setSavedMsg('✓ Ubicación guardada. Aparece en Parcelas Registradas en todos los dispositivos.');
       setNombre('');
       setNotas('');
-      setTimeout(() => {
-        setSavedMsg('');
-        setActiveTab('parcelas');
-        setSelected({
-          id: result.id,
-          nombre: result.nombre,
-          lat: result.lat,
-          lng: result.lng,
-          tipo: 'gps',
-          notas: result.notas,
-          created_at: result.created_at,
-          dbId: result.id,
-        });
-      }, 1800);
+      // Switch to parcelas tab and select the new location
+      setActiveTab('parcelas');
+      setSelected({
+        id: result.id,
+        nombre: result.nombre,
+        lat: result.lat,
+        lng: result.lng,
+        tipo: 'gps',
+        notas: result.notas,
+        created_at: result.created_at,
+        dbId: result.id,
+      });
+      setTimeout(() => setSavedMsg(''), 3000);
     } else {
       setSavedMsg('✗ Error al guardar. Verifica tu conexión.');
+      setTimeout(() => setSavedMsg(''), 4000);
     }
     setSaving(false);
   };
@@ -166,6 +166,17 @@ export default function SatelitalTab() {
           Mi Ubicación en Tiempo Real
         </button>
       </div>
+
+      {/* Global save message — visible in both tabs */}
+      {savedMsg && (
+        <div className={`mb-4 text-sm px-4 py-2.5 rounded-lg flex items-center gap-2 ${
+          savedMsg.startsWith('⚠') || savedMsg.startsWith('✗')
+            ? 'bg-yellow-500/15 border border-yellow-500/20 text-yellow-400'
+            : 'bg-emerald-500/15 border border-emerald-500/20 text-emerald-400'
+        }`}>
+          {savedMsg}
+        </div>
+      )}
 
       {/* ── TAB: PARCELAS ── */}
       {activeTab === 'parcelas' && (
@@ -414,14 +425,6 @@ export default function SatelitalTab() {
                     className="w-full bg-inca-dark/50 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-white/20 focus:outline-none focus:border-inca-gold/50 resize-none"
                   />
                 </div>
-
-                {savedMsg && (
-                  <div className={`text-xs px-3 py-2 rounded-lg ${
-                    savedMsg.startsWith('⚠') || savedMsg.startsWith('✗') ? 'bg-yellow-500/15 text-yellow-400' : 'bg-emerald-500/15 text-emerald-400'
-                  }`}>
-                    {savedMsg}
-                  </div>
-                )}
 
                 <button
                   onClick={handleSaveLocation}

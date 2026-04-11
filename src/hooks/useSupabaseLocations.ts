@@ -75,9 +75,12 @@ export function useSupabaseLocations() {
         setError(err.message);
         return null;
       }
+
+      // Refetch immediately so the list updates right away on all devices
+      await fetchLocations();
       return newLoc;
     },
-    []
+    [fetchLocations]
   );
 
   const removeLocation = useCallback(async (id: string) => {
