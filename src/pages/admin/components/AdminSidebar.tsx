@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAdminNotifications } from '@/hooks/useAdminNotifications';
 
 interface AdminSidebarProps {
   activeTab: string;
@@ -42,6 +43,7 @@ const menuItems = [
 export default function AdminSidebar({ activeTab, setActiveTab }: AdminSidebarProps) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const { unreadCount } = useAdminNotifications();
 
   return (
     <>
@@ -56,6 +58,25 @@ export default function AdminSidebar({ activeTab, setActiveTab }: AdminSidebarPr
         </div>
 
         <nav className="sidebar-nav">
+          {/* Notificaciones destacadas arriba */}
+          <div className="nav-sec-label">Alertas</div>
+          <ul>
+            <li>
+              <a
+                className={activeTab === 'notificaciones' ? 'active' : ''}
+                onClick={() => { setActiveTab('notificaciones'); setOpen(false); }}
+              >
+                <span className="ni">🔔</span>
+                Notificaciones
+                {unreadCount > 0 && (
+                  <span className="ml-auto bg-inca-gold text-inca-dark text-xs font-bold px-1.5 py-0.5 rounded-full">
+                    {unreadCount}
+                  </span>
+                )}
+              </a>
+            </li>
+          </ul>
+
           {menuItems.map((section) => (
             <div key={section.section}>
               <div className="nav-sec-label">{section.section}</div>

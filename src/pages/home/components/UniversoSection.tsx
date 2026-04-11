@@ -7,7 +7,7 @@ const marcas = [
     arrow: 'Explorar HOLZEN →',
     badge: 'Disponible',
     badgeClass: 'bg-emerald-700 text-white',
-    href: 'https://holzen.netlify.app',
+    href: 'https://legadoinca.github.io/Holzen/',
     external: true,
   },
   {
@@ -16,10 +16,10 @@ const marcas = [
     name: 'COYA',
     sub: 'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal. Del árbol al alma.',
     arrow: 'Explorar COYA →',
-    badge: 'Próximamente',
-    badgeClass: 'bg-inca-gold/20 text-inca-gold border border-inca-gold/30',
-    href: '#',
-    external: false,
+    badge: 'Disponible',
+    badgeClass: 'bg-emerald-700 text-white',
+    href: 'https://legadoinca.github.io/Coya/',
+    external: true,
   },
   {
     img: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773435417/a78be497359cb5e4a4e65bf18244cf38_xhlfry.jpg',

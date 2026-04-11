@@ -105,12 +105,22 @@ export default function PersonasSection() {
           from { opacity: 0; transform: scale(1.02); }
           to   { opacity: 1; transform: scale(1); }
         }
+        @keyframes ringPulse {
+          0%   { transform: scale(1);    opacity: 0.9; }
+          50%  { transform: scale(1.12); opacity: 0.4; }
+          100% { transform: scale(1),    opacity: 0.9; }
+        }
+        @keyframes ringRotate {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
         .animate-slide-in-right  { animation: slideInRight 0.65s cubic-bezier(.22,.68,0,1.2) forwards; }
         .animate-slide-in-left   { animation: slideInLeft  0.65s cubic-bezier(.22,.68,0,1.2) forwards; }
         .animate-slide-out-left  { animation: slideOutLeft  0.45s cubic-bezier(.4,0,.6,1) forwards; }
         .animate-slide-out-right { animation: slideOutRight 0.45s cubic-bezier(.4,0,.6,1) forwards; }
         .animate-fade-in-up { animation: fadeInUp 0.55s ease forwards; }
         .animate-scale-in   { animation: scaleIn  0.75s ease forwards; }
+        .ring-rotate { animation: ringRotate 4s linear infinite; }
 
         .personas-tag-pill {
           display: inline-flex;
@@ -136,12 +146,20 @@ export default function PersonasSection() {
           border-radius: 99px;
           transition: width 0.3s ease;
         }
+        .thumb-circle {
+          position: relative;
+          border-radius: 50%;
+          overflow: hidden;
+          transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
+          cursor: pointer;
+        }
+        .thumb-circle:hover {
+          transform: scale(1.08) !important;
+        }
+        .thumb-circle.active {
+          transform: scale(1.15) !important;
+        }
       `}</style>
-
-      {/* Eyebrow */}
-      <div className="text-center py-10 px-6">
-        <span className="section-eyebrow">Estas son las personas detrás de cada producto</span>
-      </div>
 
       {/* Main carousel container — fixed height, no movement */}
       <div className="relative w-full overflow-hidden" style={{ height: 620 }}>
@@ -213,33 +231,78 @@ export default function PersonasSection() {
         </div>
 
         {/* ── THUMBNAIL STRIP (left side) ── */}
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-3">
-          {personas.map((persona, i) => (
-            <button
-              key={i}
-              onClick={() => { go(i, i > current ? 'next' : 'prev'); resetTimer(); }}
-              className="relative group cursor-pointer"
-              style={{ width: 72, height: 52 }}
-            >
-              <img
-                src={persona.photo}
-                alt={persona.name}
-                className="w-full h-full object-cover rounded-md transition-all duration-300"
-                style={{ objectPosition: persona.objectPosition,
-                  filter: i === current ? 'none' : 'brightness(0.45) saturate(0.4)',
-                  outline: i === current ? `2px solid ${persona.accent}` : '2px solid transparent',
-                  outlineOffset: 2,
-                  transform: i === current ? 'scale(1.06)' : 'scale(1)',
-                }}
-              />
-              {i === current && (
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-0">
+          {personas.map((persona, i) => {
+            const isActive = i === current;
+            return (
+              <div key={i} className="flex flex-col items-center">
+                {/* Connector line above (except first) */}
+                {i > 0 && (
+                  <div
+                    className="w-px transition-all duration-500"
+                    style={{
+                      height: 28,
+                      background: isActive || i - 1 === current
+                        ? `linear-gradient(to bottom, ${personas[i - 1].accent}, ${persona.accent})`
+                        : 'rgba(255,255,255,0.15)',
+                    }}
+                  />
+                )}
+
+                {/* Circle thumbnail */}
+                <button
+                  onClick={() => { go(i, i > current ? 'next' : 'prev'); resetTimer(); }}
+                  className={`thumb-circle ${isActive ? 'active' : ''}`}
+                  style={{
+                    width: isActive ? 72 : 52,
+                    height: isActive ? 72 : 52,
+                    boxShadow: isActive
+                      ? `0 0 0 3px ${persona.accent}, 0 0 20px ${persona.accent}55`
+                      : '0 0 0 2px rgba(255,255,255,0.12)',
+                    transition: 'width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(.22,.68,0,1.2)',
+                  }}
+                >
+                  <img
+                    src={persona.photo}
+                    alt={persona.name}
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: persona.objectPosition,
+                      filter: isActive ? 'none' : 'brightness(0.4) saturate(0.3)',
+                      transition: 'filter 0.4s ease',
+                    }}
+                  />
+                  {/* Active overlay shimmer */}
+                  {isActive && (
+                    <div
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        background: `radial-gradient(circle at 30% 30%, ${persona.accent}33, transparent 70%)`,
+                      }}
+                    />
+                  )}
+                </button>
+
+                {/* Name label — only active */}
                 <div
-                  className="absolute -right-2 top-1/2 -translate-y-1/2 w-1 h-8 rounded-full"
-                  style={{ background: persona.accent }}
-                />
-              )}
-            </button>
-          ))}
+                  className="overflow-hidden transition-all duration-400"
+                  style={{
+                    maxHeight: isActive ? 32 : 0,
+                    opacity: isActive ? 1 : 0,
+                    marginTop: isActive ? 6 : 0,
+                    transition: 'max-height 0.4s ease, opacity 0.4s ease, margin-top 0.3s ease',
+                  }}
+                >
+                  <span
+                    className="text-xs font-bold tracking-widest uppercase whitespace-nowrap"
+                    style={{ color: persona.accent }}
+                  >
+                    {persona.name}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* ── NAV ARROWS ── */}
@@ -271,6 +334,20 @@ export default function PersonasSection() {
               />
             </button>
           ))}
+        </div>
+
+        {/* ── SECTION TITLE ── */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
+          <h3
+            className="font-playfair text-base md:text-lg font-bold tracking-[0.18em] uppercase"
+            style={{
+              color: 'rgba(255,255,255,0.82)',
+              textShadow: '0 2px 12px rgba(0,0,0,0.7)',
+              letterSpacing: '0.18em',
+            }}
+          >
+            Estas son las personas detrás de cada producto
+          </h3>
         </div>
 
         {/* ── SLIDE COUNTER ── */}

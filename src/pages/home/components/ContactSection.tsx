@@ -1,7 +1,12 @@
 export default function ContactSection() {
   return (
-    <section id="footer-contact" className="bg-inca-brown py-20 px-6 text-center">
-      <div className="max-w-2xl mx-auto">
+    <section id="footer-contact" className="relative py-20 px-6 text-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://res.cloudinary.com/djfmngyl0/image/upload/v1775317839/pexels-d-r-2148748679-33799197_fu1ero.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="relative z-10 max-w-2xl mx-auto">
         <span className="section-eyebrow">¿Listo para empezar?</span>
         <h2 className="section-title mb-5">
           Hablemos de<br /><em>propósito</em>

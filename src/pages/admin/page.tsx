@@ -11,11 +11,14 @@ import SatelitalTab from './components/SatelitalTab';
 import FinanzasTab from './components/FinanzasTab';
 import PagosTab from './components/PagosTab';
 import EmbarquesTab from './components/EmbarquesTab';
+import NotificacionesTab from './components/NotificacionesTab';
+import { useAdminNotifications } from '@/hooks/useAdminNotifications';
 
 export default function AdminPage() {
   const [tab, setTab] = useState('dashboard');
   const navigate = useNavigate();
   const role = localStorage.getItem('legado_role');
+  const { unreadCount } = useAdminNotifications();
 
   if (role !== 'admin') {
     return (
@@ -40,6 +43,7 @@ export default function AdminPage() {
       case 'finanzas': return <FinanzasTab />;
       case 'pagos': return <PagosTab />;
       case 'embarques': return <EmbarquesTab />;
+      case 'notificaciones': return <NotificacionesTab />;
       default: return <DashboardTab />;
     }
   };

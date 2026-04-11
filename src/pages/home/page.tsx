@@ -9,7 +9,6 @@ import StatsBar from './components/StatsBar';
 import OngBanner from './components/OngBanner';
 import PersonasSection from './components/PersonasSection';
 import GruposSection from './components/GruposSection';
-import ProcesoSection from './components/ProcesoSection';
 import UniversoSection from './components/UniversoSection';
 import ImpactoSection from './components/ImpactoSection';
 import ContactSection from './components/ContactSection';
@@ -29,7 +28,6 @@ export default function HomePage() {
         <OngBanner />
         <PersonasSection />
         <GruposSection />
-        <ProcesoSection />
         <UniversoSection />
         <ImpactoSection />
         <ContactSection />

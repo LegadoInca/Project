@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { sendAdminNotification } from '@/hooks/useAdminNotifications';
 
 interface SupplierSidebarProps { activeTab: string; setActiveTab: (t: string) => void; }
 
@@ -48,23 +49,42 @@ export function SupplierSidebar({ activeTab, setActiveTab }: SupplierSidebarProp
 
 function NuevoLoteTab() {
   const [submitted, setSubmitted] = useState(false);
+  const [producto, setProducto] = useState('Café Verde');
+  const [variedad, setVariedad] = useState('');
+  const [region, setRegion] = useState('Pasco — Villa Rica');
+  const [peso, setPeso] = useState('');
+  const [saving, setSaving] = useState(false);
+
+  const handleSubmit = async () => {
+    setSaving(true);
+    await sendAdminNotification({
+      tipo: 'lote',
+      titulo: `Nuevo lote registrado — ${producto}`,
+      descripcion: `${variedad || producto} · ${peso ? peso + ' kg' : 'sin peso'} · ${region}`,
+      origen: 'Portal Proveedor',
+      metadata: { producto, variedad, region, peso },
+    });
+    setSubmitted(true);
+    setSaving(false);
+  };
+
   return (
     <div>
       <div className="portal-header"><h1>Registrar Nuevo Lote</h1></div>
-      {submitted && <div className="alert-box ok">✅ Lote registrado correctamente.</div>}
+      {submitted && <div className="alert-box ok">✅ Lote registrado correctamente. El administrador fue notificado.</div>}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="panel">
           <div className="f-grid-2">
             <div className="f-group"><label className="f-label">Tipo de Producto</label>
-              <select className="f-select"><option>Café Verde</option><option>Cacao en Grano</option><option>Café Pergamino</option><option>Artesanías</option></select>
+              <select className="f-select" value={producto} onChange={e => setProducto(e.target.value)}><option>Café Verde</option><option>Cacao en Grano</option><option>Café Pergamino</option><option>Artesanías</option></select>
             </div>
-            <div className="f-group"><label className="f-label">Variedad</label><input className="f-input" placeholder="Ej: Geisha, Bourbon, Chuncho" /></div>
+            <div className="f-group"><label className="f-label">Variedad</label><input className="f-input" placeholder="Ej: Geisha, Bourbon, Chuncho" value={variedad} onChange={e => setVariedad(e.target.value)} /></div>
           </div>
           <div className="f-grid-3">
             <div className="f-group"><label className="f-label">Región</label>
-              <select className="f-select"><option>Pasco — Villa Rica</option><option>Junín — Chanchamayo</option><option>Huánuco — Monzón</option><option>Cusco — Quillabamba</option><option>San Martín</option><option>Ucayali</option></select>
+              <select className="f-select" value={region} onChange={e => setRegion(e.target.value)}><option>Pasco — Villa Rica</option><option>Junín — Chanchamayo</option><option>Huánuco — Monzón</option><option>Cusco — Quillabamba</option><option>San Martín</option><option>Ucayali</option></select>
             </div>
-            <div className="f-group"><label className="f-label">Peso Bruto (kg)</label><input className="f-input" type="number" placeholder="Ej: 250" /></div>
+            <div className="f-group"><label className="f-label">Peso Bruto (kg)</label><input className="f-input" type="number" placeholder="Ej: 250" value={peso} onChange={e => setPeso(e.target.value)} /></div>
             <div className="f-group"><label className="f-label">Proceso</label>
               <select className="f-select"><option>Lavado / Washed</option><option>Natural</option><option>Honey</option><option>Pulped Natural</option></select>
             </div>
@@ -76,7 +96,7 @@ function NuevoLoteTab() {
             <div className="f-group"><label className="f-label">Fecha de Cosecha</label><input className="f-input" type="date" /></div>
           </div>
           <div className="f-group"><label className="f-label">Observaciones</label><textarea className="f-textarea" rows={2} placeholder="Observaciones del lote..." /></div>
-          <button className="btn-green" onClick={() => setSubmitted(true)}>Registrar Lote →</button>
+          <button className="btn-green" onClick={handleSubmit} disabled={saving}>{saving ? 'Registrando...' : 'Registrar Lote →'}</button>
         </div>
         <div className="panel">
           <div className="panel-hdr"><span className="panel-title">📷 Fotos del Lote</span></div>

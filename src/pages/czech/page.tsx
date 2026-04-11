@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { sendAdminNotification } from '@/hooks/useAdminNotifications';
 
 interface CzSidebarProps { activeTab: string; setActiveTab: (t: string) => void; }
 
@@ -179,7 +180,25 @@ function CzUK() {
 
 function CzGastos() {
   const [saved, setSaved] = useState(false);
+  const [tipoGasto, setTipoGasto] = useState('Flete local (Rotterdam→Praga)');
+  const [monto, setMonto] = useState('');
+  const [ref, setRef] = useState('');
+  const [saving, setSaving] = useState(false);
   const gastos = [{ tipo: 'Flete', monto: '€420', ref: 'CTR-2025-02', bc: 'ok' }, { tipo: 'Aduana', monto: '€180', ref: 'CTR-2025-02', bc: 'ok' }];
+
+  const handleSave = async () => {
+    setSaving(true);
+    await sendAdminNotification({
+      tipo: 'gasto',
+      titulo: `Nuevo gasto registrado desde Praga — ${tipoGasto}`,
+      descripcion: `€${monto || '0'} · Ref: ${ref || 'sin referencia'}`,
+      origen: 'Portal Praga',
+      metadata: { tipo: tipoGasto, monto, ref },
+    });
+    setSaved(true);
+    setSaving(false);
+  };
+
   return (
     <div>
       <div className="portal-header"><h1>Ingresar Gastos</h1></div>
@@ -189,13 +208,13 @@ function CzGastos() {
           <div className="panel-hdr"><span className="panel-title">Registrar Nuevo Gasto</span></div>
           <div className="f-grid-2">
             <div className="f-group"><label className="f-label">Tipo de Gasto</label>
-              <select className="f-select"><option>Flete local (Rotterdam→Praga)</option><option>Aduana CZ</option><option>Almacén Praga</option><option>Seguro</option><option>Otro</option></select>
+              <select className="f-select" value={tipoGasto} onChange={e => setTipoGasto(e.target.value)}><option>Flete local (Rotterdam→Praga)</option><option>Aduana CZ</option><option>Almacén Praga</option><option>Seguro</option><option>Otro</option></select>
             </div>
-            <div className="f-group"><label className="f-label">Monto (€)</label><input className="f-input" type="number" step="0.01" placeholder="Ej: 420.00" /></div>
+            <div className="f-group"><label className="f-label">Monto (€)</label><input className="f-input" type="number" step="0.01" placeholder="Ej: 420.00" value={monto} onChange={e => setMonto(e.target.value)} /></div>
           </div>
-          <div className="f-group"><label className="f-label">Referencia</label><input className="f-input" placeholder="Ej: CTR-2025-04" /></div>
-          {saved && <div className="alert-box ok">✅ Gasto registrado.</div>}
-          <button className="btn-gold" onClick={() => setSaved(true)}>Registrar Gasto →</button>
+          <div className="f-group"><label className="f-label">Referencia</label><input className="f-input" placeholder="Ej: CTR-2025-04" value={ref} onChange={e => setRef(e.target.value)} /></div>
+          {saved && <div className="alert-box ok">✅ Gasto registrado. El administrador fue notificado.</div>}
+          <button className="btn-gold" onClick={handleSave} disabled={saving}>{saving ? 'Registrando...' : 'Registrar Gasto →'}</button>
         </div>
         <div className="panel">
           <div className="panel-hdr"><span className="panel-title">Gastos Registrados</span></div>
