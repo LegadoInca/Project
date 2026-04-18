@@ -2,6 +2,22 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { GeoPosition } from '@/hooks/useGeolocation';
 
+export type PerimeterType = 'polygon' | 'circle' | null;
+
+export interface PolygonPoint {
+  lat: number;
+  lng: number;
+}
+
+export interface PerimeterData {
+  // For polygon
+  points?: PolygonPoint[];
+  // For circle
+  radius?: number; // meters
+  centerLat?: number;
+  centerLng?: number;
+}
+
 export interface SupabaseLocation {
   id: string;
   nombre: string;
@@ -12,6 +28,8 @@ export interface SupabaseLocation {
   created_at: number;
   device_info?: string;
   created_by?: string;
+  perimeter_type?: PerimeterType;
+  perimeter_data?: PerimeterData;
 }
 
 export function useSupabaseLocations() {
@@ -38,7 +56,6 @@ export function useSupabaseLocations() {
   useEffect(() => {
     fetchLocations();
 
-    // Realtime subscription — se actualiza en todos los dispositivos al instante
     const channel = supabase
       .channel('gps_locations_changes')
       .on(
@@ -76,7 +93,6 @@ export function useSupabaseLocations() {
         return null;
       }
 
-      // Refetch immediately so the list updates right away on all devices
       await fetchLocations();
       return newLoc;
     },
@@ -89,10 +105,30 @@ export function useSupabaseLocations() {
       setError(err.message);
       return false;
     }
-    // Refetch immediately so the list updates right away
     await fetchLocations();
     return true;
   }, [fetchLocations]);
 
-  return { locations, loading, error, addLocation, removeLocation, refresh: fetchLocations };
+  const updatePerimeter = useCallback(async (
+    id: string,
+    perimeterType: PerimeterType,
+    perimeterData: PerimeterData | null
+  ) => {
+    const { error: err } = await supabase
+      .from('gps_locations')
+      .update({
+        perimeter_type: perimeterType,
+        perimeter_data: perimeterData,
+      })
+      .eq('id', id);
+
+    if (err) {
+      setError(err.message);
+      return false;
+    }
+    await fetchLocations();
+    return true;
+  }, [fetchLocations]);
+
+  return { locations, loading, error, addLocation, removeLocation, updatePerimeter, refresh: fetchLocations };
 }

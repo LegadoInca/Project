@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { PerimeterType, PerimeterData } from '@/hooks/useSupabaseLocations';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
@@ -16,6 +17,8 @@ interface GoogleMapViewProps {
   lng: number;
   zoom?: number;
   height?: string;
+  perimeterType?: PerimeterType;
+  perimeterData?: PerimeterData;
 }
 
 const GMAPS_KEY = import.meta.env.VITE_PUBLIC_GMAPS_KEY as string;
@@ -62,12 +65,13 @@ function loadGoogleMapsScript(onSuccess: () => void, onError: () => void) {
   document.head.appendChild(script);
 }
 
-export default function GoogleMapView({ lat, lng, zoom = 14, height = 'h-80' }: GoogleMapViewProps) {
+export default function GoogleMapView({ lat, lng, zoom = 14, height = 'h-80', perimeterType, perimeterData }: GoogleMapViewProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
   const svPanoramaRef = useRef<any>(null);
   const markerRef = useRef<any>(null);
   const trafficLayerRef = useRef<any>(null);
+  const perimeterShapeRef = useRef<any>(null);
 
   const [ready, setReady] = useState(scriptLoaded);
   const [mapError, setMapError] = useState(scriptError);
@@ -168,6 +172,58 @@ export default function GoogleMapView({ lat, lng, zoom = 14, height = 'h-80' }: 
       );
     }
   }, [streetViewActive]);
+
+  const clearPerimeterShape = useCallback(() => {
+    if (perimeterShapeRef.current) {
+      perimeterShapeRef.current.setMap(null);
+      perimeterShapeRef.current = null;
+    }
+  }, []);
+
+  const drawPerimeter = useCallback((map: any, type: PerimeterType, data: PerimeterData) => {
+    clearPerimeterShape();
+    if (type === 'polygon' && data.points && data.points.length >= 3) {
+      const poly = new window.google.maps.Polygon({
+        paths: data.points.map((p) => ({ lat: p.lat, lng: p.lng })),
+        strokeColor: '#f59e0b',
+        strokeOpacity: 0.9,
+        strokeWeight: 2,
+        fillColor: '#f59e0b',
+        fillOpacity: 0.15,
+        map,
+      });
+      perimeterShapeRef.current = poly;
+      // Fit bounds to polygon
+      const bounds = new window.google.maps.LatLngBounds();
+      data.points.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
+      map.fitBounds(bounds, 40);
+    } else if (type === 'circle' && data.radius) {
+      const cLat = data.centerLat ?? lat;
+      const cLng = data.centerLng ?? lng;
+      const circle = new window.google.maps.Circle({
+        center: { lat: cLat, lng: cLng },
+        radius: data.radius,
+        strokeColor: '#f59e0b',
+        strokeOpacity: 0.9,
+        strokeWeight: 2,
+        fillColor: '#f59e0b',
+        fillOpacity: 0.15,
+        map,
+      });
+      perimeterShapeRef.current = circle;
+      map.fitBounds(circle.getBounds(), 40);
+    }
+  }, [clearPerimeterShape, lat, lng]);
+
+  // Draw perimeter when it changes
+  useEffect(() => {
+    if (!mapInstanceRef.current) return;
+    if (perimeterType && perimeterData) {
+      drawPerimeter(mapInstanceRef.current, perimeterType, perimeterData);
+    } else {
+      clearPerimeterShape();
+    }
+  }, [perimeterType, perimeterData, drawPerimeter, clearPerimeterShape]);
 
   const MAP_TYPES: { id: MapTypeId; label: string; icon: string }[] = [
     { id: 'roadmap', label: 'Mapa', icon: 'ri-road-map-line' },

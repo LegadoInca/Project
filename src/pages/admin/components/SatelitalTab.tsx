@@ -1,9 +1,10 @@
 import { useState, useCallback } from 'react';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
-import { useSupabaseLocations, SupabaseLocation } from '@/hooks/useSupabaseLocations';
+import { useSupabaseLocations, SupabaseLocation, PerimeterType, PerimeterData } from '@/hooks/useSupabaseLocations';
 import { useOfflineQueue } from '@/hooks/useOfflineQueue';
 import GoogleMapView from './GoogleMapView';
+import PerimeterEditor from './PerimeterEditor';
 
 interface Parcela {
   id: string;
@@ -15,6 +16,8 @@ interface Parcela {
   created_at?: number;
   dbId?: string;
   created_by?: string;
+  perimeter_type?: PerimeterType;
+  perimeter_data?: PerimeterData;
 }
 
 const PARCELAS_BASE: Parcela[] = [
@@ -53,10 +56,12 @@ export default function SatelitalTab() {
   const [savedMsg, setSavedMsg] = useState('');
   const [saving, setSaving] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [perimeterEditorOpen, setPerimeterEditorOpen] = useState(false);
+  const [savingPerimeter, setSavingPerimeter] = useState(false);
 
   const isOnline = useOnlineStatus();
   const { position, error: geoError, loading: geoLoading, isTracking, startTracking, stopTracking } = useGeolocation();
-  const { locations, loading: locsLoading, error: locsError, addLocation, removeLocation, refresh } = useSupabaseLocations();
+  const { locations, loading: locsLoading, error: locsError, addLocation, removeLocation, updatePerimeter, refresh } = useSupabaseLocations();
 
   const handleSyncComplete = useCallback(() => {
     refresh();
@@ -76,6 +81,8 @@ export default function SatelitalTab() {
     created_at: loc.created_at,
     dbId: loc.id,
     created_by: loc.created_by,
+    perimeter_type: loc.perimeter_type,
+    perimeter_data: loc.perimeter_data,
   }));
 
   const pendingParcelas: Parcela[] = pendingLocations.map((loc) => ({
@@ -172,6 +179,36 @@ export default function SatelitalTab() {
     await removeFromQueue(parcela.id);
     if (selected?.id === parcela.id) setSelected(null);
   };
+
+  const handleSavePerimeter = useCallback(async (type: PerimeterType, data: PerimeterData) => {
+    if (!selected?.dbId) return;
+    setSavingPerimeter(true);
+    const ok = await updatePerimeter(selected.dbId, type, data);
+    setSavingPerimeter(false);
+    if (ok) {
+      setPerimeterEditorOpen(false);
+      setSavedMsg('✓ Perímetro guardado correctamente. Visible en todos los dispositivos.');
+      setTimeout(() => setSavedMsg(''), 4000);
+      // Update selected with new perimeter
+      setSelected((prev) => prev ? { ...prev, perimeter_type: type, perimeter_data: data } : prev);
+    } else {
+      setSavedMsg('✗ No se pudo guardar el perímetro. Verifica tu conexión.');
+      setTimeout(() => setSavedMsg(''), 4000);
+    }
+  }, [selected, updatePerimeter]);
+
+  const handleDeletePerimeter = useCallback(async () => {
+    if (!selected?.dbId) return;
+    setSavingPerimeter(true);
+    const ok = await updatePerimeter(selected.dbId, null, null);
+    setSavingPerimeter(false);
+    if (ok) {
+      setPerimeterEditorOpen(false);
+      setSavedMsg('✓ Perímetro eliminado.');
+      setTimeout(() => setSavedMsg(''), 3000);
+      setSelected((prev) => prev ? { ...prev, perimeter_type: null, perimeter_data: undefined } : prev);
+    }
+  }, [selected, updatePerimeter]);
 
   return (
     <div>
@@ -395,6 +432,20 @@ export default function SatelitalTab() {
                 🛰 {selected ? selected.nombre : 'Selecciona una parcela'}
               </span>
               <div className="flex items-center gap-2">
+                {selected?.tipo === 'gps' && selected.dbId && isOnline && (
+                  <button
+                    onClick={() => setPerimeterEditorOpen(true)}
+                    className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
+                      selected.perimeter_type
+                        ? 'bg-inca-gold/20 text-inca-gold border border-inca-gold/30 hover:bg-inca-gold/30'
+                        : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/70'
+                    }`}
+                    title="Definir perímetro de la parcela"
+                  >
+                    <i className="ri-shape-line" />
+                    {selected.perimeter_type ? 'Editar Perímetro' : 'Definir Perímetro'}
+                  </button>
+                )}
                 {selected && isOnline && (
                   <a
                     href={`https://www.google.com/maps?q=${selected.lat},${selected.lng}&t=k`}
@@ -419,6 +470,18 @@ export default function SatelitalTab() {
                 <span><i className="ri-crosshair-2-line mr-1" />{formatCoord(selected.lat)}, {formatCoord(selected.lng)}</span>
                 <span>·</span>
                 <span>{formatDate(selected.created_at)}</span>
+                {selected.perimeter_type && (
+                  <span className="text-inca-gold/60 flex items-center gap-1">
+                    <i className="ri-shape-line" />
+                    {selected.perimeter_type === 'polygon' ? 'Polígono' : 'Círculo'}
+                    {selected.perimeter_type === 'circle' && selected.perimeter_data?.radius && (
+                      <span className="text-white/30 ml-1">· r={selected.perimeter_data.radius}m</span>
+                    )}
+                    {selected.perimeter_type === 'polygon' && selected.perimeter_data?.points && (
+                      <span className="text-white/30 ml-1">· {selected.perimeter_data.points.length} vértices</span>
+                    )}
+                  </span>
+                )}
                 {pendingParcelas.some((p) => p.id === selected.id) && (
                   <span className="text-amber-400/70 flex items-center gap-1">
                     <i className="ri-time-line" /> pendiente de subir
@@ -428,7 +491,14 @@ export default function SatelitalTab() {
             )}
 
             {selected && isOnline ? (
-              <GoogleMapView lat={selected.lat} lng={selected.lng} zoom={14} height="h-80" />
+              <GoogleMapView
+                lat={selected.lat}
+                lng={selected.lng}
+                zoom={14}
+                height="h-80"
+                perimeterType={selected.perimeter_type}
+                perimeterData={selected.perimeter_data}
+              />
             ) : selected && !isOnline ? (
               <div className="w-full h-80 bg-inca-dark/40 rounded-lg flex flex-col items-center justify-center gap-3 text-white/30">
                 <i className="ri-wifi-off-line text-4xl" />
@@ -446,6 +516,20 @@ export default function SatelitalTab() {
             )}
           </div>
         </div>
+      )}
+
+      {/* ── PERIMETER EDITOR MODAL ── */}
+      {perimeterEditorOpen && selected && selected.dbId && (
+        <PerimeterEditor
+          lat={selected.lat}
+          lng={selected.lng}
+          existingType={selected.perimeter_type}
+          existingData={selected.perimeter_data}
+          onSave={handleSavePerimeter}
+          onDelete={handleDeletePerimeter}
+          onClose={() => setPerimeterEditorOpen(false)}
+          saving={savingPerimeter}
+        />
       )}
 
       {/* ── TAB: GPS EN TIEMPO REAL ── */}
