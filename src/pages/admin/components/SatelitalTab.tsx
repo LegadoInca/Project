@@ -5,6 +5,7 @@ import { useSupabaseLocations, SupabaseLocation, PerimeterType, PerimeterData } 
 import { useOfflineQueue } from '@/hooks/useOfflineQueue';
 import GoogleMapView from './GoogleMapView';
 import PerimeterEditor from './PerimeterEditor';
+import ValidacionTab from './ValidacionTab';
 
 interface Parcela {
   id: string;
@@ -50,7 +51,7 @@ function timeAgo(isoStr: string) {
 
 export default function SatelitalTab() {
   const [selected, setSelected] = useState<Parcela | null>(null);
-  const [activeTab, setActiveTab] = useState<'parcelas' | 'gps'>('parcelas');
+  const [activeTab, setActiveTab] = useState<'parcelas' | 'gps' | 'validacion'>('parcelas');
   const [nombre, setNombre] = useState('');
   const [notas, setNotas] = useState('');
   const [savedMsg, setSavedMsg] = useState('');
@@ -255,7 +256,7 @@ export default function SatelitalTab() {
       )}
 
       {/* Tabs */}
-      <div className="flex gap-2 mb-5">
+      <div className="flex gap-2 mb-5 flex-wrap">
         <button
           onClick={() => setActiveTab('parcelas')}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer flex items-center gap-2 ${
@@ -276,6 +277,15 @@ export default function SatelitalTab() {
         >
           <i className="ri-crosshair-2-line" />
           Mi Ubicación en Tiempo Real
+        </button>
+        <button
+          onClick={() => setActiveTab('validacion')}
+          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer flex items-center gap-2 ${
+            activeTab === 'validacion' ? 'bg-inca-gold text-inca-dark' : 'bg-white/5 text-white/60 hover:bg-white/10'
+          }`}
+        >
+          <i className="ri-radar-line" />
+          Validación del Perímetro
         </button>
       </div>
 
@@ -517,6 +527,9 @@ export default function SatelitalTab() {
           </div>
         </div>
       )}
+
+      {/* ── TAB: VALIDACIÓN ── */}
+      {activeTab === 'validacion' && <ValidacionTab />}
 
       {/* ── PERIMETER EDITOR MODAL ── */}
       {perimeterEditorOpen && selected && selected.dbId && (

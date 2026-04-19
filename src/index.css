@@ -263,11 +263,45 @@ body {
 }
 .sidebar-overlay.open { @apply block; }
 .mob-menu-btn {
-  @apply fixed top-4 left-4 z-40 bg-inca-dark border border-white/10 text-white w-9 h-9 rounded flex items-center justify-center cursor-pointer text-lg lg:hidden;
+  @apply fixed top-4 left-4 z-40 text-white w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer text-xl lg:hidden shadow-lg;
+  background-color: #1a1a1a;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
 }
 
 @media (max-width: 1023px) {
-  .portal-sidebar { @apply -translate-x-full; }
-  .portal-sidebar.open { @apply translate-x-0; }
+  .portal-sidebar {
+    transform: translateX(-100%);
+    background-color: #0f0a00 !important;
+    background-image: none !important;
+    box-shadow: 4px 0 32px rgba(0,0,0,0.95);
+    opacity: 1 !important;
+  }
+  .portal-sidebar.open {
+    transform: translateX(0);
+  }
   .portal-main { @apply ml-0 pt-16; }
+
+  .portal-sidebar .portal-logo-wrap {
+    background-color: #0f0a00 !important;
+  }
+  .portal-sidebar .sidebar-nav {
+    background-color: #0f0a00 !important;
+  }
+  .portal-sidebar .sidebar-exit-wrap {
+    background-color: #0f0a00 !important;
+  }
+  .portal-sidebar .nav-sec-label {
+    color: rgba(201, 168, 76, 0.6) !important;
+  }
+  .portal-sidebar li a {
+    color: rgba(255,255,255,0.75) !important;
+  }
+  .portal-sidebar li a.active {
+    background-color: rgba(201, 168, 76, 0.2) !important;
+    color: #C9A84C !important;
+  }
+  .portal-sidebar li a:hover {
+    background-color: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+  }
 }

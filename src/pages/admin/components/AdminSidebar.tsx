@@ -51,7 +51,10 @@ export default function AdminSidebar({ activeTab, setActiveTab }: AdminSidebarPr
       {open && (
         <div className="sidebar-overlay open" onClick={() => setOpen(false)} />
       )}
-      <aside className={`portal-sidebar ${open ? 'open' : ''}`}>
+      <aside
+        className={`portal-sidebar ${open ? 'open' : ''}`}
+        style={{ backgroundColor: '#0f0a00' }}
+      >
         <div className="portal-logo-wrap">
           <div className="portal-logo">Legado <em>Inca</em></div>
           <div className="portal-role role-admin">🛡 Administrador</div>
