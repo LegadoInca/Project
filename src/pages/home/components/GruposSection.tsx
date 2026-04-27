@@ -16,7 +16,7 @@ const grupos = [
     desc: 'Sobrevivieron la violencia doméstica. Algunas lo perdieron todo. Pero encontraron en la tierra peruana su sanación. Hoy son las manos más cuidadosas del café — y los corazones más fuertes de los Andes.',
     stat: '120+',
     statLabel: 'familias beneficiadas',
-    photo: '/images/fundadoras.jpg',
+    photo: import.meta.env.BASE_URL + 'images/fundadoras.jpg',
   },
   {
     key: 'semilla',
@@ -28,7 +28,7 @@ const grupos = [
     desc: 'Cultivaban coca porque era lo único que daba dinero. Hoy eligieron el café. No fue fácil — significó coraje frente al miedo. Ahora sus fincas son ejemplo para toda la región.',
     stat: '85+',
     statLabel: 'agricultores reconvertidos',
-    photo: '/images/semillanueva.jpg',
+    photo: import.meta.env.BASE_URL + 'images/semillanueva.jpg',
   },
   {
     key: 'guardianes',
@@ -40,7 +40,7 @@ const grupos = [
     desc: 'Vivieron el horror del terrorismo en sus pueblos. Vieron destruirse todo lo que amaban. Pero no se fueron — se quedaron a reconstruir. Hoy guardan la tierra y el futuro de sus comunidades.',
     stat: '200+',
     statLabel: 'comunidades protegidas',
-    photo: '/images/guardianes.jpeg',
+    photo: import.meta.env.BASE_URL + 'images/guardianes.jpeg',
   },
 ];
 
@@ -142,7 +142,7 @@ export default function GruposSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/video4.mp4" type="video/mp4" />
+          <source src={import.meta.env.BASE_URL + 'videos/video4.mp4'} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/82" />
       </div>
