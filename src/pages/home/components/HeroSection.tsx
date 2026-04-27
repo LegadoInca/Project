@@ -60,7 +60,7 @@ export default function HeroSection() {
         <p className="text-inca-gold text-xs font-semibold tracking-[0.3em] uppercase mb-5">
           Café · Cacao · Artesanías · Perú · Europa
         </p>
-        <h1 className="font-playfair text-4xl md:text-6xl font-bold text-white leading-none mb-6">
+        <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white leading-none mb-6">
           LEGADO<br /><em className="text-inca-gold italic">INCA</em>
         </h1>
         <p className="text-white/90 text-base md:text-lg font-playfair font-semibold max-w-2xl leading-relaxed mb-10">
