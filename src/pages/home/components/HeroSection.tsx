@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 type Slide = { type: 'image' | 'video'; src: string };
 
 const slides: Slide[] = [
-  { type: 'image', src: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742808/pexels-daniel-delgado-574115773-16957837_wpwbjg.jpg' },
-  { type: 'video', src: 'https://res.cloudinary.com/djfmngyl0/video/upload/v1774742817/17618554-hd_1920_1080_30fps_snriob.mp4' },
-  { type: 'video', src: 'https://res.cloudinary.com/djfmngyl0/video/upload/v1774742813/3365440-uhd_3840_2160_30fps_mvpetn.mp4' },
-  { type: 'image', src: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742806/pexels-jvalenciazz-12833203_zopukm.jpg' },
-  { type: 'image', src: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773517329/6d8dfba46ceeb0a8f8614947c9f56a04_i4z16w.jpg' },
+  { type: 'video', src: '/Project/videos/video1.mp4' },
+  { type: 'video', src: '/Project/videos/video2.mp4' },
+  { type: 'video', src: '/Project/videos/video3.mp4' },
+  { type: 'video', src: '/Project/videos/video4.mp4' },
+  { type: 'video', src: '/Project/videos/video1.mp4' },
 ];
 
 const scrollTo = (href: string) => {
