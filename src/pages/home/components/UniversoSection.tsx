@@ -44,7 +44,7 @@ export default function UniversoSection() {
           alt=""
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/45" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">

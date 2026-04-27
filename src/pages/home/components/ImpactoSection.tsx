@@ -179,27 +179,30 @@ export default function ImpactoSection() {
 
   return (
     <section id="impacto" className="relative py-24 px-6 overflow-hidden">
-      {/* Video BG */}
+
+      {/* Video de fondo */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-        <source
-          src="https://res.cloudinary.com/djfmngyl0/video/upload/v1774742813/3365440-uhd_3840_2160_30fps_mvpetn.mp4"
-          type="video/mp4"
-        />
+        <source src="/Project/videos/video2.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-[#3b1f0a]/65 to-black/85" />
+      {/* Overlay dorado — oscuro pero deja ver el video */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(135deg, rgba(13,6,0,0.72) 0%, rgba(61,27,5,0.55) 50%, rgba(13,6,0,0.72) 100%)',
+        }}
+      />
 
-      {/* Horizontal scanline effect */}
+      {/* Scanline sutil */}
       <div
         className="absolute inset-0 z-[5] pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,1) 2px, rgba(255,255,255,1) 4px)' }}
       />
 
-      {/* Floating particles */}
+      {/* Partículas flotantes */}
       <Particles />
 
-      {/* Content */}
+      {/* Contenido */}
       <div ref={ref} className="relative z-20 max-w-6xl mx-auto">
         {/* Header */}
         <div
@@ -228,7 +231,6 @@ export default function ImpactoSection() {
                   transition: `all 0.7s cubic-bezier(0.34,1.56,0.64,1) ${i * 120}ms`,
                 }}
               >
-                {/* Ring */}
                 <div className="relative flex items-center justify-center mx-auto mb-3 w-[88px] h-[88px]">
                   <RingProgress pct={s.pct} active={inView} delay={s.delay} />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -238,8 +240,6 @@ export default function ImpactoSection() {
                   </div>
                 </div>
                 <div className="text-white/60 text-xs uppercase tracking-wider leading-tight">{s.label}</div>
-
-                {/* Hover glow */}
                 <div className="absolute inset-0 rounded-2xl bg-inca-gold/0 group-hover:bg-inca-gold/5 transition-all duration-300" />
               </div>
             ))}
@@ -263,7 +263,6 @@ export default function ImpactoSection() {
               y apoyo psicológico para familias que vivieron el conflicto armado.
             </p>
 
-            {/* Live activity ticker */}
             <LiveTicker />
 
             <button
