@@ -176,7 +176,7 @@ body {
 .portal-main::before {
   content: '';
   @apply absolute inset-0 pointer-events-none;
-  background: rgba(15, 8, 3, 0.92);
+  background: rgba(15, 8, 3, 0.75);
   z-index: 0;
 }
 .portal-main > * {
