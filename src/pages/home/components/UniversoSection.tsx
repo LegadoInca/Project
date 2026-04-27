@@ -1,6 +1,6 @@
 const marcas = [
   {
-    img: import.meta.env.BASE_URL + 'images/holzen.jpg',
+    img: '/Project/images/holzen.jpg',
     eyebrow: 'Café de Especialidad',
     name: 'HOLZEN',
     sub: 'Arábica de altura. 86+ SCA. Geisha, Natural, Honey. Directo del productor al tostador europeo.',
@@ -11,7 +11,7 @@ const marcas = [
     external: true,
   },
   {
-    img: import.meta.env.BASE_URL + 'images/coya.jpg',
+    img: '/Project/images/coya.jpg',
     eyebrow: 'Cacao Premium',
     name: 'COYA',
     sub: 'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal. Del árbol al alma.',
@@ -22,7 +22,7 @@ const marcas = [
     external: true,
   },
   {
-    img: import.meta.env.BASE_URL + 'images/artesania.jpg',
+    img: '/Project/images/artesania.jpg',
     eyebrow: 'Artesanías Andinas',
     name: 'Próximamente',
     sub: 'Textiles Shipibo. Cerámica Quechua. Orfebrería Aymara. Cada pieza lleva un nombre.',
@@ -40,7 +40,7 @@ export default function UniversoSection() {
       {/* Imagen de fondo */}
       <div className="absolute inset-0">
         <img
-          src={import.meta.env.BASE_URL + 'images/fondo1.jpeg'}
+          src="/Project/images/fondo1.jpeg"
           alt=""
           className="w-full h-full object-cover object-center"
         />

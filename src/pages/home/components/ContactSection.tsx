@@ -4,7 +4,7 @@ export default function ContactSection() {
       {/* Imagen de fondo con opacidad mínima para que se vea */}
       <div className="absolute inset-0">
         <img
-          src={import.meta.env.BASE_URL + 'images/fondo2.jpeg'}
+          src="/Project/images/fondo2.jpeg"
           alt=""
           className="w-full h-full object-cover object-center"
         />
