@@ -164,10 +164,10 @@ body {
   @apply flex min-h-screen;
 }
 .portal-sidebar {
-  @apply w-57 bg-inca-dark border-r border-white/5 flex flex-col fixed h-full z-30 transition-transform duration-300;
+  @apply w-56 bg-inca-dark border-r border-white/5 flex flex-col fixed h-full z-30 transition-transform duration-300;
 }
 .portal-main {
-  @apply flex-1 ml-57 p-3 min-h-screen relative;
+  @apply flex-1 ml-56 p-3 min-h-screen relative;
   background-image: url('/Project/images/admin-bg.jpg');
   background-size: cover;
   background-position: center;
