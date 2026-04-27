@@ -1,6 +1,6 @@
 const marcas = [
   {
-    img: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773435261/e45b66891fa2f4f8ce8526485a6c3da9_llpiux.jpg',
+    img: '/images/holzen.jpg',
     eyebrow: 'Café de Especialidad',
     name: 'HOLZEN',
     sub: 'Arábica de altura. 86+ SCA. Geisha, Natural, Honey. Directo del productor al tostador europeo.',
@@ -11,7 +11,7 @@ const marcas = [
     external: true,
   },
   {
-    img: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773435322/aa185dead70a3df5c6dd92e2408db78f_rnooeb.jpg',
+    img: '/images/coya.jpg',
     eyebrow: 'Cacao Premium',
     name: 'COYA',
     sub: 'Chuncho del Cusco. CCN-51. Monzón Heritage. Fermentación artesanal. Del árbol al alma.',
@@ -22,7 +22,7 @@ const marcas = [
     external: true,
   },
   {
-    img: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773435417/a78be497359cb5e4a4e65bf18244cf38_xhlfry.jpg',
+    img: '/images/artesania.jpg',
     eyebrow: 'Artesanías Andinas',
     name: 'Próximamente',
     sub: 'Textiles Shipibo. Cerámica Quechua. Orfebrería Aymara. Cada pieza lleva un nombre.',
@@ -36,8 +36,18 @@ const marcas = [
 
 export default function UniversoSection() {
   return (
-    <section id="universo" className="bg-inca-dark py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="universo" className="relative py-20 px-6 overflow-hidden">
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/fondo1.jpeg"
+          alt=""
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="section-eyebrow">Nuestras marcas</span>
           <h2 className="section-title mb-3">
@@ -56,7 +66,6 @@ export default function UniversoSection() {
                 if (m.external && m.href !== '#') window.open(m.href, '_blank');
               }}
             >
-              {/* Image */}
               <div className="w-full h-full">
                 <img
                   src={m.img}
@@ -64,11 +73,7 @@ export default function UniversoSection() {
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-
-              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-
-              {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-7">
                 <div className="text-inca-gold text-xs font-semibold tracking-wider uppercase mb-2">{m.eyebrow}</div>
                 <h3 className="font-playfair text-3xl font-bold text-white mb-2">{m.name}</h3>
@@ -77,8 +82,6 @@ export default function UniversoSection() {
                   {m.arrow}
                 </span>
               </div>
-
-              {/* Badge */}
               <div className={`absolute top-4 right-4 text-xs font-semibold px-3 py-1 rounded-full ${m.badgeClass}`}>
                 {m.badge}
               </div>

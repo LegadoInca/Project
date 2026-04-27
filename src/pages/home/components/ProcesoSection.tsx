@@ -4,7 +4,7 @@ export default function ProcesoSection() {
       {/* Video background header */}
       <div className="relative h-80 overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="https://res.cloudinary.com/djfmngyl0/video/upload/v1773436299/14701095_1920_1080_30fps_amrqfg.mp4" type="video/mp4" />
+          <source src="/videos/video2.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
@@ -14,8 +14,6 @@ export default function ProcesoSection() {
           </h2>
         </div>
       </div>
-
-
     </section>
   );
 }

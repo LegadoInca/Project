@@ -16,7 +16,7 @@ const grupos = [
     desc: 'Sobrevivieron la violencia doméstica. Algunas lo perdieron todo. Pero encontraron en la tierra peruana su sanación. Hoy son las manos más cuidadosas del café — y los corazones más fuertes de los Andes.',
     stat: '120+',
     statLabel: 'familias beneficiadas',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1773516122/d6c6488724febbae729820d253497cb7_un9okc.jpg',
+    photo: '/images/fundadoras.jpg',
   },
   {
     key: 'semilla',
@@ -28,7 +28,7 @@ const grupos = [
     desc: 'Cultivaban coca porque era lo único que daba dinero. Hoy eligieron el café. No fue fácil — significó coraje frente al miedo. Ahora sus fincas son ejemplo para toda la región.',
     stat: '85+',
     statLabel: 'agricultores reconvertidos',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742802/pexels-rymak-18425671_mhofnd.jpg',
+    photo: '/images/semillanueva.jpg',
   },
   {
     key: 'guardianes',
@@ -40,7 +40,7 @@ const grupos = [
     desc: 'Vivieron el horror del terrorismo en sus pueblos. Vieron destruirse todo lo que amaban. Pero no se fueron — se quedaron a reconstruir. Hoy guardan la tierra y el futuro de sus comunidades.',
     stat: '200+',
     statLabel: 'comunidades protegidas',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742804/pexels-irvin-david-906313077-36040336_yifbvj.jpg',
+    photo: '/images/guardianes.jpeg',
   },
 ];
 
@@ -70,7 +70,6 @@ export default function GruposSection() {
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [goNext]);
 
-  // positions: -1 = left, 0 = center, 1 = right, else = hidden
   const getPos = (i: number) => {
     const diff = (i - current + total) % total;
     if (diff === 0) return 'center';
@@ -80,16 +79,7 @@ export default function GruposSection() {
   };
 
   return (
-    <section
-      id="historias"
-      className="relative py-0 overflow-hidden"
-      style={{
-        backgroundImage: 'url(https://res.cloudinary.com/djfmngyl0/image/upload/v1775317839/pexels-d-r-2148748679-33799197_fu1ero.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
-    >
+    <section id="historias" className="relative py-0 overflow-hidden">
       <style>{`
         @keyframes progressFill {
           from { width: 0%; }
@@ -143,7 +133,19 @@ export default function GruposSection() {
         }
       `}</style>
 
-      <div className="absolute inset-0 bg-black/82" />
+      {/* Video de fondo */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/video4.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/82" />
+      </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
@@ -177,14 +179,11 @@ export default function GruposSection() {
                     boxShadow: isCenter ? `0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px ${g.accent}30` : 'none',
                   }}
                 >
-                  {/* Photo */}
                   <img
                     src={g.photo}
                     alt={g.name}
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
-
-                  {/* Gradient overlay */}
                   <div
                     className="absolute inset-0"
                     style={{
@@ -193,10 +192,7 @@ export default function GruposSection() {
                         : 'linear-gradient(to top, rgba(10,6,2,0.85) 0%, rgba(10,6,2,0.3) 100%)',
                     }}
                   />
-
-                  {/* Content */}
                   <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    {/* Tag */}
                     <div className="mb-3">
                       <span
                         className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
@@ -206,19 +202,15 @@ export default function GruposSection() {
                         {g.tag}
                       </span>
                     </div>
-
                     <h3 className={`font-playfair font-bold text-white leading-tight mb-2 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
                       {g.name}
                     </h3>
-
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-3"
                       style={{ color: g.accent }}
                     >
                       {g.role}
                     </div>
-
-                    {/* Stat — always visible */}
                     <div className="flex items-baseline gap-2 mb-4">
                       <i className="ri-group-line text-xs" style={{ color: g.accent }} />
                       <span className={`font-playfair font-bold ${isCenter ? 'text-2xl' : 'text-lg'}`} style={{ color: g.accent }}>
@@ -226,7 +218,6 @@ export default function GruposSection() {
                       </span>
                       <span className="text-white/40 text-xs">{g.statLabel}</span>
                     </div>
-
                     {isCenter && (
                       <>
                         <p className="text-white/65 text-sm leading-relaxed mb-5">
@@ -243,8 +234,6 @@ export default function GruposSection() {
                       </>
                     )}
                   </div>
-
-                  {/* Counter badge — center only */}
                   {isCenter && (
                     <div className="absolute top-5 right-5 font-mono text-xs text-white/40">
                       <span className="text-white/70 font-semibold">{String(current + 1).padStart(2, '0')}</span>
@@ -267,7 +256,6 @@ export default function GruposSection() {
             <i className="ri-arrow-left-s-line text-white text-xl" />
           </button>
 
-          {/* Progress dots */}
           <div className="flex items-center gap-4">
             {grupos.map((gr, i) => (
               <button

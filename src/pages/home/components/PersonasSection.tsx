@@ -6,8 +6,8 @@ const personas = [
     tag: 'Las Fundadoras',
     name: 'María Elena',
     product: 'Café Geisha · Villa Rica, Pasco',
-    quote: '"Me quedé sin nada. Solo con mis tres hijos y esta tierra. Aprendí sola a cultivar el café. Hoy mis granos llegan a Alemania."',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742803/pexels-wanda-yanery-villarraga-tole-584965425-17052722_yrn8ms.jpg',
+    quote: '\"Me quedé sin nada. Solo con mis tres hijos y esta tierra. Aprendí sola a cultivar el café. Hoy mis granos llegan a Alemania.\"',
+    photo: '/images/personas2.jpg',
     objectPosition: '60% 15%',
     accent: '#c9972c',
     accentMuted: 'rgba(201,151,44,0.15)',
@@ -17,8 +17,8 @@ const personas = [
     tag: 'Semilla Nueva',
     name: 'Jorge',
     product: 'Café Natural · Chanchamayo, Junín',
-    quote: '"Cultivé coca 15 años. No había otra salida. Cuando cambié al café, me amenazaron. Pero seguí. Hoy mi café es lo mejor que he hecho en mi vida."',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742804/pexels-irvin-david-906313077-36040336_yifbvj.jpg',
+    quote: '\"Cultivé coca 15 años. No había otra salida. Cuando cambié al café, me amenazaron. Pero seguí. Hoy mi café es lo mejor que he hecho en mi vida.\"',
+    photo: '/images/personas1.jpeg',
     objectPosition: '50% 20%',
     accent: '#6ee7b7',
     accentMuted: 'rgba(110,231,183,0.10)',
@@ -28,8 +28,8 @@ const personas = [
     tag: 'Los Guardianes',
     name: 'Rosa',
     product: 'Artesanías Kené · Ucayali',
-    quote: '"Sendero Luminoso quemó nuestra comunidad. Volví 10 años después a tejer donde antes había ceniza."',
-    photo: 'https://res.cloudinary.com/djfmngyl0/image/upload/v1774742800/pexels-sarai-carrasco-582280545-17060527_vjpruk.jpg',
+    quote: '\"Sendero Luminoso quemó nuestra comunidad. Volví 10 años después a tejer donde antes había ceniza.\"',
+    photo: '/images/personas3.jpg',
     objectPosition: '50% 25%',
     accent: '#fca5a5',
     accentMuted: 'rgba(252,165,165,0.10)',
@@ -79,7 +79,6 @@ export default function PersonasSection() {
 
   return (
     <section id="personas-section" className="bg-inca-brown py-0">
-      {/* Inject keyframes */}
       <style>{`
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(60px); }
@@ -105,22 +104,12 @@ export default function PersonasSection() {
           from { opacity: 0; transform: scale(1.02); }
           to   { opacity: 1; transform: scale(1); }
         }
-        @keyframes ringPulse {
-          0%   { transform: scale(1);    opacity: 0.9; }
-          50%  { transform: scale(1.12); opacity: 0.4; }
-          100% { transform: scale(1),    opacity: 0.9; }
-        }
-        @keyframes ringRotate {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
         .animate-slide-in-right  { animation: slideInRight 0.65s cubic-bezier(.22,.68,0,1.2) forwards; }
         .animate-slide-in-left   { animation: slideInLeft  0.65s cubic-bezier(.22,.68,0,1.2) forwards; }
         .animate-slide-out-left  { animation: slideOutLeft  0.45s cubic-bezier(.4,0,.6,1) forwards; }
         .animate-slide-out-right { animation: slideOutRight 0.45s cubic-bezier(.4,0,.6,1) forwards; }
         .animate-fade-in-up { animation: fadeInUp 0.55s ease forwards; }
         .animate-scale-in   { animation: scaleIn  0.75s ease forwards; }
-        .ring-rotate { animation: ringRotate 4s linear infinite; }
 
         .personas-tag-pill {
           display: inline-flex;
@@ -161,7 +150,6 @@ export default function PersonasSection() {
         }
       `}</style>
 
-      {/* Main carousel container — fixed height, no movement */}
       <div className="relative w-full overflow-hidden" style={{ height: 620 }}>
 
         {/* ── PHOTO LAYERS ── */}
@@ -177,12 +165,9 @@ export default function PersonasSection() {
               <img
                 src={persona.photo}
                 alt={persona.name}
-                className={`w-full h-full object-cover ${
-                  isActive ? 'animate-scale-in' : ''
-                }`}
+                className={`w-full h-full object-cover ${isActive ? 'animate-scale-in' : ''}`}
                 style={{ objectPosition: persona.objectPosition, willChange: 'transform, opacity' }}
               />
-              {/* Gradient overlay */}
               <div
                 className="absolute inset-0"
                 style={{
@@ -195,7 +180,6 @@ export default function PersonasSection() {
                   )`,
                 }}
               />
-              {/* Bottom fade */}
               <div
                 className="absolute inset-x-0 bottom-0 h-32"
                 style={{ background: 'linear-gradient(to top, #1e1208, transparent)' }}
@@ -207,8 +191,6 @@ export default function PersonasSection() {
         {/* ── CONTENT PANEL ── */}
         <div className="absolute inset-0 flex items-center justify-end z-10">
           <div className="w-full lg:w-[52%] px-8 md:px-14 py-10 relative">
-
-            {/* Prev slide out */}
             {prev !== null && (
               <div
                 key={`prev-${prev}`}
@@ -218,8 +200,6 @@ export default function PersonasSection() {
                 <ContentBlock persona={personas[prev]} />
               </div>
             )}
-
-            {/* Active slide in */}
             <div
               key={`curr-${current}`}
               className={`relative flex flex-col justify-center ${animating ? slideInClass : ''}`}
@@ -230,13 +210,12 @@ export default function PersonasSection() {
           </div>
         </div>
 
-        {/* ── THUMBNAIL STRIP (left side) ── */}
+        {/* ── THUMBNAIL STRIP ── */}
         <div className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-0">
           {personas.map((persona, i) => {
             const isActive = i === current;
             return (
               <div key={i} className="flex flex-col items-center">
-                {/* Connector line above (except first) */}
                 {i > 0 && (
                   <div
                     className="w-px transition-all duration-500"
@@ -248,8 +227,6 @@ export default function PersonasSection() {
                     }}
                   />
                 )}
-
-                {/* Circle thumbnail */}
                 <button
                   onClick={() => { go(i, i > current ? 'next' : 'prev'); resetTimer(); }}
                   className={`thumb-circle ${isActive ? 'active' : ''}`}
@@ -272,7 +249,6 @@ export default function PersonasSection() {
                       transition: 'filter 0.4s ease',
                     }}
                   />
-                  {/* Active overlay shimmer */}
                   {isActive && (
                     <div
                       className="absolute inset-0 rounded-full"
@@ -282,8 +258,6 @@ export default function PersonasSection() {
                     />
                   )}
                 </button>
-
-                {/* Name label — only active */}
                 <div
                   className="overflow-hidden transition-all duration-400"
                   style={{
@@ -365,7 +339,6 @@ export default function PersonasSection() {
 function ContentBlock({ persona }: { persona: typeof personas[0] }) {
   return (
     <div>
-      {/* Tag */}
       <div className="mb-5">
         <span className="personas-tag-pill" style={{ color: persona.accent, borderColor: persona.accent }}>
           <span
@@ -375,29 +348,19 @@ function ContentBlock({ persona }: { persona: typeof personas[0] }) {
           {persona.tag}
         </span>
       </div>
-
-      {/* Number watermark */}
       <div
         className="font-playfair text-8xl font-bold leading-none mb-2 select-none"
         style={{ color: `${persona.accent}22` }}
       >
         {persona.num}
       </div>
-
-      {/* Name */}
       <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white leading-tight mb-2">
         {persona.name}
       </h2>
-
-      {/* Product */}
       <div className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: persona.accent }}>
         {persona.product}
       </div>
-
-      {/* Divider */}
       <div className="w-12 h-px mb-6" style={{ background: persona.accent }} />
-
-      {/* Quote */}
       <blockquote
         className="text-white/85 text-lg md:text-xl font-playfair italic leading-relaxed max-w-md"
         style={{
