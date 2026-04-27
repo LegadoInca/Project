@@ -164,10 +164,24 @@ body {
   @apply flex min-h-screen;
 }
 .portal-sidebar {
-  @apply w-64 bg-inca-dark border-r border-white/5 flex flex-col fixed h-full z-30 transition-transform duration-300;
+  @apply w-57 bg-inca-dark border-r border-white/5 flex flex-col fixed h-full z-30 transition-transform duration-300;
 }
 .portal-main {
-  @apply flex-1 ml-64 p-6 min-h-screen;
+  @apply flex-1 ml-56 p-3 min-h-screen relative;
+  background-image: url('/Project/images/admin-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.portal-main::before {
+  content: '';
+  @apply absolute inset-0 pointer-events-none;
+  background: rgba(15, 8, 3, 0.92);
+  z-index: 0;
+}
+.portal-main > * {
+  @apply relative;
+  z-index: 1;
 }
 .portal-header {
   @apply flex items-center justify-between mb-6;
