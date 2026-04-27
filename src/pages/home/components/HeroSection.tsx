@@ -60,10 +60,10 @@ export default function HeroSection() {
         <p className="text-inca-gold text-xs font-semibold tracking-[0.3em] uppercase mb-5">
           Café · Cacao · Artesanías · Perú · Europa
         </p>
-        <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-none mb-6">
+        <h1 className="font-playfair text-4xl md:text-6xl font-bold text-white leading-none mb-6">
           LEGADO<br /><em className="text-inca-gold italic">INCA</em>
         </h1>
-        <p className="text-white/80 text-sm md:text-base max-w-2xl leading-relaxed mb-10">
+        <p className="text-white/90 text-base md:text-lg font-playfair font-semibold max-w-2xl leading-relaxed mb-10">
           Detrás de cada grano, cada semilla y cada tejido, hay una mujer que reconstruyó su vida,
           un hombre que cambió la coca por esperanza, y un guardián que sobrevivió el terror para
           darte este legado.

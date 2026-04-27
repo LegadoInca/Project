@@ -54,7 +54,7 @@ export default function Navbar({ onOpenLogin }: NavbarProps) {
               <li key={link.href}>
                 <button
                   onClick={() => scrollTo(link.href)}
-                  className="text-white/70 text-sm font-medium hover:text-inca-gold transition-colors cursor-pointer whitespace-nowrap"
+                  className="text-white/70 text-sm font-playfair font-bold hover:text-inca-gold transition-colors cursor-pointer whitespace-nowrap"
                 >
                   {link.label}
                 </button>
@@ -65,7 +65,7 @@ export default function Navbar({ onOpenLogin }: NavbarProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenLogin}
-              className="hidden md:flex items-center gap-1.5 border border-inca-gold/50 text-inca-gold text-xs font-medium px-4 py-2 rounded-full cursor-pointer transition-all hover:bg-inca-gold/10 whitespace-nowrap"
+              className="hidden md:flex items-center gap-1.5 border border-inca-gold/50 text-inca-gold text-xs font-playfair font-bold px-4 py-2 rounded-full cursor-pointer transition-all hover:bg-inca-gold/10 whitespace-nowrap"
             >
               🔐 Iniciar Sesión
             </button>
