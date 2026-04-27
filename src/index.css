@@ -297,6 +297,8 @@ body {
   @apply ml-0 pt-16; 
   min-height: 100vh;
   width: 100%;
+  background-attachment: scroll !important;
+  background-size: cover !important;
 }
 
   .portal-sidebar .portal-logo-wrap {
